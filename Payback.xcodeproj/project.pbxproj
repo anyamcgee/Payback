@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFA1BF3D860006797CC /* AppDelegate.swift */; };
+		C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFC1BF3D860006797CC /* ViewController.swift */; };
+		C1F470001BF3D860006797CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F46FFE1BF3D860006797CC /* Main.storyboard */; };
+		C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1F470011BF3D860006797CC /* Payback.xcdatamodeld */; };
+		C1F470051BF3D860006797CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1F470041BF3D860006797CC /* Assets.xcassets */; };
+		C1F470081BF3D860006797CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F470061BF3D860006797CC /* LaunchScreen.storyboard */; };
+		C1F470131BF3D860006797CC /* PaybackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F470121BF3D860006797CC /* PaybackTests.swift */; };
+		C1F4701E1BF3D860006797CC /* PaybackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F4701D1BF3D860006797CC /* PaybackUITests.swift */; };
+		C1F4702E1BF444E5006797CC /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F4702D1BF444E5006797CC /* Groups.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1F4700F1BF3D860006797CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1F46FEF1BF3D860006797CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1F46FF61BF3D860006797CC;
+			remoteInfo = Payback;
+		};
+		C1F4701A1BF3D860006797CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1F46FEF1BF3D860006797CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1F46FF61BF3D860006797CC;
+			remoteInfo = Payback;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1F46FFF1BF3D860006797CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C1F470021BF3D860006797CC /* Payback.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Payback.xcdatamodel; sourceTree = "<group>"; };
+		C1F470041BF3D860006797CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1F470071BF3D860006797CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C1F470091BF3D860006797CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F4700E1BF3D860006797CC /* PaybackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaybackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1F470121BF3D860006797CC /* PaybackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaybackTests.swift; sourceTree = "<group>"; };
+		C1F470141BF3D860006797CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F470191BF3D860006797CC /* PaybackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaybackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1F4701D1BF3D860006797CC /* PaybackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaybackUITests.swift; sourceTree = "<group>"; };
+		C1F4701F1BF3D860006797CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F4702D1BF444E5006797CC /* Groups.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1F46FF41BF3D860006797CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F4700B1BF3D860006797CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F470161BF3D860006797CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1F46FEE1BF3D860006797CC = {
+			isa = PBXGroup;
+			children = (
+				C1F46FF91BF3D860006797CC /* Payback */,
+				C1F470111BF3D860006797CC /* PaybackTests */,
+				C1F4701C1BF3D860006797CC /* PaybackUITests */,
+				C1F46FF81BF3D860006797CC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1F46FF81BF3D860006797CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1F46FF71BF3D860006797CC /* Payback.app */,
+				C1F4700E1BF3D860006797CC /* PaybackTests.xctest */,
+				C1F470191BF3D860006797CC /* PaybackUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1F46FF91BF3D860006797CC /* Payback */ = {
+			isa = PBXGroup;
+			children = (
+				C1F4702B1BF4301E006797CC /* Storyboards */,
+				C1F46FFA1BF3D860006797CC /* AppDelegate.swift */,
+				C1F46FFC1BF3D860006797CC /* ViewController.swift */,
+				C1F470041BF3D860006797CC /* Assets.xcassets */,
+				C1F470091BF3D860006797CC /* Info.plist */,
+				C1F470011BF3D860006797CC /* Payback.xcdatamodeld */,
+			);
+			path = Payback;
+			sourceTree = "<group>";
+		};
+		C1F470111BF3D860006797CC /* PaybackTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1F470121BF3D860006797CC /* PaybackTests.swift */,
+				C1F470141BF3D860006797CC /* Info.plist */,
+			);
+			path = PaybackTests;
+			sourceTree = "<group>";
+		};
+		C1F4701C1BF3D860006797CC /* PaybackUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C1F4701D1BF3D860006797CC /* PaybackUITests.swift */,
+				C1F4701F1BF3D860006797CC /* Info.plist */,
+			);
+			path = PaybackUITests;
+			sourceTree = "<group>";
+		};
+		C1F4702B1BF4301E006797CC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C1F4702C1BF444CD006797CC /* Groups */,
+				C1F46FFE1BF3D860006797CC /* Main.storyboard */,
+				C1F470061BF3D860006797CC /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C1F4702C1BF444CD006797CC /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				C1F4702D1BF444E5006797CC /* Groups.storyboard */,
+			);
+			name = Groups;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1F46FF61BF3D860006797CC /* Payback */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F470221BF3D860006797CC /* Build configuration list for PBXNativeTarget "Payback" */;
+			buildPhases = (
+				C1F46FF31BF3D860006797CC /* Sources */,
+				C1F46FF41BF3D860006797CC /* Frameworks */,
+				C1F46FF51BF3D860006797CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Payback;
+			productName = Payback;
+			productReference = C1F46FF71BF3D860006797CC /* Payback.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C1F4700D1BF3D860006797CC /* PaybackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F470251BF3D860006797CC /* Build configuration list for PBXNativeTarget "PaybackTests" */;
+			buildPhases = (
+				C1F4700A1BF3D860006797CC /* Sources */,
+				C1F4700B1BF3D860006797CC /* Frameworks */,
+				C1F4700C1BF3D860006797CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1F470101BF3D860006797CC /* PBXTargetDependency */,
+			);
+			name = PaybackTests;
+			productName = PaybackTests;
+			productReference = C1F4700E1BF3D860006797CC /* PaybackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C1F470181BF3D860006797CC /* PaybackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1F470281BF3D860006797CC /* Build configuration list for PBXNativeTarget "PaybackUITests" */;
+			buildPhases = (
+				C1F470151BF3D860006797CC /* Sources */,
+				C1F470161BF3D860006797CC /* Frameworks */,
+				C1F470171BF3D860006797CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1F4701B1BF3D860006797CC /* PBXTargetDependency */,
+			);
+			name = PaybackUITests;
+			productName = PaybackUITests;
+			productReference = C1F470191BF3D860006797CC /* PaybackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1F46FEF1BF3D860006797CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Stacks of Cache";
+				TargetAttributes = {
+					C1F46FF61BF3D860006797CC = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					C1F4700D1BF3D860006797CC = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = C1F46FF61BF3D860006797CC;
+					};
+					C1F470181BF3D860006797CC = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = C1F46FF61BF3D860006797CC;
+					};
+				};
+			};
+			buildConfigurationList = C1F46FF21BF3D860006797CC /* Build configuration list for PBXProject "Payback" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1F46FEE1BF3D860006797CC;
+			productRefGroup = C1F46FF81BF3D860006797CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1F46FF61BF3D860006797CC /* Payback */,
+				C1F4700D1BF3D860006797CC /* PaybackTests */,
+				C1F470181BF3D860006797CC /* PaybackUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1F46FF51BF3D860006797CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1F4702E1BF444E5006797CC /* Groups.storyboard in Resources */,
+				C1F470081BF3D860006797CC /* LaunchScreen.storyboard in Resources */,
+				C1F470051BF3D860006797CC /* Assets.xcassets in Resources */,
+				C1F470001BF3D860006797CC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F4700C1BF3D860006797CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F470171BF3D860006797CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1F46FF31BF3D860006797CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
+				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
+				C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F4700A1BF3D860006797CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1F470131BF3D860006797CC /* PaybackTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1F470151BF3D860006797CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1F4701E1BF3D860006797CC /* PaybackUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1F470101BF3D860006797CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1F46FF61BF3D860006797CC /* Payback */;
+			targetProxy = C1F4700F1BF3D860006797CC /* PBXContainerItemProxy */;
+		};
+		C1F4701B1BF3D860006797CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1F46FF61BF3D860006797CC /* Payback */;
+			targetProxy = C1F4701A1BF3D860006797CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C1F46FFE1BF3D860006797CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1F46FFF1BF3D860006797CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C1F470061BF3D860006797CC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1F470071BF3D860006797CC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1F470201BF3D860006797CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C1F470211BF3D860006797CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1F470231BF3D860006797CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Payback/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.Payback;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C1F470241BF3D860006797CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Payback/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.Payback;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C1F470261BF3D860006797CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PaybackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.PaybackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Payback.app/Payback";
+			};
+			name = Debug;
+		};
+		C1F470271BF3D860006797CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PaybackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.PaybackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Payback.app/Payback";
+			};
+			name = Release;
+		};
+		C1F470291BF3D860006797CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PaybackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.PaybackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Payback;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C1F4702A1BF3D860006797CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PaybackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.PaybackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Payback;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1F46FF21BF3D860006797CC /* Build configuration list for PBXProject "Payback" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F470201BF3D860006797CC /* Debug */,
+				C1F470211BF3D860006797CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F470221BF3D860006797CC /* Build configuration list for PBXNativeTarget "Payback" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F470231BF3D860006797CC /* Debug */,
+				C1F470241BF3D860006797CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F470251BF3D860006797CC /* Build configuration list for PBXNativeTarget "PaybackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F470261BF3D860006797CC /* Debug */,
+				C1F470271BF3D860006797CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1F470281BF3D860006797CC /* Build configuration list for PBXNativeTarget "PaybackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1F470291BF3D860006797CC /* Debug */,
+				C1F4702A1BF3D860006797CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C1F470011BF3D860006797CC /* Payback.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C1F470021BF3D860006797CC /* Payback.xcdatamodel */,
+			);
+			currentVersion = C1F470021BF3D860006797CC /* Payback.xcdatamodel */;
+			path = Payback.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C1F46FEF1BF3D860006797CC /* Project object */;
+}
