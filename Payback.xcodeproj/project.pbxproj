@@ -40,6 +40,7 @@
 		3A34B2414741E20087511AEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C165E3031C02BC0800A3FF73 /* Payback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Payback-Bridging-Header.h"; sourceTree = "<group>"; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 				C1F470041BF3D860006797CC /* Assets.xcassets */,
 				C1F470091BF3D860006797CC /* Info.plist */,
 				C1F470011BF3D860006797CC /* Payback.xcdatamodeld */,
+				C165E3031C02BC0800A3FF73 /* Payback-Bridging-Header.h */,
 			);
 			path = Payback;
 			sourceTree = "<group>";
@@ -497,11 +499,14 @@
 			baseConfigurationReference = 72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Payback/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.Payback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Payback/Payback-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -510,11 +515,13 @@
 			baseConfigurationReference = 3A34B2414741E20087511AEA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Payback/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.Payback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Payback/Payback-Bridging-Header.h";
 			};
 			name = Release;
 		};
