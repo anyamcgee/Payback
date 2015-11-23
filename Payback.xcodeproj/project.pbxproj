@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */; };
 		C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFA1BF3D860006797CC /* AppDelegate.swift */; };
 		C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFC1BF3D860006797CC /* ViewController.swift */; };
 		C1F470001BF3D860006797CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F46FFE1BF3D860006797CC /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C165E3031C02BC0800A3FF73 /* Payback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Payback-Bridging-Header.h"; sourceTree = "<group>"; };
+		C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		C1F46FEE1BF3D860006797CC = {
 			isa = PBXGroup;
 			children = (
+				C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */,
 				C1F46FF91BF3D860006797CC /* Payback */,
 				C1F470111BF3D860006797CC /* PaybackTests */,
 				C1F4701C1BF3D860006797CC /* PaybackUITests */,
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
+				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
 				C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */,
 			);
