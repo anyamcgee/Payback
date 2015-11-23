@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SecretKeys.swift">
+   </FileRef>
+   <FileRef
       location = "group:Payback.xcodeproj">
    </FileRef>
    <FileRef
