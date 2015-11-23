@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import IBMBluemix
 
 class ViewController: UIViewController {
 
