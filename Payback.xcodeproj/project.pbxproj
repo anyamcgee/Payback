@@ -16,6 +16,7 @@
 		C1F470131BF3D860006797CC /* PaybackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F470121BF3D860006797CC /* PaybackTests.swift */; };
 		C1F4701E1BF3D860006797CC /* PaybackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F4701D1BF3D860006797CC /* PaybackUITests.swift */; };
 		C1F4702E1BF444E5006797CC /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F4702D1BF444E5006797CC /* Groups.storyboard */; };
+		CF0734729FFA3E8AB272636A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD31ED1BA2B7E212776ABE4E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A34B2414741E20087511AEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0734729FFA3E8AB272636A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E45F721DB6E13C4029EBA88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */,
+				3A34B2414741E20087511AEA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C1F46FEE1BF3D860006797CC = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +99,8 @@
 				C1F470111BF3D860006797CC /* PaybackTests */,
 				C1F4701C1BF3D860006797CC /* PaybackUITests */,
 				C1F46FF81BF3D860006797CC /* Products */,
+				4E45F721DB6E13C4029EBA88 /* Pods */,
+				DB6398EDFA933568D9E76E88 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +163,14 @@
 			name = Groups;
 			sourceTree = "<group>";
 		};
+		DB6398EDFA933568D9E76E88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD31ED1BA2B7E212776ABE4E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1F470221BF3D860006797CC /* Build configuration list for PBXNativeTarget "Payback" */;
 			buildPhases = (
+				FEAFA8BF64142D5A0D8CFBAB /* Check Pods Manifest.lock */,
 				C1F46FF31BF3D860006797CC /* Sources */,
 				C1F46FF41BF3D860006797CC /* Frameworks */,
 				C1F46FF51BF3D860006797CC /* Resources */,
+				A14FFC97E9074417D447B360 /* Embed Pods Frameworks */,
+				47906D9ADF268BE8FF8DC5A9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,6 +300,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47906D9ADF268BE8FF8DC5A9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A14FFC97E9074417D447B360 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEAFA8BF64142D5A0D8CFBAB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1F46FF31BF3D860006797CC /* Sources */ = {
@@ -419,6 +494,7 @@
 		};
 		C1F470231BF3D860006797CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Payback/Info.plist;
@@ -431,6 +507,7 @@
 		};
 		C1F470241BF3D860006797CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A34B2414741E20087511AEA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Payback/Info.plist;
