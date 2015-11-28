@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1F4E1C1C0A53A7004BCC08 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1F4E1B1C0A53A7004BCC08 /* User.storyboard */; };
+		C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */; };
+		C15A20EE1C0A633900E818DA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20ED1C0A633900E818DA /* Group.swift */; };
+		C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20F01C0A635200E818DA /* GroupCell.swift */; };
 		C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */; };
 		C189E55C1C06CF95004F4406 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */; };
 		C189E55D1C06CF95004F4406 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55B1C06CF95004F4406 /* libsqlite3.tbd */; };
-		C189E5631C06D0F8004F4406 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189E5621C06D0F8004F4406 /* Group.swift */; };
-		C189E5651C06D939004F4406 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189E5641C06D939004F4406 /* MyGroupsViewController.swift */; };
-		C189E5671C06DAFC004F4406 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189E5661C06DAFC004F4406 /* GroupCell.swift */; };
 		C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFA1BF3D860006797CC /* AppDelegate.swift */; };
 		C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFC1BF3D860006797CC /* ViewController.swift */; };
 		C1F470001BF3D860006797CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F46FFE1BF3D860006797CC /* Main.storyboard */; };
@@ -44,15 +45,16 @@
 
 /* Begin PBXFileReference section */
 		3A34B2414741E20087511AEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5A1F4E1B1C0A53A7004BCC08 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
+		C15A20ED1C0A633900E818DA /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		C15A20F01C0A635200E818DA /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		C165E3031C02BC0800A3FF73 /* Payback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Payback-Bridging-Header.h"; sourceTree = "<group>"; };
 		C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C189E55B1C06CF95004F4406 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		C189E5621C06D0F8004F4406 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		C189E5641C06D939004F4406 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
-		C189E5661C06DAFC004F4406 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,28 +109,36 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C189E55E1C06D02C004F4406 /* Controllers */ = {
+		5A1F4E1A1C0A5379004BCC08 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				C189E5641C06D939004F4406 /* MyGroupsViewController.swift */,
+				5A1F4E1B1C0A53A7004BCC08 /* User.storyboard */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		C15A20E91C0A630600E818DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C15A20ED1C0A633900E818DA /* Group.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C15A20EA1C0A630F00E818DA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		C189E5601C06D03F004F4406 /* Views */ = {
+		C15A20EF1C0A634900E818DA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C189E5661C06DAFC004F4406 /* GroupCell.swift */,
+				C15A20F01C0A635200E818DA /* GroupCell.swift */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		C189E5611C06D047004F4406 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C189E5621C06D0F8004F4406 /* Group.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		C1F46FEE1BF3D860006797CC = {
@@ -157,9 +167,9 @@
 		C1F46FF91BF3D860006797CC /* Payback */ = {
 			isa = PBXGroup;
 			children = (
-				C189E5611C06D047004F4406 /* Models */,
-				C189E5601C06D03F004F4406 /* Views */,
-				C189E55E1C06D02C004F4406 /* Controllers */,
+				C15A20EF1C0A634900E818DA /* Views */,
+				C15A20EA1C0A630F00E818DA /* Controllers */,
+				C15A20E91C0A630600E818DA /* Models */,
 				C1F4702B1BF4301E006797CC /* Storyboards */,
 				C1F46FFA1BF3D860006797CC /* AppDelegate.swift */,
 				C1F46FFC1BF3D860006797CC /* ViewController.swift */,
@@ -192,6 +202,7 @@
 		C1F4702B1BF4301E006797CC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				5A1F4E1A1C0A5379004BCC08 /* Users */,
 				C1F4702C1BF444CD006797CC /* Groups */,
 				C1F46FFE1BF3D860006797CC /* Main.storyboard */,
 				C1F470061BF3D860006797CC /* LaunchScreen.storyboard */,
@@ -326,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1F4702E1BF444E5006797CC /* Groups.storyboard in Resources */,
+				5A1F4E1C1C0A53A7004BCC08 /* User.storyboard in Resources */,
 				C1F470081BF3D860006797CC /* LaunchScreen.storyboard in Resources */,
 				C1F470051BF3D860006797CC /* Assets.xcassets in Resources */,
 				C1F470001BF3D860006797CC /* Main.storyboard in Resources */,
@@ -401,13 +413,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C189E5671C06DAFC004F4406 /* GroupCell.swift in Sources */,
-				C189E5651C06D939004F4406 /* MyGroupsViewController.swift in Sources */,
+				C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
 				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
-				C189E5631C06D0F8004F4406 /* Group.swift in Sources */,
+				C15A20EE1C0A633900E818DA /* Group.swift in Sources */,
 				C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */,
+				C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
