@@ -284,7 +284,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="88" id="lfX-Ha-iOW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="88" id="lfX-Ha-iOW" customClass="GroupCell" customModule="Payback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="328" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lfX-Ha-iOW" id="yIX-V4-HTJ">
@@ -325,6 +325,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="balanceLabel" destination="BTf-bf-oRl" id="4hh-nt-gqd"/>
+                                            <outlet property="iconImageView" destination="up6-MH-zXU" id="4RI-sI-Qd8"/>
+                                            <outlet property="nameLabel" destination="fXm-gh-iDu" id="InN-ye-2Pz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -480,7 +485,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nfJ-nh-gsi"/>
-        <segue reference="svZ-me-Wkz"/>
+        <segue reference="9OO-ER-FPI"/>
         <segue reference="Rp9-Ez-WOl"/>
     </inferredMetricsTieBreakers>
 </document>

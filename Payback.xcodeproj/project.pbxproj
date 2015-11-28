@@ -10,6 +10,9 @@
 		C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */; };
 		C189E55C1C06CF95004F4406 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */; };
 		C189E55D1C06CF95004F4406 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55B1C06CF95004F4406 /* libsqlite3.tbd */; };
+		C189E5631C06D0F8004F4406 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189E5621C06D0F8004F4406 /* Group.swift */; };
+		C189E5651C06D939004F4406 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189E5641C06D939004F4406 /* MyGroupsViewController.swift */; };
+		C189E5671C06DAFC004F4406 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189E5661C06DAFC004F4406 /* GroupCell.swift */; };
 		C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFA1BF3D860006797CC /* AppDelegate.swift */; };
 		C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFC1BF3D860006797CC /* ViewController.swift */; };
 		C1F470001BF3D860006797CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F46FFE1BF3D860006797CC /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C189E55B1C06CF95004F4406 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C189E5621C06D0F8004F4406 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		C189E5641C06D939004F4406 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
+		C189E5661C06DAFC004F4406 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +107,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C189E55E1C06D02C004F4406 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C189E5641C06D939004F4406 /* MyGroupsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C189E5601C06D03F004F4406 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C189E5661C06DAFC004F4406 /* GroupCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C189E5611C06D047004F4406 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C189E5621C06D0F8004F4406 /* Group.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C1F46FEE1BF3D860006797CC = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +157,9 @@
 		C1F46FF91BF3D860006797CC /* Payback */ = {
 			isa = PBXGroup;
 			children = (
+				C189E5611C06D047004F4406 /* Models */,
+				C189E5601C06D03F004F4406 /* Views */,
+				C189E55E1C06D02C004F4406 /* Controllers */,
 				C1F4702B1BF4301E006797CC /* Storyboards */,
 				C1F46FFA1BF3D860006797CC /* AppDelegate.swift */,
 				C1F46FFC1BF3D860006797CC /* ViewController.swift */,
@@ -368,9 +401,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C189E5671C06DAFC004F4406 /* GroupCell.swift in Sources */,
+				C189E5651C06D939004F4406 /* MyGroupsViewController.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
 				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
+				C189E5631C06D0F8004F4406 /* Group.swift in Sources */,
 				C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

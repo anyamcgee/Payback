@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Dispatch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
-        IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
-        
-        
+        registerBluemixData()
         return true
+    }
+    
+    /**
+     Ensures that IBMBluemix is initialized with the application ID and the bluemix data subclasses are registered exactly once for the lifetime of the app.
+     */
+    func registerBluemixData() {
+        let token = UnsafeMutablePointer<dispatch_once_t>()
+
+        dispatch_once(token, {() in
+            IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
+            Group.registerSpecialization()
+        })
     }
 
     func applicationWillResignActive(application: UIApplication) {
