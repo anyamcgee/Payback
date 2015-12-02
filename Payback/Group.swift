@@ -19,7 +19,7 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
     @NSManaged var detail: String
     
     /// An array containing references to all users that are group members
-    @NSManaged var users: [IBMUser]
+    @NSManaged var users: [User]
     
     // TODO: Figure out whether or not images are gonna be used, whether to make an enum, etc.
     /// The group's icon image
@@ -40,9 +40,21 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
         super.init()
     }
     
+    override init!(withClass classname: String!) {
+        super.init(withClass:"Group")
+    }
+    
     /// Required IBMData subclassing, returns a string corresponding to the name of the table in the database
     class func dataClassName() -> String {
         return "Group"
+    }
+    
+    class func saveATestObject() {
+        var newGroup = Group()
+        newGroup.name = "Anya's Super Cool Group"
+        newGroup.detail = "Only for super cool people"
+        newGroup.save()
+        print("Saved hopefully!")
     }
     
 }

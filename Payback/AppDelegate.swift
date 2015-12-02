@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         registerBluemixData()
+        Group.saveATestObject()
         return true
     }
     
@@ -25,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Ensures that IBMBluemix is initialized with the application ID and the bluemix data subclasses are registered exactly once for the lifetime of the app.
      */
     func registerBluemixData() {
-        let token = UnsafeMutablePointer<dispatch_once_t>()
+        var token: dispatch_once_t = 0;
 
-        dispatch_once(token, {() in
+        dispatch_once(&token, {() in
             IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
             Group.registerSpecialization()
         })
