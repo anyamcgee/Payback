@@ -54,6 +54,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 let email = user.profile.email
                 // ...
                 
+                let query: IBMQuery = IBMQuery(forClass: "User")
+                query.whereKey("email", equalTo: email)
+                query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                    if let result = task.result() as? [User] {
+                        CurrentUser.sharedInstance.currentUser = result[0];
+                    }
+                    else {
+                        let user = User()
+                        user.name = name
+                        user.email = email
+                        user.id = userId
+                        user.save()
+                        CurrentUser.sharedInstance.currentUser = user;
+                    }
+                    return nil
+                    })
                 // Redirect to somewhere??
                 let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainNavigation") as UIViewController
@@ -83,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         dispatch_once(&token, {() in
             IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
             Group.registerSpecialization()
+            User.registerSpecialization()
         })
     }
 

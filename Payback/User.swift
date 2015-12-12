@@ -13,7 +13,7 @@ class User: IBMUser {
     // MARK: Database Properties
     
     // TODO: Figure out if we need this separately from IBMUser uuid
-    @NSManaged var id: Int
+    @NSManaged var id: String
     
     // Username chosen by user
     @NSManaged var name: String
@@ -21,10 +21,23 @@ class User: IBMUser {
     // image chosen by user
     @NSManaged var photo: UIImage?
     
+    // email set by Google Sign In
+    @NSManaged var email: String
+    
     // MARK:- Setup
     required override init() {
         super.init()
     }
+    
+    override init!(withClass classname: String!) {
+        super.init(withClass:"User")
+    }
+    
+    // IBM Subclass Requirements
+    override class func dataClassName() -> String {
+        return "User"
+    }
+
     
     // TODO: Figure out where we store recent/all transactions. Endless scroll on transactions page?
     
@@ -42,10 +55,5 @@ class User: IBMUser {
     private var owing: Float {
         return 0.0
     }
-    
-
-    // IBM Subclass Requirements
-    override class func dataClassName() -> String {
-        return "user"
-    }
+   
 }

@@ -41,11 +41,33 @@
                         <viewControllerLayoutGuide type="top" id="2oa-Eb-5dC"/>
                         <viewControllerLayoutGuide type="bottom" id="aB3-Sh-Jqq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WkS-nw-2Ki" customClass="GIDSignInButton">
+                    <view key="view" contentMode="scaleToFill" id="WkS-nw-2Ki">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15091442558_d0177211df_o" translatesAutoresizingMaskIntoConstraints="NO" id="1Zu-Ga-muY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PAYBACK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfJ-oP-fGe">
+                                <rect key="frame" x="193" y="86" width="215" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" red="0.16777395780000001" green="0.20091656660000001" blue="0.24333175509999999" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hj4-BH-fj1" customClass="GIDSignInButton">
+                                <rect key="frame" x="180" y="256" width="240" height="87"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Jfb-rP-9w0"/>
+                                    <constraint firstAttribute="height" constant="87" id="oly-Ba-Sz9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hj4-BH-fj1" firstAttribute="centerY" secondItem="WkS-nw-2Ki" secondAttribute="centerY" id="dCJ-TI-1vR"/>
+                            <constraint firstItem="hj4-BH-fj1" firstAttribute="centerX" secondItem="WkS-nw-2Ki" secondAttribute="centerX" id="tRf-hd-6za"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCn-aX-hT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,6 +196,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="15091442558_d0177211df_o" width="4928" height="3264"/>
         <image name="profile_icon" width="88" height="83"/>
     </resources>
 </document>

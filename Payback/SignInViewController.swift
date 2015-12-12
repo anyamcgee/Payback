@@ -23,8 +23,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         // TODO(developer) Configure the sign-in button look/feel
         // ...
     }
-    
-    
    
     
     override func didReceiveMemoryWarning() {

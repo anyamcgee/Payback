@@ -15,6 +15,7 @@
 		5A3AB6B01C16288D0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		C139F8281C1BF61000D4E015 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8271C1BF61000D4E015 /* Style.swift */; };
 		C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */; };
+		5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */; };
 		C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */; };
 		C15A20EE1C0A633900E818DA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20ED1C0A633900E818DA /* Group.swift */; };
 		C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20F01C0A635200E818DA /* GroupCell.swift */; };
@@ -58,6 +59,7 @@
 		5A3AB6A91C0A70A50030BCF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5A3AB6AB1C1622B50030BCF1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C139F8271C1BF61000D4E015 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				C15A20ED1C0A633900E818DA /* Group.swift */,
 				5A3AB6A91C0A70A50030BCF1 /* User.swift */,
+				5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */,
+				5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */,
 				C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
 				C16A136C1C1CB7A20059F78B /* AddIconViewController.swift in Sources */,
