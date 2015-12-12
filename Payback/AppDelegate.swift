@@ -57,8 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 let query: IBMQuery = IBMQuery(forClass: "User")
                 query.whereKey("email", equalTo: email)
                 query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-                    if let result = task.result() as? [User] {
-                        CurrentUser.sharedInstance.currentUser = result[0];
+                    let result = task.result() as? [User]
+                    if (result?.count > 0) {
+                        CurrentUser.sharedInstance.currentUser = result![0];
                     }
                     else {
                         let user = User()
