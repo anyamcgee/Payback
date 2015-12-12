@@ -70,7 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         CurrentUser.sharedInstance.currentUser = user;
                     }
                     return nil
-                    })
+                })
+                
                 // Redirect to somewhere??
                 let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainNavigation") as UIViewController
@@ -101,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
             Group.registerSpecialization()
             User.registerSpecialization()
+            Transaction.registerSpecialization()
         })
     }
 
