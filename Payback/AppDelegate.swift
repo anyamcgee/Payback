@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 
                 // Redirect to somewhere??
                 let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Home") as UIViewController
+                let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainNavigation") as UIViewController
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
                 self.window?.rootViewController = initialViewController
                 self.window?.makeKeyAndVisible()

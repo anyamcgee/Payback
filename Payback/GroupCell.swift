@@ -26,7 +26,9 @@ class GroupCell: UITableViewCell {
     
     func updateLabels() {
         if let group = self.group {
-            self.iconImageView.image = group.icon
+            if let iconName = group.icon {
+                self.iconImageView.image = UIImage(named: iconName)
+            }
             self.nameLabel.text = group.name
             self.balanceLabel.text = "\(group.balance)"
         }

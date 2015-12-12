@@ -8,6 +8,23 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="sAS-wM-lTT">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigation" id="ssj-Hq-2p8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3FX-5f-vC1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PeE-bz-Hob"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dy-Zg-dKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="320"/>
+        </scene>
         <!--User-->
         <scene sceneID="sZy-SL-PnA">
             <objects>
@@ -33,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCn-aX-hT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-350" y="311"/>
+            <point key="canvasLocation" x="-848" y="320"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -74,7 +91,7 @@
                                 <animations/>
                                 <state key="normal" title="Recent"/>
                                 <connections>
-                                    <segue destination="Obj-9f-d1s" kind="show" id="Co0-YO-Myo"/>
+                                    <segue destination="Obj-9f-d1s" kind="show" id="E76-dJ-ohb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h35-oy-Lgh">
@@ -87,7 +104,7 @@
                                 <animations/>
                                 <state key="normal" title="Groups"/>
                                 <connections>
-                                    <segue destination="q99-B0-Nfe" kind="show" id="vzl-2N-OYk"/>
+                                    <segue destination="q99-B0-Nfe" kind="show" id="OPh-2Z-Xg6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGK-ZV-7aZ">
@@ -140,11 +157,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="86u-aw-fNT"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="354"/>
+            <point key="canvasLocation" x="357.5" y="367.5"/>
         </scene>
         <!--Groups-->
         <scene sceneID="cn9-U4-J5d">

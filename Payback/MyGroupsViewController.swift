@@ -24,7 +24,7 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         //Group.saveATestObject()
         
         let query: IBMQuery = IBMQuery(forClass: "Group")
-        let task: BFTask = query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let result = task.result() as? [Group] {
                 self.groups = result
             }

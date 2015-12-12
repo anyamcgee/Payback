@@ -14,10 +14,13 @@
 		5A3AB6AF1C16288C0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		5A3AB6B01C16288D0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		C139F8281C1BF61000D4E015 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8271C1BF61000D4E015 /* Style.swift */; };
+		C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */; };
 		C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */; };
 		C15A20EE1C0A633900E818DA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20ED1C0A633900E818DA /* Group.swift */; };
 		C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20F01C0A635200E818DA /* GroupCell.swift */; };
 		C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */; };
+		C16A136C1C1CB7A20059F78B /* AddIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A136B1C1CB7A20059F78B /* AddIconViewController.swift */; };
+		C16A136E1C1CBB1C0059F78B /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A136D1C1CBB1C0059F78B /* IconCollectionViewCell.swift */; };
 		C189E55C1C06CF95004F4406 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */; };
 		C189E55D1C06CF95004F4406 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55B1C06CF95004F4406 /* libsqlite3.tbd */; };
 		C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFA1BF3D860006797CC /* AppDelegate.swift */; };
@@ -58,11 +61,14 @@
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C139F8271C1BF61000D4E015 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		C15A20ED1C0A633900E818DA /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		C15A20F01C0A635200E818DA /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		C165E3031C02BC0800A3FF73 /* Payback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Payback-Bridging-Header.h"; sourceTree = "<group>"; };
 		C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
+		C16A136B1C1CB7A20059F78B /* AddIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIconViewController.swift; sourceTree = "<group>"; };
+		C16A136D1C1CBB1C0059F78B /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C189E55B1C06CF95004F4406 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +141,17 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		C139F82B1C1C9E6B00D4E015 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */,
+				C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */,
+				C16A136B1C1CB7A20059F78B /* AddIconViewController.swift */,
+				C16A136D1C1CBB1C0059F78B /* IconCollectionViewCell.swift */,
+			);
+			name = Groups;
+			sourceTree = "<group>";
+		};
 		C15A20E91C0A630600E818DA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +164,7 @@
 		C15A20EA1C0A630F00E818DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */,
+				C139F82B1C1C9E6B00D4E015 /* Groups */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -438,8 +455,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */,
 				C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
+				C16A136C1C1CB7A20059F78B /* AddIconViewController.swift in Sources */,
+				C16A136E1C1CBB1C0059F78B /* IconCollectionViewCell.swift in Sources */,
 				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
 				5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */,

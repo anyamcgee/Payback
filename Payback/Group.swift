@@ -20,10 +20,10 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
     
     /// An array containing references to all users that are group members
     @NSManaged var users: [User]
+    @NSManaged var author: User
     
-    // TODO: Figure out whether or not images are gonna be used, whether to make an enum, etc.
-    /// The group's icon image
-    @NSManaged var icon: UIImage
+    /// Just the name of a local icon I think is easiest (Let's not save files to IBM)
+    @NSManaged var icon: String?
     
     // TODO: Figure out how to store the balances. (Join table? Dict? Relation?)
     
@@ -51,8 +51,8 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
     
     class func saveATestObject() {
         var newGroup = Group()
-        newGroup.name = "Anya's Super Cool Group"
-        newGroup.detail = "Only for super cool people"
+        newGroup.name = "Fidel's Hideaway"
+        newGroup.detail = "🐠🐠🐠"
         newGroup.save()
         print("Saved hopefully!")
     }
