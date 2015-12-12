@@ -5,3 +5,4 @@
 #import <IBMBluemix/IBMBluemix.h>
 #import <IBMData/IBMData.h>
 #import <IBMFileSync/IBMFileSync.h>
+#import <Google/SignIn.h>

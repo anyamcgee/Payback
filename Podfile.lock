@@ -1,4 +1,29 @@
 PODS:
+  - Google/Core (1.2.1):
+    - GoogleInterchangeUtilities (~> 1.0)
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.1)
+  - Google/SignIn (1.2.1):
+    - Google/Core
+    - GoogleSignIn (~> 2.0)
+  - GoogleAppUtilities (1.0.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleAuthUtilities (1.0.1):
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleInterchangeUtilities (1.1.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleNetworkingUtilities (1.0.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSignIn (2.4.0):
+    - GoogleAppUtilities (~> 1.0)
+    - GoogleAuthUtilities (~> 1.0)
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.0.3)
+  - GoogleUtilities (1.1.0):
+    - GoogleSymbolUtilities (~> 1.0.0)
   - IBMBluemix (1.0.1.20150720-1718)
   - IBMData (1.0.1.20150720-1718):
     - IBMBluemix (~> 1.0.0)
@@ -7,6 +32,7 @@ PODS:
     - IBMBluemix (~> 1.0.0)
 
 DEPENDENCIES:
+  - Google/SignIn
   - IBMBluemix (from `https://hub.jazz.net/git/bluemixmobilesdk/ibmbluemix-ios.git`)
   - IBMData (from `https://hub.jazz.net/git/bluemixmobilesdk/ibmdata-ios.git`)
   - IBMFileSync (from `https://hub.jazz.net/git/bluemixmobilesdk/ibmfilesync-ios.git`)
@@ -31,6 +57,14 @@ CHECKOUT OPTIONS:
     :git: https://hub.jazz.net/git/bluemixmobilesdk/ibmfilesync-ios.git
 
 SPEC CHECKSUMS:
+  Google: fd33b5fa40fa3aaee5176de49c873a74e3d11dce
+  GoogleAppUtilities: c01c6a5671e9da8b9d690fdaec5959d6c2aac699
+  GoogleAuthUtilities: 049ffd3a297cdffd271451b82fd4e75304f15ef3
+  GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
+  GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
+  GoogleSignIn: 79929b51e6299c69f1197bbd9c7a1367d523ecd8
+  GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
+  GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   IBMBluemix: 7915125dbf6064b47950a073b15229a7627b241c
   IBMData: 8bcd13065ebd75bb03da544ed06b051aa49d1c01
   IBMFileSync: 62f0f6d686ba6a8e9a18d8bdb34277d37ac8246e

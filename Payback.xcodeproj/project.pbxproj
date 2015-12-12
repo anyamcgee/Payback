@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5A1F4E1C1C0A53A7004BCC08 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1F4E1B1C0A53A7004BCC08 /* User.storyboard */; };
 		5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3AB6A91C0A70A50030BCF1 /* User.swift */; };
+		5A3AB6AC1C1622B50030BCF1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AB1C1622B50030BCF1 /* SignInViewController.swift */; };
+		5A3AB6AE1C1627A50030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
+		5A3AB6AF1C16288C0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
+		5A3AB6B01C16288D0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */; };
 		C15A20EE1C0A633900E818DA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20ED1C0A633900E818DA /* Group.swift */; };
 		C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20F01C0A635200E818DA /* GroupCell.swift */; };
@@ -48,6 +52,8 @@
 		3A34B2414741E20087511AEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5A1F4E1B1C0A53A7004BCC08 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		5A3AB6A91C0A70A50030BCF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5A3AB6AB1C1622B50030BCF1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 		C1F46FF91BF3D860006797CC /* Payback */ = {
 			isa = PBXGroup;
 			children = (
+				C165E3031C02BC0800A3FF73 /* Payback-Bridging-Header.h */,
+				5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */,
 				C15A20EF1C0A634900E818DA /* Views */,
 				C15A20EA1C0A630F00E818DA /* Controllers */,
 				C15A20E91C0A630600E818DA /* Models */,
@@ -179,7 +187,7 @@
 				C1F470041BF3D860006797CC /* Assets.xcassets */,
 				C1F470091BF3D860006797CC /* Info.plist */,
 				C1F470011BF3D860006797CC /* Payback.xcdatamodeld */,
-				C165E3031C02BC0800A3FF73 /* Payback-Bridging-Header.h */,
+				5A3AB6AB1C1622B50030BCF1 /* SignInViewController.swift */,
 			);
 			path = Payback;
 			sourceTree = "<group>";
@@ -302,7 +310,7 @@
 				TargetAttributes = {
 					C1F46FF61BF3D860006797CC = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = QPVYSC3PGM;
+						DevelopmentTeam = 2ME9TTGE7Q;
 					};
 					C1F4700D1BF3D860006797CC = {
 						CreatedOnToolsVersion = 7.1;
@@ -344,6 +352,7 @@
 				C1F470081BF3D860006797CC /* LaunchScreen.storyboard in Resources */,
 				C1F470051BF3D860006797CC /* Assets.xcassets in Resources */,
 				C1F470001BF3D860006797CC /* Main.storyboard in Resources */,
+				5A3AB6AE1C1627A50030BCF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A3AB6AF1C16288C0030BCF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A3AB6B01C16288D0030BCF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +432,7 @@
 				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
 				5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */,
+				5A3AB6AC1C1622B50030BCF1 /* SignInViewController.swift in Sources */,
 				C15A20EE1C0A633900E818DA /* Group.swift in Sources */,
 				C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */,
 				C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */,
@@ -567,6 +579,23 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAppUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAuthUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/IBMBluemix\"",
+					"\"${PODS_ROOT}/Headers/Public/IBMData\"",
+					"\"${PODS_ROOT}/Headers/Public/IBMFileSync\"",
+				);
 				INFOPLIST_FILE = Payback/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -574,6 +603,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Payback/Payback-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -585,17 +615,36 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAppUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAuthUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleNetworkingUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/IBMBluemix\"",
+					"\"${PODS_ROOT}/Headers/Public/IBMData\"",
+					"\"${PODS_ROOT}/Headers/Public/IBMFileSync\"",
+				);
 				INFOPLIST_FILE = Payback/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stacksofcache.Payback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Payback/Payback-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 		C1F470261BF3D860006797CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PaybackTests/Info.plist;
@@ -608,6 +657,7 @@
 		};
 		C1F470271BF3D860006797CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A34B2414741E20087511AEA /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PaybackTests/Info.plist;
@@ -620,6 +670,7 @@
 		};
 		C1F470291BF3D860006797CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PaybackUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -632,6 +683,7 @@
 		};
 		C1F4702A1BF3D860006797CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A34B2414741E20087511AEA /* Pods.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PaybackUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -11,28 +11,81 @@ import CoreData
 import Dispatch
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         registerBluemixData()
-        Group.saveATestObject()
+        // Initialize sign-in
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+
+        GIDSignIn.sharedInstance().clientID = GOOGLE_CLIENT_ID
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+           return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as! String, annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+    }
+    
+    func application(application: UIApplication,
+        openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+            var options: [String: AnyObject] = [UIApplicationOpenURLOptionsSourceApplicationKey: sourceApplication!,
+                UIApplicationOpenURLOptionsAnnotationKey: annotation!]
+            return self.application(application,
+                openURL: url,
+                options: options)
+    }
+    
+    
+    // User authorized
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+        withError error: NSError!) {
+            if (error == nil) {
+                // Perform any operations on signed in user here.
+                let userId = user.userID                  // For client-side use only!
+                let idToken = user.authentication.idToken // Safe to send to the server
+                let name = user.profile.name
+                let email = user.profile.email
+                // ...
+                
+                // Redirect to somewhere??
+                let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Home") as UIViewController
+                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+                
+            } else {
+                print("\(error.localizedDescription)")
+            }
+    }
+    
+
+    
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+        withError error: NSError!) {
+            // Perform any operations when the user disconnects from app here.
+            // ...
+    }
+
     
     /**
      Ensures that IBMBluemix is initialized with the application ID and the bluemix data subclasses are registered exactly once for the lifetime of the app.
      */
     func registerBluemixData() {
         var token: dispatch_once_t = 0;
-
         dispatch_once(&token, {() in
             IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
             Group.registerSpecialization()
         })
     }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

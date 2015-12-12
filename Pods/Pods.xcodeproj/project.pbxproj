@@ -12,66 +12,115 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01C64F326338BA57AE85007C0FA7C22C /* BFAppLinkReturnToRefererView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererView.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkReturnToRefererView.h; sourceTree = "<group>"; };
-		032D86757354EF8B60A5AEBB205104C1 /* IBMDataDefaultStorageProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataDefaultStorageProvider.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataDefaultStorageProvider.h; sourceTree = "<group>"; };
-		051FEF5C19764508F4D6A6AF9C8A5449 /* IBMPolygon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMPolygon.h; path = IBMData.framework/Versions/A/Headers/IBMPolygon.h; sourceTree = "<group>"; };
-		07212E8525D8850BBFB63910B9882EE7 /* IBMDataStorageProviderConnectCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataStorageProviderConnectCallback.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataStorageProviderConnectCallback.h; sourceTree = "<group>"; };
-		0920BD854A9F108A9EBDFBA3B7323FF6 /* IBMDataConnectionParams.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataConnectionParams.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataConnectionParams.h; sourceTree = "<group>"; };
-		0A7D3D59749AF92167F1B106732C0F1E /* IBMHttpRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMHttpRequest.h; path = IBMBluemix.framework/Versions/A/Headers/IBMHttpRequest.h; sourceTree = "<group>"; };
-		0B27FEAF5CCDBAE875B88A4507B5A286 /* IBMGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMGeometry.h; path = IBMData.framework/Versions/A/Headers/IBMGeometry.h; sourceTree = "<group>"; };
-		0B8E3C0C054242854361A5569E34A20C /* IBMDataObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataObject.h; path = IBMData.framework/Versions/A/Headers/IBMDataObject.h; sourceTree = "<group>"; };
+		0534107B5BDDFF3317705FA849C868D0 /* IBMHttpResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMHttpResponse.h; path = IBMBluemix.framework/Versions/A/Headers/IBMHttpResponse.h; sourceTree = "<group>"; };
+		0627865036BAD4E3207DB2D41494C9D0 /* GoogleSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GoogleSignIn.h; path = Headers/Public/GoogleSignIn.h; sourceTree = "<group>"; };
+		062BF28A257D3185279BC347096D6F46 /* IBMLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLogger.h; path = IBMBluemix.framework/Versions/A/Headers/IBMLogger.h; sourceTree = "<group>"; };
+		08BB2FC0C9B9096D3C517D016CE885CB /* GIDAuthentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDAuthentication.h; path = Headers/Public/GIDAuthentication.h; sourceTree = "<group>"; };
+		0ADD2E0010CDF32400168833C0F298D0 /* IBMDataObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataObject.h; path = IBMData.framework/Versions/A/Headers/IBMDataObject.h; sourceTree = "<group>"; };
+		0B2D7812B663C752A10B0E7F7C0474A3 /* CloudMessaging-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CloudMessaging-Module.h"; path = "Headers/ModuleHeaders/CloudMessaging-Module.h"; sourceTree = "<group>"; };
+		0BA4D2AFD1C3B3B92A90591757E8E0E2 /* IBMPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMPoint.h; path = IBMData.framework/Versions/A/Headers/IBMPoint.h; sourceTree = "<group>"; };
+		0D493349D8C849619F6C74173C66F93C /* IBMMutableHttpRequest_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMMutableHttpRequest_Internal.h; path = IBMBluemix.framework/Versions/A/Headers/IBMMutableHttpRequest_Internal.h; sourceTree = "<group>"; };
+		0E028CA2D208F10BBB1B8D9286AF3828 /* GGLConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLConfiguration.h; path = Headers/GGLCore/Public/GGLConfiguration.h; sourceTree = "<group>"; };
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		132F4AF01DA4290279211AE1D722980E /* IBMCurrentDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMCurrentDevice.h; path = IBMBluemix.framework/Versions/A/Headers/IBMCurrentDevice.h; sourceTree = "<group>"; };
-		1A6CD9CC2B15411997D32A619AFA3B3E /* IBMBluemixConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemixConfig.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemixConfig.h; sourceTree = "<group>"; };
-		1C56102622CE4C9C267EA324F232A394 /* IBMPosition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMPosition.h; path = IBMData.framework/Versions/A/Headers/IBMPosition.h; sourceTree = "<group>"; };
-		1E57E35C5C27E50B2F40DD7EE9D0E44A /* BoltsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BoltsVersion.h; path = IBMBluemix.framework/Versions/A/Headers/BoltsVersion.h; sourceTree = "<group>"; };
-		1ECC335F2F6168C4A0298B7B929D50B7 /* IBMDataClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataClient.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataClient.h; sourceTree = "<group>"; };
-		1FDABFED51A26710032810B3421B2219 /* BFAppLinkNavigation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkNavigation.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkNavigation.h; sourceTree = "<group>"; };
-		20AF52516AF88C8B269A33845A0650AA /* IBMMutableHttpRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMMutableHttpRequest.h; path = IBMBluemix.framework/Versions/A/Headers/IBMMutableHttpRequest.h; sourceTree = "<group>"; };
-		24ADE36FE61FC528B6645D92203EAFA5 /* IBMHttpError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMHttpError.h; path = IBMBluemix.framework/Versions/A/Headers/IBMHttpError.h; sourceTree = "<group>"; };
+		12D66E97882D650DB24488210D11ADDD /* libGTM_StringEncoding.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_StringEncoding.a; path = Libraries/libGTM_StringEncoding.a; sourceTree = "<group>"; };
+		12FB392C6BB32D414D2323DE57BC3BA3 /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = IBMBluemix.framework/Versions/A/Headers/BFExecutor.h; sourceTree = "<group>"; };
+		14DB6B86C5BD0AA95821897973C51F2F /* IBMMutableHttpRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMMutableHttpRequest.h; path = IBMBluemix.framework/Versions/A/Headers/IBMMutableHttpRequest.h; sourceTree = "<group>"; };
+		1597E2F1BF20C6614C6EF854582318B3 /* libGGLCore.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLCore.a; path = Libraries/libGGLCore.a; sourceTree = "<group>"; };
+		17DCEBDAD4EDEB891F272EFE4083BD23 /* UIViewController+SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SignIn.h"; path = "Headers/Public/UIViewController+SignIn.h"; sourceTree = "<group>"; };
+		18995A60FD203280871BF3FF284632C1 /* IBMQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMQuery.h; path = IBMData.framework/Versions/A/Headers/IBMQuery.h; sourceTree = "<group>"; };
+		19923BCA73A61DFACDB75FD1B5A5AC6D /* libGTMStackTrace.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMStackTrace.a; path = Libraries/libGTMStackTrace.a; sourceTree = "<group>"; };
+		19E7C1354A93FC14D7167EA8F5B09504 /* IBMDataClientManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataClientManager.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataClientManager.h; sourceTree = "<group>"; };
+		1FE4E153A82FEFA7DC0AEE7DCA9CC1AA /* IBMUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMUser.h; path = IBMData.framework/Versions/A/Headers/IBMUser.h; sourceTree = "<group>"; };
+		20E14E991CE3BEDBB77328B9976D1BC2 /* GGLContext+SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GGLContext+SignIn.h"; path = "Headers/GGLSignIn/Public/GGLContext+SignIn.h"; sourceTree = "<group>"; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		27B35D7A1AE58082848EF7EB166DFE5D /* IBMBluemix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemix.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemix.h; sourceTree = "<group>"; };
+		2AB518B90E9F7BBD3698A4FE448FD460 /* libProtocolBuffers.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libProtocolBuffers.a; path = Libraries/libProtocolBuffers.a; sourceTree = "<group>"; };
+		2D924FC379172FE1FBAD87341DD62B8D /* IBMDataErrorCategories.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataErrorCategories.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataErrorCategories.h; sourceTree = "<group>"; };
+		2DD94ECE5AB2769CB4A3E0B790197402 /* BFAppLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLink.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLink.h; sourceTree = "<group>"; };
+		2FAFC39FD833C2FDB3758C2A35043D68 /* IBMDataFileSystem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataFileSystem.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataFileSystem.h; sourceTree = "<group>"; };
+		30CA2836E45EA04BBFC1383BE216B179 /* libGTM_Regex.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_Regex.a; path = Libraries/libGTM_Regex.a; sourceTree = "<group>"; };
+		368BE591937F6FEE870729F22B5188C7 /* IBMHttpRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMHttpRequest.h; path = IBMBluemix.framework/Versions/A/Headers/IBMHttpRequest.h; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3CDCEF4068BA074C5D0545537DA4D5EC /* BFURL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFURL.h; path = IBMBluemix.framework/Versions/A/Headers/BFURL.h; sourceTree = "<group>"; };
+		381A9A287E13516878F16FBE1A776226 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = IBMBluemix.framework/Versions/A/Headers/Bolts.h; sourceTree = "<group>"; };
+		3B058CE6673FBFB335BAC6278921CF1E /* GIDProfileData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDProfileData.h; path = Headers/Public/GIDProfileData.h; sourceTree = "<group>"; };
+		3C179C07720D9CF2E5D15E200F302695 /* BFAppLinkNavigation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkNavigation.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkNavigation.h; sourceTree = "<group>"; };
+		3CF3DEE7DA961EF900F39F5E517577B9 /* libGTMOAuth2_internal.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMOAuth2_internal.a; path = Libraries/libGTMOAuth2_internal.a; sourceTree = "<group>"; };
+		3CFA984E5E0EDD57E510FDC819A82A16 /* libGTM_NSScannerJSON.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSScannerJSON.a; path = Libraries/libGTM_NSScannerJSON.a; sourceTree = "<group>"; };
+		3E0E75CC9BA67C0F938635A05E8C26B6 /* AdMob-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AdMob-Module.h"; path = "Headers/ModuleHeaders/AdMob-Module.h"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3ECB1C31E611B5B2504A00DE767B11D9 /* BFAppLinkResolving.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkResolving.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkResolving.h; sourceTree = "<group>"; };
-		41014DB770F1BCF57743A650DA8ECFD3 /* IBMDataFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataFile.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataFile.h; sourceTree = "<group>"; };
-		4484AE5717CA47565FFDAA27A6BE0B3C /* BFWebViewAppLinkResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFWebViewAppLinkResolver.h; path = IBMBluemix.framework/Versions/A/Headers/BFWebViewAppLinkResolver.h; sourceTree = "<group>"; };
+		3FF538337C073B368FBC13CAF97A6EB0 /* libGTM_iPhone.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_iPhone.a; path = Libraries/libGTM_iPhone.a; sourceTree = "<group>"; };
+		41C2CF215BEBC067D71F1F3526AE788C /* IBMGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMGeometry.h; path = IBMData.framework/Versions/A/Headers/IBMGeometry.h; sourceTree = "<group>"; };
+		488F4B48EBE1D77271F449B3CBBDCEE4 /* libGTM_NSStringHTML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringHTML.a; path = Libraries/libGTM_NSStringHTML.a; sourceTree = "<group>"; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		5468BAD3A45F6964FD1813F226A39A56 /* BFAppLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLink.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLink.h; sourceTree = "<group>"; };
-		6025709E99BE06E660D7FCDF880169BA /* IBMQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMQuery.h; path = IBMData.framework/Versions/A/Headers/IBMQuery.h; sourceTree = "<group>"; };
-		66ECECBD95FE41973F75591B07AA5DC8 /* IBMData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMData.h; path = IBMData.framework/Versions/A/Headers/IBMData.h; sourceTree = "<group>"; };
+		5110322D273F1513B19DD012E1DB17BA /* BFAppLinkReturnToRefererView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererView.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkReturnToRefererView.h; sourceTree = "<group>"; };
+		51E1F41DB7F7AEEAF94A728EE4C64767 /* libGTM_GTMURLBuilder.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_GTMURLBuilder.a; path = Libraries/libGTM_GTMURLBuilder.a; sourceTree = "<group>"; };
+		524C1D5720410F5007026FB5B4CC2C1F /* libGGLSignIn.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGGLSignIn.a; path = Libraries/libGGLSignIn.a; sourceTree = "<group>"; };
+		58B6ED261B2A1CD02A5FC8F4218F9B98 /* libGTM_NSData+zlib.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSData+zlib.a"; path = "Libraries/libGTM_NSData+zlib.a"; sourceTree = "<group>"; };
+		5B08F7D2D7F3F0F8D7D7D2F031CB90E0 /* Analytics-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Analytics-Module.h"; path = "Headers/ModuleHeaders/Analytics-Module.h"; sourceTree = "<group>"; };
+		5D4D98BF3605A174F790381CC2813C5C /* BoltsVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BoltsVersion.h; path = IBMBluemix.framework/Versions/A/Headers/BoltsVersion.h; sourceTree = "<group>"; };
+		5D91049A9E3CCD823DAAC79A249B4911 /* IBMDataStorageProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataStorageProvider.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataStorageProvider.h; sourceTree = "<group>"; };
+		5EB2CDC3A7BD134B41E669F531221DAA /* libGSDK_Overload.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGSDK_Overload.a; path = Libraries/libGSDK_Overload.a; sourceTree = "<group>"; };
+		6296078CEE0F3E6D1D7A69852D268772 /* IBMBluemixConfig_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemixConfig_Internal.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemixConfig_Internal.h; sourceTree = "<group>"; };
+		66018ECBB9F899CFFFF159B6C7FE6625 /* IBMHttpError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMHttpError.h; path = IBMBluemix.framework/Versions/A/Headers/IBMHttpError.h; sourceTree = "<group>"; };
+		6892B1ABAADA4CB12CA859E8DA898DBC /* BFWebViewAppLinkResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFWebViewAppLinkResolver.h; path = IBMBluemix.framework/Versions/A/Headers/BFWebViewAppLinkResolver.h; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		6BF21BD5B46C40D4782FC28B58BBD0E9 /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = IBMBluemix.framework/Versions/A/Headers/BFTask.h; sourceTree = "<group>"; };
-		6C7DCC274751B4E4A16C7C1CF920B753 /* IBMDataConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataConstants.h; path = IBMData.framework/Versions/A/Headers/IBMDataConstants.h; sourceTree = "<group>"; };
-		6C7F3184E6150F039187CD34B11F2204 /* IBMHttpResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMHttpResponse.h; path = IBMBluemix.framework/Versions/A/Headers/IBMHttpResponse.h; sourceTree = "<group>"; };
-		6DD571B020AB1397E062FB7021252D9E /* IBMBluemixService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemixService.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemixService.h; sourceTree = "<group>"; };
-		7475DFA1943279BE3EC47A654D08C962 /* IBMLineString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLineString.h; path = IBMData.framework/Versions/A/Headers/IBMLineString.h; sourceTree = "<group>"; };
-		77708FDCE061B3F1E671090D3455A8C9 /* IBMDataErrorCategories.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataErrorCategories.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataErrorCategories.h; sourceTree = "<group>"; };
-		78067220E9E973C82FA519E4642037F2 /* IBMFileSync.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMFileSync.h; path = IBMFileSync.framework/Versions/A/Headers/IBMFileSync.h; sourceTree = "<group>"; };
-		7A2620619C401CC6D237FC883C02B71B /* BFAppLinkReturnToRefererView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererView_Internal.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkReturnToRefererView_Internal.h; sourceTree = "<group>"; };
-		877B1E83819FBA9E5147DE812DD9C7E1 /* IBMMutableHttpRequest_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMMutableHttpRequest_Internal.h; path = IBMBluemix.framework/Versions/A/Headers/IBMMutableHttpRequest_Internal.h; sourceTree = "<group>"; };
-		89F5E2B7CB3F55AB62EEDED39B650FCF /* IBMLinearRing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLinearRing.h; path = IBMData.framework/Versions/A/Headers/IBMLinearRing.h; sourceTree = "<group>"; };
-		91055D6DA2BCCBE75F600053041217E8 /* IBMLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLogger.h; path = IBMBluemix.framework/Versions/A/Headers/IBMLogger.h; sourceTree = "<group>"; };
-		9197AF54FBE2F005A10ADEB126CB8506 /* IBMUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMUser.h; path = IBMData.framework/Versions/A/Headers/IBMUser.h; sourceTree = "<group>"; };
-		946C53872F5EDD3FB7697823B09C1028 /* BFAppLinkTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkTarget.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkTarget.h; sourceTree = "<group>"; };
-		95636F0B7A611A56377DECD276588533 /* IBMBluemixConfig_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemixConfig_Internal.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemixConfig_Internal.h; sourceTree = "<group>"; };
+		69E3C5502DD6D7BB21BB01FFAFD50542 /* GGLContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLContext.h; path = Headers/GGLCore/Public/GGLContext.h; sourceTree = "<group>"; };
+		72E3B913AA9FF3E245C6B64DB1404306 /* libGTM_NSStringXML.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_NSStringXML.a; path = Libraries/libGTM_NSStringXML.a; sourceTree = "<group>"; };
+		736EA5E80C41B072414D7B5FF8890ED6 /* GIDSignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignIn.h; path = Headers/Public/GIDSignIn.h; sourceTree = "<group>"; };
+		73B3F3B4A4C9377D896BF16D2DDBD4DC /* libGTM_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_core.a; path = Libraries/libGTM_core.a; sourceTree = "<group>"; };
+		74724BE663F63CE7AE62EF57D4EDDDFB /* IBMDataFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataFile.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataFile.h; sourceTree = "<group>"; };
+		770DABC39B0B57B0D706D1F6A4142FA3 /* AppInvite-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AppInvite-Module.h"; path = "Headers/ModuleHeaders/AppInvite-Module.h"; sourceTree = "<group>"; };
+		781E158B93877F6E41D5D29CFC2491ED /* IBMPosition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMPosition.h; path = IBMData.framework/Versions/A/Headers/IBMPosition.h; sourceTree = "<group>"; };
+		7CCF841F80AA7C0A91229BFBF411E2DD /* libGTMSessionFetcher_core.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_core.a; path = Libraries/libGTMSessionFetcher_core.a; sourceTree = "<group>"; };
+		7E78108EB62688E8F41EAE46EB96697B /* libGTM_SystemVersion.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_SystemVersion.a; path = Libraries/libGTM_SystemVersion.a; sourceTree = "<group>"; };
+		7E8740A12A448A6E161B5195A2E59936 /* IBMBluemixService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemixService.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemixService.h; sourceTree = "<group>"; };
+		80ADA24655160104A30CEBE99B6EA468 /* BFURL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFURL.h; path = IBMBluemix.framework/Versions/A/Headers/BFURL.h; sourceTree = "<group>"; };
+		83203327916F94BBF6229D6BC2226956 /* libGTM_UIFont+LineHeight.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_UIFont+LineHeight.a"; path = "Libraries/libGTM_UIFont+LineHeight.a"; sourceTree = "<group>"; };
+		84B712B5E27BDF48B999DAF04B864CA0 /* BFAppLinkReturnToRefererController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererController.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkReturnToRefererController.h; sourceTree = "<group>"; };
+		8A03AEFAB0009F3C7216F2722FD8D99F /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
+		8AF20E5531D4AF02D8DB1D93472C3489 /* libGTMOAuth2_external.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMOAuth2_external.a; path = Libraries/libGTMOAuth2_external.a; sourceTree = "<group>"; };
+		8EEA03CBAACC5FF18E52316AD01104EE /* BFAppLinkReturnToRefererView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererView_Internal.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkReturnToRefererView_Internal.h; sourceTree = "<group>"; };
+		95DD6E52FCA0D1A098A067336CD4ABE9 /* IBMDataStorageProviderConnectCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataStorageProviderConnectCallback.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataStorageProviderConnectCallback.h; sourceTree = "<group>"; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		A051CCEA62FF959B8252A5996ED64CEE /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = IBMBluemix.framework/Versions/A/Headers/BFExecutor.h; sourceTree = "<group>"; };
+		99AE526BC29A45F881034EF9DE55CB8C /* GGLErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GGLErrorCode.h; path = Headers/GGLCore/Public/GGLErrorCode.h; sourceTree = "<group>"; };
+		9A3B166FD5F6C1A869F4B70E3D55CC33 /* libGIPNSURL+FIFE.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGIPNSURL+FIFE.a"; path = "Libraries/libGIPNSURL+FIFE.a"; sourceTree = "<group>"; };
+		9D32080A740A9C12457854893C394F11 /* IBMDataConnectionParams.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataConnectionParams.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataConnectionParams.h; sourceTree = "<group>"; };
+		9F592D2C45FB48028B5E603705068899 /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = IBMBluemix.framework/Versions/A/Headers/BFTaskCompletionSource.h; sourceTree = "<group>"; };
+		A0C7DCEDEC34043BBF3C97DA08B31415 /* libSignIn.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libSignIn.a; path = Libraries/libSignIn.a; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		A36C1112E940E7A3EE38A68ED21DAFC2 /* IBMCurrentUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMCurrentUser.h; path = IBMBluemix.framework/Versions/A/Headers/IBMCurrentUser.h; sourceTree = "<group>"; };
-		A92855CECA3DEF29E9E24CD0631C8EF7 /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = IBMBluemix.framework/Versions/A/Headers/Bolts.h; sourceTree = "<group>"; };
-		AFD3452EDD1DC666AA0FB6320AA49050 /* IBMDataObject+Specialize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IBMDataObject+Specialize.h"; path = "IBMData.framework/Versions/A/Headers/IBMDataObject+Specialize.h"; sourceTree = "<group>"; };
+		AAF39D8CB61BE7A253E81EF861F91257 /* SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SignIn.h; path = Headers/GGLSignIn/Public/SignIn.h; sourceTree = "<group>"; };
+		B5170810B21F0EB6D39264053D197094 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = Resources/GoogleSignIn.bundle; sourceTree = "<group>"; };
+		B9812A192289B91431D6B72E26AC0368 /* IBMLinearRing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLinearRing.h; path = IBMData.framework/Versions/A/Headers/IBMLinearRing.h; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB9967924304873A75D5D5B11E233044 /* libGTM_KVO.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_KVO.a; path = Libraries/libGTM_KVO.a; sourceTree = "<group>"; };
+		BD2F5F4F84D361F9E1F8BBD39A9B3A7C /* IBMCurrentUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMCurrentUser.h; path = IBMBluemix.framework/Versions/A/Headers/IBMCurrentUser.h; sourceTree = "<group>"; };
+		BF0F84BF754655080912570D78BC1D23 /* libGTM_NSDictionary+URLArguments.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libGTM_NSDictionary+URLArguments.a"; path = "Libraries/libGTM_NSDictionary+URLArguments.a"; sourceTree = "<group>"; };
+		BFA3DFDF66B4448ED04D6410C96DA243 /* BFAppLinkTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkTarget.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkTarget.h; sourceTree = "<group>"; };
 		BFDCEDF11CC5329E8A2F6885DA7FBE21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C23C12EBC12E43EDEB5EF02B90666424 /* IBMDataStorageProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataStorageProvider.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataStorageProvider.h; sourceTree = "<group>"; };
-		C457FC13701525E8BC1E00ED1D762AFF /* IBMDataClientManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataClientManager.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataClientManager.h; sourceTree = "<group>"; };
-		C4E353E2F31315E5720147CC0D7E9316 /* BFAppLinkReturnToRefererController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererController.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkReturnToRefererController.h; sourceTree = "<group>"; };
-		CEA5FE50F69D9CF67079939B3A635F42 /* BFTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTaskCompletionSource.h; path = IBMBluemix.framework/Versions/A/Headers/BFTaskCompletionSource.h; sourceTree = "<group>"; };
-		D6EE437774C252DDC44ED9F2B5BB698F /* IBMLocationProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLocationProvider.h; path = IBMBluemix.framework/Versions/A/Headers/IBMLocationProvider.h; sourceTree = "<group>"; };
-		D76BBBD371600AF8AB6076545D98E653 /* IBMPoint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMPoint.h; path = IBMData.framework/Versions/A/Headers/IBMPoint.h; sourceTree = "<group>"; };
-		DE9885CE0048ACC81BF54D3AECD2CD18 /* IBMDataRelation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataRelation.h; path = IBMData.framework/Versions/A/Headers/IBMDataRelation.h; sourceTree = "<group>"; };
-		ED96AC64A0B2B70BC429437ABD359405 /* IBMDataFileSystem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataFileSystem.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataFileSystem.h; sourceTree = "<group>"; };
+		C2AEFD76D559634DBE40952552263BAD /* libGTM_RoundedRectPath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_RoundedRectPath.a; path = Libraries/libGTM_RoundedRectPath.a; sourceTree = "<group>"; };
+		C4E6ABF42C3D7073094C0BA043D06D33 /* GIDGoogleUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDGoogleUser.h; path = Headers/Public/GIDGoogleUser.h; sourceTree = "<group>"; };
+		C6C664C671A761AC298724DD02D90EFB /* IBMBluemix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemix.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemix.h; sourceTree = "<group>"; };
+		C906993479865123DA73BD2ACC64F322 /* IBMDataConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataConstants.h; path = IBMData.framework/Versions/A/Headers/IBMDataConstants.h; sourceTree = "<group>"; };
+		CA075546F4B6542C50806CB638805800 /* Core-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Core-Module.h"; path = "Headers/ModuleHeaders/Core-Module.h"; sourceTree = "<group>"; };
+		CC3E5C7333D46357F7C3F5F4DBD6AD24 /* BFAppLinkResolving.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkResolving.h; path = IBMBluemix.framework/Versions/A/Headers/BFAppLinkResolving.h; sourceTree = "<group>"; };
+		D3B06B71207BDFA00E9936C972B06BDD /* IBMBluemixConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMBluemixConfig.h; path = IBMBluemix.framework/Versions/A/Headers/IBMBluemixConfig.h; sourceTree = "<group>"; };
+		DD9FF49C3FF8B3FB607560E2836DFCB2 /* IBMLocationProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLocationProvider.h; path = IBMBluemix.framework/Versions/A/Headers/IBMLocationProvider.h; sourceTree = "<group>"; };
+		DFD928EEB29812F8174CAF8241A2C44C /* GIDSignInButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GIDSignInButton.h; path = Headers/Public/GIDSignInButton.h; sourceTree = "<group>"; };
+		E1C504B0032DFEA8AEA849F67964601C /* libGTM_DebugUtils.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_DebugUtils.a; path = Libraries/libGTM_DebugUtils.a; sourceTree = "<group>"; };
+		E2B5A9D709E9444D014992390047E5D1 /* IBMDataClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataClient.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataClient.h; sourceTree = "<group>"; };
+		E3644BC0A52A612C83E2C8765A31D900 /* libGTM_AddressBook.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTM_AddressBook.a; path = Libraries/libGTM_AddressBook.a; sourceTree = "<group>"; };
+		E4551D4840D46FFB3B46FDA3FDF69BFC /* libGTMSessionFetcher_full.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGTMSessionFetcher_full.a; path = Libraries/libGTMSessionFetcher_full.a; sourceTree = "<group>"; };
+		EDC533B4390AFA357BB4D212751146F3 /* IBMDataObject+Specialize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IBMDataObject+Specialize.h"; path = "IBMData.framework/Versions/A/Headers/IBMDataObject+Specialize.h"; sourceTree = "<group>"; };
+		EE3FC11965E56F96FB5CDA8569DD1A98 /* IBMDataDefaultStorageProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataDefaultStorageProvider.h; path = IBMFileSync.framework/Versions/A/Headers/IBMDataDefaultStorageProvider.h; sourceTree = "<group>"; };
+		EF7F65261E5E1DE23760BC48464EE90D /* IBMCurrentDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMCurrentDevice.h; path = IBMBluemix.framework/Versions/A/Headers/IBMCurrentDevice.h; sourceTree = "<group>"; };
+		EFD88A9F70397893A2B3FBF1B2A509E0 /* IBMLineString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMLineString.h; path = IBMData.framework/Versions/A/Headers/IBMLineString.h; sourceTree = "<group>"; };
+		F07766D3C07AE928101F492461802CE7 /* libOpenInChrome.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libOpenInChrome.a; path = Libraries/libOpenInChrome.a; sourceTree = "<group>"; };
+		F68D0F40AA7A1094323B5EE61FE5411C /* IBMDataRelation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMDataRelation.h; path = IBMData.framework/Versions/A/Headers/IBMDataRelation.h; sourceTree = "<group>"; };
+		F6E5B62A46E9F0EDD4FBD830345402C5 /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = IBMBluemix.framework/Versions/A/Headers/BFTask.h; sourceTree = "<group>"; };
+		F9CDBC3F009A3D2D87192E2EF3045A31 /* GMRConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GMRConfiguration.h; path = Headers/GGLCore/Public/GMRConfiguration.h; sourceTree = "<group>"; };
+		FA27658BAA456D6DF3772D06951AEA26 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/GGLCore/Public/Core.h; sourceTree = "<group>"; };
+		FA718DEF59C821C35538A6C1DE5BCF92 /* IBMFileSync.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMFileSync.h; path = IBMFileSync.framework/Versions/A/Headers/IBMFileSync.h; sourceTree = "<group>"; };
+		FD327A5FBB19AA61368880195F6FF99D /* IBMData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMData.h; path = IBMData.framework/Versions/A/Headers/IBMData.h; sourceTree = "<group>"; };
+		FDDC4157EF78234EDA392B3968514125 /* IBMPolygon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IBMPolygon.h; path = IBMData.framework/Versions/A/Headers/IBMPolygon.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +135,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		024237CF3E21D294C1B8A1CAD5358344 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CCF841F80AA7C0A91229BFBF411E2DD /* libGTMSessionFetcher_core.a */,
+				E4551D4840D46FFB3B46FDA3FDF69BFC /* libGTMSessionFetcher_full.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				B3D1D13E0C6553800746CB8FD61CF946 /* Pods */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		09DB08158104D8AD36A64B03C55C879C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B416CCCA5166EB7B877B8257B061D53B /* Google */,
+				55EBFC804BF32E7BDA082F418F4404DC /* GoogleAppUtilities */,
+				4AC8FDFF27D746EC2CCD1D5DF101518A /* GoogleAuthUtilities */,
+				A104F2FF88096A29900B9CEF97A1053E /* GoogleInterchangeUtilities */,
+				21B8288B7C3CACCAC0FC69B0053B16B2 /* GoogleNetworkingUtilities */,
+				6CC7EF97351BEE5B24A2370C21D78672 /* GoogleSignIn */,
+				6EAC3C8B73FEA05A63130C3A9410DE9B /* GoogleSymbolUtilities */,
+				A18831AD0A14BF0D15D447FE8DCA0220 /* GoogleUtilities */,
+				E24E8D19C9C1050B9502E4A635740059 /* IBMBluemix */,
+				E9D916B20A0A6DB02CC940322CB37851 /* IBMData */,
+				89798258DE6A2099A73AECDD7FE83B62 /* IBMFileSync */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		11CF6F5E20D79DACCF3ED42E30508A8A /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				20E14E991CE3BEDBB77328B9976D1BC2 /* GGLContext+SignIn.h */,
+				AAF39D8CB61BE7A253E81EF861F91257 /* SignIn.h */,
+				2CB264A1C2A8B1F55E30E80A280DB094 /* Frameworks */,
+			);
+			name = SignIn;
 			sourceTree = "<group>";
 		};
 		1F0B9F713A13B4F29BE0C0E7483B187B /* Products */ = {
@@ -102,68 +188,113 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		228C38EF1E1AED850ABC310975DC369F /* Pods */ = {
+		21B8288B7C3CACCAC0FC69B0053B16B2 /* GoogleNetworkingUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				7303FAE5B8F47B60CEE1D3DC47D9129F /* IBMBluemix */,
-				5443B11593037B6EBAA76A4D070BC093 /* IBMData */,
-				98A176819A16E65CFC1888DA94AF7E0A /* IBMFileSync */,
+				024237CF3E21D294C1B8A1CAD5358344 /* Frameworks */,
 			);
-			name = Pods;
+			path = GoogleNetworkingUtilities;
 			sourceTree = "<group>";
 		};
-		5443B11593037B6EBAA76A4D070BC093 /* IBMData */ = {
+		2CB264A1C2A8B1F55E30E80A280DB094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				66ECECBD95FE41973F75591B07AA5DC8 /* IBMData.h */,
-				6C7DCC274751B4E4A16C7C1CF920B753 /* IBMDataConstants.h */,
-				0B8E3C0C054242854361A5569E34A20C /* IBMDataObject.h */,
-				AFD3452EDD1DC666AA0FB6320AA49050 /* IBMDataObject+Specialize.h */,
-				DE9885CE0048ACC81BF54D3AECD2CD18 /* IBMDataRelation.h */,
-				0B27FEAF5CCDBAE875B88A4507B5A286 /* IBMGeometry.h */,
-				89F5E2B7CB3F55AB62EEDED39B650FCF /* IBMLinearRing.h */,
-				7475DFA1943279BE3EC47A654D08C962 /* IBMLineString.h */,
-				D76BBBD371600AF8AB6076545D98E653 /* IBMPoint.h */,
-				051FEF5C19764508F4D6A6AF9C8A5449 /* IBMPolygon.h */,
-				1C56102622CE4C9C267EA324F232A394 /* IBMPosition.h */,
-				6025709E99BE06E660D7FCDF880169BA /* IBMQuery.h */,
-				9197AF54FBE2F005A10ADEB126CB8506 /* IBMUser.h */,
+				524C1D5720410F5007026FB5B4CC2C1F /* libGGLSignIn.a */,
 			);
-			path = IBMData;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7303FAE5B8F47B60CEE1D3DC47D9129F /* IBMBluemix */ = {
+		2CED9C3EAEE0EA371CB34F886E6C0747 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5468BAD3A45F6964FD1813F226A39A56 /* BFAppLink.h */,
-				1FDABFED51A26710032810B3421B2219 /* BFAppLinkNavigation.h */,
-				3ECB1C31E611B5B2504A00DE767B11D9 /* BFAppLinkResolving.h */,
-				C4E353E2F31315E5720147CC0D7E9316 /* BFAppLinkReturnToRefererController.h */,
-				01C64F326338BA57AE85007C0FA7C22C /* BFAppLinkReturnToRefererView.h */,
-				7A2620619C401CC6D237FC883C02B71B /* BFAppLinkReturnToRefererView_Internal.h */,
-				946C53872F5EDD3FB7697823B09C1028 /* BFAppLinkTarget.h */,
-				A051CCEA62FF959B8252A5996ED64CEE /* BFExecutor.h */,
-				6BF21BD5B46C40D4782FC28B58BBD0E9 /* BFTask.h */,
-				CEA5FE50F69D9CF67079939B3A635F42 /* BFTaskCompletionSource.h */,
-				3CDCEF4068BA074C5D0545537DA4D5EC /* BFURL.h */,
-				4484AE5717CA47565FFDAA27A6BE0B3C /* BFWebViewAppLinkResolver.h */,
-				A92855CECA3DEF29E9E24CD0631C8EF7 /* Bolts.h */,
-				1E57E35C5C27E50B2F40DD7EE9D0E44A /* BoltsVersion.h */,
-				27B35D7A1AE58082848EF7EB166DFE5D /* IBMBluemix.h */,
-				1A6CD9CC2B15411997D32A619AFA3B3E /* IBMBluemixConfig.h */,
-				95636F0B7A611A56377DECD276588533 /* IBMBluemixConfig_Internal.h */,
-				6DD571B020AB1397E062FB7021252D9E /* IBMBluemixService.h */,
-				132F4AF01DA4290279211AE1D722980E /* IBMCurrentDevice.h */,
-				A36C1112E940E7A3EE38A68ED21DAFC2 /* IBMCurrentUser.h */,
-				24ADE36FE61FC528B6645D92203EAFA5 /* IBMHttpError.h */,
-				0A7D3D59749AF92167F1B106732C0F1E /* IBMHttpRequest.h */,
-				6C7F3184E6150F039187CD34B11F2204 /* IBMHttpResponse.h */,
-				D6EE437774C252DDC44ED9F2B5BB698F /* IBMLocationProvider.h */,
-				91055D6DA2BCCBE75F600053041217E8 /* IBMLogger.h */,
-				20AF52516AF88C8B269A33845A0650AA /* IBMMutableHttpRequest.h */,
-				877B1E83819FBA9E5147DE812DD9C7E1 /* IBMMutableHttpRequest_Internal.h */,
+				2AB518B90E9F7BBD3698A4FE448FD460 /* libProtocolBuffers.a */,
 			);
-			path = IBMBluemix;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FFFEB35786CD873D22A2089576E781A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A3B166FD5F6C1A869F4B70E3D55CC33 /* libGIPNSURL+FIFE.a */,
+				A0C7DCEDEC34043BBF3C97DA08B31415 /* libSignIn.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		321C75CCC586F6997B0D7E235603DA51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1597E2F1BF20C6614C6EF854582318B3 /* libGGLCore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4684C684C8323902E6134D11A305EDFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AF20E5531D4AF02D8DB1D93472C3489 /* libGTMOAuth2_external.a */,
+				3CF3DEE7DA961EF900F39F5E517577B9 /* libGTMOAuth2_internal.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AC8FDFF27D746EC2CCD1D5DF101518A /* GoogleAuthUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				4684C684C8323902E6134D11A305EDFC /* Frameworks */,
+			);
+			path = GoogleAuthUtilities;
+			sourceTree = "<group>";
+		};
+		50B9E33DD4D2E5E415B1B633354DC46C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3E0E75CC9BA67C0F938635A05E8C26B6 /* AdMob-Module.h */,
+				5B08F7D2D7F3F0F8D7D7D2F031CB90E0 /* Analytics-Module.h */,
+				770DABC39B0B57B0D706D1F6A4142FA3 /* AppInvite-Module.h */,
+				0B2D7812B663C752A10B0E7F7C0474A3 /* CloudMessaging-Module.h */,
+				FA27658BAA456D6DF3772D06951AEA26 /* Core.h */,
+				CA075546F4B6542C50806CB638805800 /* Core-Module.h */,
+				0E028CA2D208F10BBB1B8D9286AF3828 /* GGLConfiguration.h */,
+				69E3C5502DD6D7BB21BB01FFAFD50542 /* GGLContext.h */,
+				99AE526BC29A45F881034EF9DE55CB8C /* GGLErrorCode.h */,
+				F9CDBC3F009A3D2D87192E2EF3045A31 /* GMRConfiguration.h */,
+				8A03AEFAB0009F3C7216F2722FD8D99F /* SignIn-Module.h */,
+				321C75CCC586F6997B0D7E235603DA51 /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		55EBFC804BF32E7BDA082F418F4404DC /* GoogleAppUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				A1434BEF120B58728295897DCB6748C4 /* Frameworks */,
+			);
+			path = GoogleAppUtilities;
+			sourceTree = "<group>";
+		};
+		6CC7EF97351BEE5B24A2370C21D78672 /* GoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				08BB2FC0C9B9096D3C517D016CE885CB /* GIDAuthentication.h */,
+				C4E6ABF42C3D7073094C0BA043D06D33 /* GIDGoogleUser.h */,
+				3B058CE6673FBFB335BAC6278921CF1E /* GIDProfileData.h */,
+				736EA5E80C41B072414D7B5FF8890ED6 /* GIDSignIn.h */,
+				DFD928EEB29812F8174CAF8241A2C44C /* GIDSignInButton.h */,
+				0627865036BAD4E3207DB2D41494C9D0 /* GoogleSignIn.h */,
+				17DCEBDAD4EDEB891F272EFE4083BD23 /* UIViewController+SignIn.h */,
+				2FFFEB35786CD873D22A2089576E781A /* Frameworks */,
+				A9139A71782A06AA8D2F9FAE5E0939D3 /* Resources */,
+			);
+			path = GoogleSignIn;
+			sourceTree = "<group>";
+		};
+		6EAC3C8B73FEA05A63130C3A9410DE9B /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				80C227D06FD0C2D331D3BF39D7691359 /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -171,27 +302,67 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				228C38EF1E1AED850ABC310975DC369F /* Pods */,
+				09DB08158104D8AD36A64B03C55C879C /* Pods */,
 				1F0B9F713A13B4F29BE0C0E7483B187B /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		98A176819A16E65CFC1888DA94AF7E0A /* IBMFileSync */ = {
+		80C227D06FD0C2D331D3BF39D7691359 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1ECC335F2F6168C4A0298B7B929D50B7 /* IBMDataClient.h */,
-				C457FC13701525E8BC1E00ED1D762AFF /* IBMDataClientManager.h */,
-				0920BD854A9F108A9EBDFBA3B7323FF6 /* IBMDataConnectionParams.h */,
-				032D86757354EF8B60A5AEBB205104C1 /* IBMDataDefaultStorageProvider.h */,
-				77708FDCE061B3F1E671090D3455A8C9 /* IBMDataErrorCategories.h */,
-				41014DB770F1BCF57743A650DA8ECFD3 /* IBMDataFile.h */,
-				ED96AC64A0B2B70BC429437ABD359405 /* IBMDataFileSystem.h */,
-				C23C12EBC12E43EDEB5EF02B90666424 /* IBMDataStorageProvider.h */,
-				07212E8525D8850BBFB63910B9882EE7 /* IBMDataStorageProviderConnectCallback.h */,
-				78067220E9E973C82FA519E4642037F2 /* IBMFileSync.h */,
+				5EB2CDC3A7BD134B41E669F531221DAA /* libGSDK_Overload.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89798258DE6A2099A73AECDD7FE83B62 /* IBMFileSync */ = {
+			isa = PBXGroup;
+			children = (
+				E2B5A9D709E9444D014992390047E5D1 /* IBMDataClient.h */,
+				19E7C1354A93FC14D7167EA8F5B09504 /* IBMDataClientManager.h */,
+				9D32080A740A9C12457854893C394F11 /* IBMDataConnectionParams.h */,
+				EE3FC11965E56F96FB5CDA8569DD1A98 /* IBMDataDefaultStorageProvider.h */,
+				2D924FC379172FE1FBAD87341DD62B8D /* IBMDataErrorCategories.h */,
+				74724BE663F63CE7AE62EF57D4EDDDFB /* IBMDataFile.h */,
+				2FAFC39FD833C2FDB3758C2A35043D68 /* IBMDataFileSystem.h */,
+				5D91049A9E3CCD823DAAC79A249B4911 /* IBMDataStorageProvider.h */,
+				95DD6E52FCA0D1A098A067336CD4ABE9 /* IBMDataStorageProviderConnectCallback.h */,
+				FA718DEF59C821C35538A6C1DE5BCF92 /* IBMFileSync.h */,
 			);
 			path = IBMFileSync;
+			sourceTree = "<group>";
+		};
+		A104F2FF88096A29900B9CEF97A1053E /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				2CED9C3EAEE0EA371CB34F886E6C0747 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		A1434BEF120B58728295897DCB6748C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F07766D3C07AE928101F492461802CE7 /* libOpenInChrome.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A18831AD0A14BF0D15D447FE8DCA0220 /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				D6700FCAF3F468D1837AEE8ECE136C2B /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		A9139A71782A06AA8D2F9FAE5E0939D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5170810B21F0EB6D39264053D197094 /* GoogleSignIn.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -209,6 +380,15 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
+		B416CCCA5166EB7B877B8257B061D53B /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				50B9E33DD4D2E5E415B1B633354DC46C /* Core */,
+				11CF6F5E20D79DACCF3ED42E30508A8A /* SignIn */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +403,84 @@
 				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		D6700FCAF3F468D1837AEE8ECE136C2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3644BC0A52A612C83E2C8765A31D900 /* libGTM_AddressBook.a */,
+				73B3F3B4A4C9377D896BF16D2DDBD4DC /* libGTM_core.a */,
+				E1C504B0032DFEA8AEA849F67964601C /* libGTM_DebugUtils.a */,
+				51E1F41DB7F7AEEAF94A728EE4C64767 /* libGTM_GTMURLBuilder.a */,
+				3FF538337C073B368FBC13CAF97A6EB0 /* libGTM_iPhone.a */,
+				BB9967924304873A75D5D5B11E233044 /* libGTM_KVO.a */,
+				58B6ED261B2A1CD02A5FC8F4218F9B98 /* libGTM_NSData+zlib.a */,
+				BF0F84BF754655080912570D78BC1D23 /* libGTM_NSDictionary+URLArguments.a */,
+				3CFA984E5E0EDD57E510FDC819A82A16 /* libGTM_NSScannerJSON.a */,
+				488F4B48EBE1D77271F449B3CBBDCEE4 /* libGTM_NSStringHTML.a */,
+				72E3B913AA9FF3E245C6B64DB1404306 /* libGTM_NSStringXML.a */,
+				30CA2836E45EA04BBFC1383BE216B179 /* libGTM_Regex.a */,
+				C2AEFD76D559634DBE40952552263BAD /* libGTM_RoundedRectPath.a */,
+				12D66E97882D650DB24488210D11ADDD /* libGTM_StringEncoding.a */,
+				7E78108EB62688E8F41EAE46EB96697B /* libGTM_SystemVersion.a */,
+				83203327916F94BBF6229D6BC2226956 /* libGTM_UIFont+LineHeight.a */,
+				19923BCA73A61DFACDB75FD1B5A5AC6D /* libGTMStackTrace.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E24E8D19C9C1050B9502E4A635740059 /* IBMBluemix */ = {
+			isa = PBXGroup;
+			children = (
+				2DD94ECE5AB2769CB4A3E0B790197402 /* BFAppLink.h */,
+				3C179C07720D9CF2E5D15E200F302695 /* BFAppLinkNavigation.h */,
+				CC3E5C7333D46357F7C3F5F4DBD6AD24 /* BFAppLinkResolving.h */,
+				84B712B5E27BDF48B999DAF04B864CA0 /* BFAppLinkReturnToRefererController.h */,
+				5110322D273F1513B19DD012E1DB17BA /* BFAppLinkReturnToRefererView.h */,
+				8EEA03CBAACC5FF18E52316AD01104EE /* BFAppLinkReturnToRefererView_Internal.h */,
+				BFA3DFDF66B4448ED04D6410C96DA243 /* BFAppLinkTarget.h */,
+				12FB392C6BB32D414D2323DE57BC3BA3 /* BFExecutor.h */,
+				F6E5B62A46E9F0EDD4FBD830345402C5 /* BFTask.h */,
+				9F592D2C45FB48028B5E603705068899 /* BFTaskCompletionSource.h */,
+				80ADA24655160104A30CEBE99B6EA468 /* BFURL.h */,
+				6892B1ABAADA4CB12CA859E8DA898DBC /* BFWebViewAppLinkResolver.h */,
+				381A9A287E13516878F16FBE1A776226 /* Bolts.h */,
+				5D4D98BF3605A174F790381CC2813C5C /* BoltsVersion.h */,
+				C6C664C671A761AC298724DD02D90EFB /* IBMBluemix.h */,
+				D3B06B71207BDFA00E9936C972B06BDD /* IBMBluemixConfig.h */,
+				6296078CEE0F3E6D1D7A69852D268772 /* IBMBluemixConfig_Internal.h */,
+				7E8740A12A448A6E161B5195A2E59936 /* IBMBluemixService.h */,
+				EF7F65261E5E1DE23760BC48464EE90D /* IBMCurrentDevice.h */,
+				BD2F5F4F84D361F9E1F8BBD39A9B3A7C /* IBMCurrentUser.h */,
+				66018ECBB9F899CFFFF159B6C7FE6625 /* IBMHttpError.h */,
+				368BE591937F6FEE870729F22B5188C7 /* IBMHttpRequest.h */,
+				0534107B5BDDFF3317705FA849C868D0 /* IBMHttpResponse.h */,
+				DD9FF49C3FF8B3FB607560E2836DFCB2 /* IBMLocationProvider.h */,
+				062BF28A257D3185279BC347096D6F46 /* IBMLogger.h */,
+				14DB6B86C5BD0AA95821897973C51F2F /* IBMMutableHttpRequest.h */,
+				0D493349D8C849619F6C74173C66F93C /* IBMMutableHttpRequest_Internal.h */,
+			);
+			path = IBMBluemix;
+			sourceTree = "<group>";
+		};
+		E9D916B20A0A6DB02CC940322CB37851 /* IBMData */ = {
+			isa = PBXGroup;
+			children = (
+				FD327A5FBB19AA61368880195F6FF99D /* IBMData.h */,
+				C906993479865123DA73BD2ACC64F322 /* IBMDataConstants.h */,
+				0ADD2E0010CDF32400168833C0F298D0 /* IBMDataObject.h */,
+				EDC533B4390AFA357BB4D212751146F3 /* IBMDataObject+Specialize.h */,
+				F68D0F40AA7A1094323B5EE61FE5411C /* IBMDataRelation.h */,
+				41C2CF215BEBC067D71F1F3526AE788C /* IBMGeometry.h */,
+				B9812A192289B91431D6B72E26AC0368 /* IBMLinearRing.h */,
+				EFD88A9F70397893A2B3FBF1B2A509E0 /* IBMLineString.h */,
+				0BA4D2AFD1C3B3B92A90591757E8E0E2 /* IBMPoint.h */,
+				FDDC4157EF78234EDA392B3968514125 /* IBMPolygon.h */,
+				781E158B93877F6E41D5D29CFC2491ED /* IBMPosition.h */,
+				18995A60FD203280871BF3FF284632C1 /* IBMQuery.h */,
+				1FE4E153A82FEFA7DC0AEE7DCA9CC1AA /* IBMUser.h */,
+			);
+			path = IBMData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
