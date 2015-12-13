@@ -60,6 +60,8 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
         transaction.amount = amount
         transaction.reason = description
         transaction.save()
+        to.score += amount
+        from.score -= amount
     }
     
     class func SaveFakeData()
@@ -80,7 +82,7 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
         self.CreateTransaction(fromUser, from: toUser, amount: 52.50, description: "Christmas Present")
         self.CreateTransaction(fromUser, from: toUser, amount: 8.00, description: "Registration Fee")
         self.CreateTransaction(fromUser, from: toUser, amount: 10.00, description: nil)
-        self.CreateTransaction(fromUser, from: toUser, amount: 5.00, description: "Coffee")
+        self.CreateTransaction(fromUser, from: toUser, amount: 2.00, description: "Coffee")
         
         
     }
