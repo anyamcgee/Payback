@@ -51,9 +51,10 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
             newGroup.name = nameTextField.text!
             newGroup.detail = descriptionTextField.text
             newGroup.icon = self.iconName
+            newGroup.author = CurrentUser.sharedInstance.currentUser!
             // newGroup.author = get the current user
             newGroup.save().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-                self.performSegueWithIdentifier("showAddUsers", sender: self)
+                self.performSegueWithIdentifier("showAddUsers", sender: newGroup)
                 return nil
             })
         }
@@ -63,6 +64,12 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
         if segue.identifier == "showSelectIcon" {
             if let vc = segue.destinationViewController as? AddIconViewController {
                 vc.addGroupVC = self
+            }
+        } else if segue.identifier == "showAddUsers" {
+            if let vc = segue.destinationViewController as? AddGroupUsersViewController {
+                if let group = sender as? Group {
+                    vc.group = group
+                }
             }
         }
     }

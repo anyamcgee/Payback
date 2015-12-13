@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = GOOGLE_CLIENT_ID
         GIDSignIn.sharedInstance().delegate = self
         
+        setApplicationStyles()
+        
         return true
     }
     
@@ -101,7 +103,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
             Group.registerSpecialization()
             User.registerSpecialization()
+            GroupUserInfo.registerSpecialization()
         })
+    }
+
+    func setApplicationStyles() {
+        UINavigationBar.appearance().barStyle = .Black
+        UINavigationBar.appearance().barTintColor = Style.dark
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().translucent = false
+        
+        UITableViewCell.appearance().backgroundColor = Style.dark
+        UITableView.appearance().backgroundColor = Style.dark
+        
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).tintColor = Style.mossGreen
+        
+        // Remove the lines between cells in tableview
+        UITableView.appearance().separatorStyle = .None
+        UITableView.appearance().tableFooterView = UIView()
+        UITableViewCell.appearance().selectionStyle = .None
+        
+        
     }
 
 

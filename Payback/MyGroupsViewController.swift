@@ -61,5 +61,18 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         return self.groups.count
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showGroupDetail", sender: indexPath)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showGroupDetail" {
+            if let destVC = segue.destinationViewController as? GroupDetailViewController {
+                if let indexPath  = sender as? NSIndexPath {
+                    destVC.group = self.groups[indexPath.row]
+                }
+            }
+        }
+    }
     
 }

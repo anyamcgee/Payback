@@ -13,17 +13,21 @@
 		5A3AB6AE1C1627A50030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		5A3AB6AF1C16288C0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		5A3AB6B01C16288D0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
+		5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */; };
 		C139F8281C1BF61000D4E015 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8271C1BF61000D4E015 /* Style.swift */; };
 		C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */; };
-		5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */; };
 		C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */; };
 		C15A20EE1C0A633900E818DA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20ED1C0A633900E818DA /* Group.swift */; };
 		C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20F01C0A635200E818DA /* GroupCell.swift */; };
 		C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */; };
 		C16A136C1C1CB7A20059F78B /* AddIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A136B1C1CB7A20059F78B /* AddIconViewController.swift */; };
 		C16A136E1C1CBB1C0059F78B /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A136D1C1CBB1C0059F78B /* IconCollectionViewCell.swift */; };
+		C16A13701C1CC3060059F78B /* GroupUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A136F1C1CC3060059F78B /* GroupUserInfo.swift */; };
+		C16A13721C1CC3E40059F78B /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A13711C1CC3E40059F78B /* GroupDetailViewController.swift */; };
+		C16A13741C1CC6BA0059F78B /* AddGroupUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A13731C1CC6BA0059F78B /* AddGroupUsersViewController.swift */; };
 		C189E55C1C06CF95004F4406 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */; };
 		C189E55D1C06CF95004F4406 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55B1C06CF95004F4406 /* libsqlite3.tbd */; };
+		C19485381C1CE80000556943 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19485371C1CE80000556943 /* UserTableViewCell.swift */; };
 		C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFA1BF3D860006797CC /* AppDelegate.swift */; };
 		C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFC1BF3D860006797CC /* ViewController.swift */; };
 		C1F470001BF3D860006797CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F46FFE1BF3D860006797CC /* Main.storyboard */; };
@@ -71,8 +75,12 @@
 		C165E3081C02CA1C00A3FF73 /* SecretKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretKeys.swift; sourceTree = "<group>"; };
 		C16A136B1C1CB7A20059F78B /* AddIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIconViewController.swift; sourceTree = "<group>"; };
 		C16A136D1C1CBB1C0059F78B /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
+		C16A136F1C1CC3060059F78B /* GroupUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUserInfo.swift; sourceTree = "<group>"; };
+		C16A13711C1CC3E40059F78B /* GroupDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		C16A13731C1CC6BA0059F78B /* AddGroupUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupUsersViewController.swift; sourceTree = "<group>"; };
 		C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C189E55B1C06CF95004F4406 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C19485371C1CE80000556943 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,9 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */,
+				C16A13731C1CC6BA0059F78B /* AddGroupUsersViewController.swift */,
+				C19485371C1CE80000556943 /* UserTableViewCell.swift */,
 				C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */,
 				C16A136B1C1CB7A20059F78B /* AddIconViewController.swift */,
 				C16A136D1C1CBB1C0059F78B /* IconCollectionViewCell.swift */,
+				C16A13711C1CC3E40059F78B /* GroupDetailViewController.swift */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C15A20ED1C0A633900E818DA /* Group.swift */,
+				C16A136F1C1CC3060059F78B /* GroupUserInfo.swift */,
 				5A3AB6A91C0A70A50030BCF1 /* User.swift */,
 				5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */,
 			);
@@ -463,10 +475,14 @@
 				C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
 				C16A136C1C1CB7A20059F78B /* AddIconViewController.swift in Sources */,
+				C16A13701C1CC3060059F78B /* GroupUserInfo.swift in Sources */,
 				C16A136E1C1CBB1C0059F78B /* IconCollectionViewCell.swift in Sources */,
 				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
 				5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */,
+				C19485381C1CE80000556943 /* UserTableViewCell.swift in Sources */,
+				C16A13741C1CC6BA0059F78B /* AddGroupUsersViewController.swift in Sources */,
+				C16A13721C1CC3E40059F78B /* GroupDetailViewController.swift in Sources */,
 				5A3AB6AC1C1622B50030BCF1 /* SignInViewController.swift in Sources */,
 				C15A20EE1C0A633900E818DA /* Group.swift in Sources */,
 				C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */,
