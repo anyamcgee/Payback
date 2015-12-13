@@ -72,7 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         CurrentUser.sharedInstance.currentUser = user;
                     }
                     return nil
-                    })
+                })
+                
                 // Redirect to somewhere??
                 let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainNavigation") as UIViewController
@@ -104,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             Group.registerSpecialization()
             User.registerSpecialization()
             GroupUserInfo.registerSpecialization()
+            Transaction.registerSpecialization()
         })
     }
 
