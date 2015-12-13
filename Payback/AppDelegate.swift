@@ -110,6 +110,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             UserGroupInfo.registerSpecialization()
             Transaction.registerSpecialization()
             GroupTransaction.registerSpecialization()
+            Friendship.registerSpecialization()
+            FriendRequest.registerSpecialization()
         })
     }
 
