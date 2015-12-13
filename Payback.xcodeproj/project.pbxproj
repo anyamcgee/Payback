@@ -14,6 +14,8 @@
 		5A3AB6AF1C16288C0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		5A3AB6B01C16288D0030BCF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */; };
 		5A4DF33E1C1CD24B00FD7845 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF33D1C1CD24B00FD7845 /* Transaction.swift */; };
+		5A4DF3411C1CEFE200FD7845 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF3401C1CEFE200FD7845 /* TransactionsViewController.swift */; };
+		5A4DF3431C1CF11A00FD7845 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF3421C1CF11A00FD7845 /* TransactionCell.swift */; };
 		5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */; };
 		C139F8281C1BF61000D4E015 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8271C1BF61000D4E015 /* Style.swift */; };
 		C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */; };
@@ -65,6 +67,8 @@
 		5A3AB6AB1C1622B50030BCF1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5A3AB6AD1C1627A50030BCF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A4DF33D1C1CD24B00FD7845 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		5A4DF3401C1CEFE200FD7845 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		5A4DF3421C1CF11A00FD7845 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +149,14 @@
 			name = Users;
 			sourceTree = "<group>";
 		};
+		5A4DF33F1C1CEF5800FD7845 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				5A4DF3401C1CEFE200FD7845 /* TransactionsViewController.swift */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
 		C139F8261C1BF5F500D4E015 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +194,7 @@
 		C15A20EA1C0A630F00E818DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A4DF33F1C1CEF5800FD7845 /* Users */,
 				C139F82B1C1C9E6B00D4E015 /* Groups */,
 			);
 			name = Controllers;
@@ -191,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				C15A20F01C0A635200E818DA /* GroupCell.swift */,
+				5A4DF3421C1CF11A00FD7845 /* TransactionCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -475,11 +489,13 @@
 			files = (
 				C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */,
 				5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */,
+				5A4DF3431C1CF11A00FD7845 /* TransactionCell.swift in Sources */,
 				C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
 				C16A136C1C1CB7A20059F78B /* AddIconViewController.swift in Sources */,
 				C16A13701C1CC3060059F78B /* GroupUserInfo.swift in Sources */,
 				C16A136E1C1CBB1C0059F78B /* IconCollectionViewCell.swift in Sources */,
+				5A4DF3411C1CEFE200FD7845 /* TransactionsViewController.swift in Sources */,
 				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
 				5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */,
