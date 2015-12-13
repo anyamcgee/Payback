@@ -20,6 +20,12 @@
 		5A4DF34B1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF34A1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift */; };
 		5A4DF34D1C1D514300FD7845 /* PayUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF34C1C1D514300FD7845 /* PayUserViewController.swift */; };
 		5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */; };
+		C12C8BE01C1DE6CE007A9F00 /* GroupTransaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C12C8BDF1C1DE6CE007A9F00 /* GroupTransaction.storyboard */; };
+		C12C8BE21C1DF146007A9F00 /* GroupTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C8BE11C1DF146007A9F00 /* GroupTransaction.swift */; };
+		C12C8BE51C1DF625007A9F00 /* SelectGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C8BE41C1DF625007A9F00 /* SelectGroupViewController.swift */; };
+		C12C8BE71C1DF93F007A9F00 /* AddGroupTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C8BE61C1DF93F007A9F00 /* AddGroupTransactionViewController.swift */; };
+		C12C8BE91C1E1C5F007A9F00 /* SneakyTableView2Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C8BE81C1E1C5F007A9F00 /* SneakyTableView2Delegate.swift */; };
+		C12C8BEB1C1E1D63007A9F00 /* GroupTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C8BEA1C1E1D63007A9F00 /* GroupTransactionTableViewCell.swift */; };
 		C139F8281C1BF61000D4E015 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8271C1BF61000D4E015 /* Style.swift */; };
 		C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */; };
 		C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */; };
@@ -79,6 +85,12 @@
 		5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C12C8BDF1C1DE6CE007A9F00 /* GroupTransaction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupTransaction.storyboard; sourceTree = "<group>"; };
+		C12C8BE11C1DF146007A9F00 /* GroupTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTransaction.swift; sourceTree = "<group>"; };
+		C12C8BE41C1DF625007A9F00 /* SelectGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGroupViewController.swift; sourceTree = "<group>"; };
+		C12C8BE61C1DF93F007A9F00 /* AddGroupTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupTransactionViewController.swift; sourceTree = "<group>"; };
+		C12C8BE81C1E1C5F007A9F00 /* SneakyTableView2Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SneakyTableView2Delegate.swift; sourceTree = "<group>"; };
+		C12C8BEA1C1E1D63007A9F00 /* GroupTransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTransactionTableViewCell.swift; sourceTree = "<group>"; };
 		C139F8271C1BF61000D4E015 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				5A4DF3451C1D4D2A00FD7845 /* Pay.storyboard */,
+				C12C8BDF1C1DE6CE007A9F00 /* GroupTransaction.storyboard */,
 			);
 			name = Pay;
 			sourceTree = "<group>";
@@ -176,10 +189,20 @@
 		5A4DF3471C1D4F7C00FD7845 /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				C12C8BE31C1DF600007A9F00 /* GroupPay */,
 				5A4DF34A1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift */,
 				5A4DF34C1C1D514300FD7845 /* PayUserViewController.swift */,
 			);
 			name = Pay;
+			sourceTree = "<group>";
+		};
+		C12C8BE31C1DF600007A9F00 /* GroupPay */ = {
+			isa = PBXGroup;
+			children = (
+				C12C8BE41C1DF625007A9F00 /* SelectGroupViewController.swift */,
+				C12C8BE61C1DF93F007A9F00 /* AddGroupTransactionViewController.swift */,
+			);
+			name = GroupPay;
 			sourceTree = "<group>";
 		};
 		C139F8261C1BF5F500D4E015 /* Utilities */ = {
@@ -195,12 +218,14 @@
 			children = (
 				C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */,
 				C1BC1A4C1C1D150900E9C744 /* UserInfoTableViewCell.swift */,
+				C12C8BEA1C1E1D63007A9F00 /* GroupTransactionTableViewCell.swift */,
 				C16A13731C1CC6BA0059F78B /* AddGroupUsersViewController.swift */,
 				C19485371C1CE80000556943 /* UserTableViewCell.swift */,
 				C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */,
 				C16A136B1C1CB7A20059F78B /* AddIconViewController.swift */,
 				C16A136D1C1CBB1C0059F78B /* IconCollectionViewCell.swift */,
 				C16A13711C1CC3E40059F78B /* GroupDetailViewController.swift */,
+				C12C8BE81C1E1C5F007A9F00 /* SneakyTableView2Delegate.swift */,
 			);
 			name = Groups;
 			sourceTree = "<group>";
@@ -213,6 +238,7 @@
 				5A3AB6A91C0A70A50030BCF1 /* User.swift */,
 				5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */,
 				5A4DF33D1C1CD24B00FD7845 /* Transaction.swift */,
+				C12C8BE11C1DF146007A9F00 /* GroupTransaction.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -440,6 +466,7 @@
 				C1F470081BF3D860006797CC /* LaunchScreen.storyboard in Resources */,
 				C1F470051BF3D860006797CC /* Assets.xcassets in Resources */,
 				C1F470001BF3D860006797CC /* Main.storyboard in Resources */,
+				C12C8BE01C1DE6CE007A9F00 /* GroupTransaction.storyboard in Resources */,
 				5A4DF3461C1D4D2B00FD7845 /* Pay.storyboard in Resources */,
 				5A3AB6AE1C1627A50030BCF1 /* GoogleService-Info.plist in Resources */,
 			);
@@ -516,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C12C8BE21C1DF146007A9F00 /* GroupTransaction.swift in Sources */,
 				C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */,
 				5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */,
 				5A4DF34B1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift in Sources */,
@@ -523,16 +551,19 @@
 				C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
 				C16A136C1C1CB7A20059F78B /* AddIconViewController.swift in Sources */,
+				C12C8BE91C1E1C5F007A9F00 /* SneakyTableView2Delegate.swift in Sources */,
 				C16A13701C1CC3060059F78B /* GroupUserInfo.swift in Sources */,
 				C16A136E1C1CBB1C0059F78B /* IconCollectionViewCell.swift in Sources */,
 				5A4DF3411C1CEFE200FD7845 /* TransactionsViewController.swift in Sources */,
 				C165E3091C02CA1C00A3FF73 /* SecretKeys.swift in Sources */,
+				C12C8BE71C1DF93F007A9F00 /* AddGroupTransactionViewController.swift in Sources */,
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
 				5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */,
 				C19485381C1CE80000556943 /* UserTableViewCell.swift in Sources */,
 				5A4DF34D1C1D514300FD7845 /* PayUserViewController.swift in Sources */,
 				C16A13741C1CC6BA0059F78B /* AddGroupUsersViewController.swift in Sources */,
 				C16A13721C1CC3E40059F78B /* GroupDetailViewController.swift in Sources */,
+				C12C8BE51C1DF625007A9F00 /* SelectGroupViewController.swift in Sources */,
 				5A3AB6AC1C1622B50030BCF1 /* SignInViewController.swift in Sources */,
 				C15A20EE1C0A633900E818DA /* Group.swift in Sources */,
 				C1BC1A4D1C1D150900E9C744 /* UserInfoTableViewCell.swift in Sources */,
@@ -540,6 +571,7 @@
 				C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */,
 				C139F8281C1BF61000D4E015 /* Style.swift in Sources */,
 				5A4DF33E1C1CD24B00FD7845 /* Transaction.swift in Sources */,
+				C12C8BEB1C1E1D63007A9F00 /* GroupTransactionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

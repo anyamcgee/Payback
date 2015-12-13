@@ -50,6 +50,9 @@
                                 <state key="normal" title="Pay a Group">
                                     <color key="titleColor" red="0.16777395780000001" green="0.20091656660000001" blue="0.24333175509999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="xlh-QW-0jD" kind="show" id="9Dp-c2-i5l"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -73,6 +76,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxE-oW-YCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="221" y="39"/>
+        </scene>
+        <!--GroupTransaction-->
+        <scene sceneID="VeP-CG-RRz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GroupTransaction" id="xlh-QW-0jD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6aL-FN-htp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294.5" y="550"/>
         </scene>
         <!--Pay User View Controller-->
         <scene sceneID="2ih-4D-pmd">

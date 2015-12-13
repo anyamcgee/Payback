@@ -16,12 +16,16 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var sneakyTableView: UITableView!
+    
+    var sneakyDelegate: SneakyTableView2Delegate?
     
     var group: Group?
     
     var userInfo: [UserGroupInfo]? = [UserGroupInfo]()
     
-    
+    var didAddTransaction: GroupTransaction?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         
         if let group = self.group {
+            let otherDelegate = SneakyTableView2Delegate(tableView: sneakyTableView, group: group)
+            self.sneakyDelegate = otherDelegate
             
             if let iconName = group.icon {
                 self.iconImageView.image = UIImage(named: iconName)
@@ -49,11 +55,25 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                 if let result = task.result() as? [UserGroupInfo] {
                     self.userInfo = result
+                    if self.didAddTransaction != nil {
+                        Group.recalculateBalances(result, transaction: self.didAddTransaction!)
+                    }
                 }
                 self.tableView.reloadData()
                 return nil
             })
         
+        }
+    }
+    
+    @IBAction func segmentedControlDidChange(sender: AnyObject) {
+        if self.segmentedControl.selectedSegmentIndex == 0 {
+            self.sneakyTableView.hidden = true
+            self.tableView.hidden = false
+        } else {
+            self.sneakyTableView.hidden = false
+            self.tableView.hidden = true
+            self.sneakyTableView.reloadData()
         }
     }
     

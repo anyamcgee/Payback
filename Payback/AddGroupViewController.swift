@@ -19,20 +19,14 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
         super.viewDidLoad()
         self.navigationItem.title = "Create a New Group"
         
-        self.iconImageView.layer.borderColor = Style.lightGreen.CGColor
+        self.iconImageView.layer.borderColor = Style.mossGreen.CGColor
         self.iconImageView.layer.borderWidth = 1.0
-        self.iconImageView.layer.cornerRadius = 5.0
-        self.iconImageView.layer.masksToBounds = true
         
-        self.descriptionTextField.layer.borderColor = Style.lightGreen.CGColor
+        self.descriptionTextField.layer.borderColor = Style.mossGreen.CGColor
         self.descriptionTextField.layer.borderWidth = 1.0
-        self.descriptionTextField.layer.cornerRadius = 5.0
-        self.descriptionTextField.layer.masksToBounds = true
         
-        self.nameTextField.layer.borderColor = Style.lightGreen.CGColor
+        self.nameTextField.layer.borderColor = Style.mossGreen.CGColor
         self.nameTextField.layer.borderWidth = 1.0
-        self.nameTextField.layer.cornerRadius = 5.0
-        self.nameTextField.layer.masksToBounds = true
         let str = NSAttributedString(string: "Group Name", attributes: [NSForegroundColorAttributeName:Style.lightGreen])
         self.nameTextField.attributedPlaceholder = str
         

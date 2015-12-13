@@ -45,6 +45,30 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
         return "Group"
     }
     
+    class func recalculateBalances(users: [UserGroupInfo], transaction: GroupTransaction) {
+        let newAmount = transaction.amount
+        if newAmount < 0 {
+            for userInfo in users {
+                userInfo.balance += newAmount / Float(users.count)
+                if userInfo.user.email.isEqual(transaction.user.email) {
+                    userInfo.balance -= newAmount
+                }
+            }
+        } else if newAmount > 0 {
+            for userInfo in users {
+                if userInfo.user.email.isEqual(transaction.user.email) {
+                    userInfo.balance += newAmount
+                }
+            }
+        }
+        for user in users {
+            user.save().continueWithBlock({(task: BFTask!) -> BFTask! in
+                print("saved a user")
+                return nil
+            })
+        }
+    }
+    
     class func saveATestObject() {
         var newGroup = Group()
         newGroup.name = "Fidel's Hideaway"

@@ -1,24 +1,28 @@
 //
-//  MyGroupsViewController.swift
+//  SelectGroupViewController.swift
 //  Payback
 //
-//  Created by Anya McGee on 2015-11-25.
+//  Created by Anya McGee on 2015-12-13.
 //  Copyright © 2015 Stacks of Cache. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class SelectGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     var groups: [Group] = [Group]()
+    var infos: [UserGroupInfo] = [UserGroupInfo]()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var tableView: UITableView!
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.navigationItem.title = "Select a Group"
         
         setUpActivityIndicator()
         
@@ -31,8 +35,9 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
                 for result in results {
                     dispatch_group_enter(fetchedAll)
                     result.group.fetchIfNecessary().continueWithBlock({(task: BFTask!) -> BFTask! in
-                        if let result = task.result() as? Group {
-                            self.groups.append(result)
+                        if let group = task.result() as? Group {
+                            self.groups.append(group)
+                            self.infos.append(result)
                         }
                         dispatch_group_leave(fetchedAll)
                         return nil
@@ -67,7 +72,6 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
                 
             } else {
                 let cell = GroupCell()
-                cell.group = self.groups[indexPath.row]
                 
                 return cell
             }
@@ -81,17 +85,18 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showGroupDetail", sender: indexPath)
+        self.performSegueWithIdentifier("showAddTransaction", sender: indexPath)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showGroupDetail" {
-            if let destVC = segue.destinationViewController as? GroupDetailViewController {
+        if segue.identifier == "showAddTransaction" {
+            if let destVC = segue.destinationViewController as? AddGroupTransactionViewController {
                 if let indexPath  = sender as? NSIndexPath {
                     destVC.group = self.groups[indexPath.row]
+                    destVC.userInfo = self.infos[indexPath.row]
                 }
             }
         }
     }
-    
+
 }
