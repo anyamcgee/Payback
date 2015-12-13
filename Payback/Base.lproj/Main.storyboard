@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1E5-Cp-opc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1E5-Cp-opc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -45,27 +45,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="15091442558_d0177211df_o" translatesAutoresizingMaskIntoConstraints="NO" id="1Zu-Ga-muY">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountains" translatesAutoresizingMaskIntoConstraints="NO" id="1Zu-Ga-muY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PAYBACK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfJ-oP-fGe">
-                                <rect key="frame" x="193" y="86" width="215" height="96"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <color key="textColor" red="0.84092184520000002" green="1" blue="0.68921216399999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.0" green="0.67671535329999999" blue="0.010869814029999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="shadowColor" red="0.16777395780000001" green="0.20091656660000001" blue="0.24333175509999999" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hj4-BH-fj1" customClass="GIDSignInButton">
                                 <rect key="frame" x="180" y="256" width="240" height="87"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="87" id="0To-af-kFS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="7Hh-rD-quR"/>
                                     <constraint firstAttribute="width" constant="240" id="Jfb-rP-9w0"/>
                                     <constraint firstAttribute="height" constant="87" id="oly-Ba-Sz9"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="wfc-83-ps5">
+                                <rect key="frame" x="260" y="106" width="81" height="120"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="URT-V4-Ahm"/>
+                                    <constraint firstAttribute="height" constant="200" id="W6D-hL-VxX"/>
+                                    <constraint firstAttribute="height" constant="120" id="e4A-3b-shN"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="W6D-hL-VxX"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
+                        <animations/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Zu-Ga-muY" secondAttribute="trailing" constant="-20" id="4YS-eQ-O4P"/>
+                            <constraint firstItem="1Zu-Ga-muY" firstAttribute="top" secondItem="2oa-Eb-5dC" secondAttribute="bottom" constant="-20" id="BOM-ux-0da"/>
+                            <constraint firstItem="hj4-BH-fj1" firstAttribute="top" secondItem="wfc-83-ps5" secondAttribute="bottom" constant="30" id="CtF-FU-A4h"/>
+                            <constraint firstItem="aB3-Sh-Jqq" firstAttribute="top" secondItem="1Zu-Ga-muY" secondAttribute="bottom" id="FCE-8K-IRA"/>
                             <constraint firstItem="hj4-BH-fj1" firstAttribute="centerY" secondItem="WkS-nw-2Ki" secondAttribute="centerY" id="dCJ-TI-1vR"/>
+                            <constraint firstItem="1Zu-Ga-muY" firstAttribute="leading" secondItem="WkS-nw-2Ki" secondAttribute="leadingMargin" constant="-20" id="gCw-0L-mSl"/>
+                            <constraint firstItem="wfc-83-ps5" firstAttribute="centerX" secondItem="hj4-BH-fj1" secondAttribute="centerX" id="t9c-ei-pnM"/>
                             <constraint firstItem="hj4-BH-fj1" firstAttribute="centerX" secondItem="WkS-nw-2Ki" secondAttribute="centerX" id="tRf-hd-6za"/>
                         </constraints>
                     </view>
@@ -196,7 +214,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="15091442558_d0177211df_o" width="4928" height="3264"/>
-        <image name="profile_icon" width="88" height="83"/>
+        <image name="icon_transparent" width="285" height="378"/>
+        <image name="mountains" width="1080" height="1920"/>
+        <image name="profile_icon" width="128" height="128"/>
     </resources>
 </document>
