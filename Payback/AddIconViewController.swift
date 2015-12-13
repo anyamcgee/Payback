@@ -31,7 +31,7 @@ class AddIconViewController: UIViewController, UICollectionViewDelegateFlowLayou
         }
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if let vc = self.addGroupVC {
             if let icon = (collectionView.cellForItemAtIndexPath(indexPath) as? IconCollectionViewCell)?.iconImage.image {
                 vc.iconImageView.image = icon

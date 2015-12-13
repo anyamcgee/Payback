@@ -31,6 +31,7 @@
 		C189E55C1C06CF95004F4406 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */; };
 		C189E55D1C06CF95004F4406 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C189E55B1C06CF95004F4406 /* libsqlite3.tbd */; };
 		C19485381C1CE80000556943 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19485371C1CE80000556943 /* UserTableViewCell.swift */; };
+		C1BC1A4D1C1D150900E9C744 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC1A4C1C1D150900E9C744 /* UserInfoTableViewCell.swift */; };
 		C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFA1BF3D860006797CC /* AppDelegate.swift */; };
 		C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F46FFC1BF3D860006797CC /* ViewController.swift */; };
 		C1F470001BF3D860006797CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1F46FFE1BF3D860006797CC /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		C189E55A1C06CF95004F4406 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C189E55B1C06CF95004F4406 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C19485371C1CE80000556943 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		C1BC1A4C1C1D150900E9C744 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C1F46FF71BF3D860006797CC /* Payback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1F46FFA1BF3D860006797CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1F46FFC1BF3D860006797CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				C15A20EB1C0A632400E818DA /* MyGroupsViewController.swift */,
+				C1BC1A4C1C1D150900E9C744 /* UserInfoTableViewCell.swift */,
 				C16A13731C1CC6BA0059F78B /* AddGroupUsersViewController.swift */,
 				C19485371C1CE80000556943 /* UserTableViewCell.swift */,
 				C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */,
@@ -504,6 +507,7 @@
 				C16A13721C1CC3E40059F78B /* GroupDetailViewController.swift in Sources */,
 				5A3AB6AC1C1622B50030BCF1 /* SignInViewController.swift in Sources */,
 				C15A20EE1C0A633900E818DA /* Group.swift in Sources */,
+				C1BC1A4D1C1D150900E9C744 /* UserInfoTableViewCell.swift in Sources */,
 				C1F46FFB1BF3D860006797CC /* AppDelegate.swift in Sources */,
 				C15A20EC1C0A632400E818DA /* MyGroupsViewController.swift in Sources */,
 				C139F8281C1BF61000D4E015 /* Style.swift in Sources */,

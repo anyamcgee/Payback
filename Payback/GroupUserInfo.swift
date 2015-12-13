@@ -9,10 +9,11 @@
 import UIKit
 
 /// A join table-like object that associates a user with a group, and stores the balance of that user in the group
-class GroupUserInfo:  IBMDataObject, IBMDataObjectSpecialization  {
+class UserGroupInfo:  IBMDataObject, IBMDataObjectSpecialization  {
     
     @NSManaged var group: Group
     @NSManaged var user: User
+    @NSManaged var username: String?
     @NSManaged var balance: Float
     
     // MARK:- Setup
@@ -22,12 +23,12 @@ class GroupUserInfo:  IBMDataObject, IBMDataObjectSpecialization  {
     }
     
     override init!(withClass classname: String!) {
-        super.init(withClass:"GroupUserInfo")
+        super.init(withClass:"UserGroupInfo")
     }
     
     /// Required IBMData subclassing, returns a string corresponding to the name of the table in the database
     class func dataClassName() -> String {
-        return "GroupUserInfo"
+        return "UserGroupInfo"
     }
     
 }

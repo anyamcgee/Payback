@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             IBMBluemix.initializeWithApplicationId(APPLICATION_ID, andApplicationSecret: APPLICATION_SECRET, andApplicationRoute: APPLICATION_ROUTE)
             Group.registerSpecialization()
             User.registerSpecialization()
-            GroupUserInfo.registerSpecialization()
+            UserGroupInfo.registerSpecialization()
             Transaction.registerSpecialization()
         })
     }

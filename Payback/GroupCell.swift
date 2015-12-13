@@ -31,6 +31,11 @@ class GroupCell: UITableViewCell {
             }
             self.nameLabel.text = group.name
             self.balanceLabel.text = "\(group.balance)"
+            if group.balance < 0 {
+                self.balanceLabel.textColor = Style.red
+            } else {
+                self.balanceLabel.textColor = Style.mediumGreen
+            }
         }
     }
 

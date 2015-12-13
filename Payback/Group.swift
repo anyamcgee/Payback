@@ -18,8 +18,6 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
     /// A more detailed description of the group
     @NSManaged var detail: String
     
-    /// An array containing references to all users that are group members
-    @NSManaged var users: [User]
     @NSManaged var author: User
     
     /// Just the name of a local icon I think is easiest (Let's not save files to IBM)
@@ -30,9 +28,7 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
     // MARK:- Computed Properties
     
     // TODO: After balances are loaded, change this to compute overall group balance
-    var balance: Int {
-        return 10
-    }
+    @NSManaged var balance: Float
     
     // MARK:- Setup
     

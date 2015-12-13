@@ -19,6 +19,23 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
         super.viewDidLoad()
         self.navigationItem.title = "Create a New Group"
         
+        self.iconImageView.layer.borderColor = Style.lightGreen.CGColor
+        self.iconImageView.layer.borderWidth = 1.0
+        self.iconImageView.layer.cornerRadius = 5.0
+        self.iconImageView.layer.masksToBounds = true
+        
+        self.descriptionTextField.layer.borderColor = Style.lightGreen.CGColor
+        self.descriptionTextField.layer.borderWidth = 1.0
+        self.descriptionTextField.layer.cornerRadius = 5.0
+        self.descriptionTextField.layer.masksToBounds = true
+        
+        self.nameTextField.layer.borderColor = Style.lightGreen.CGColor
+        self.nameTextField.layer.borderWidth = 1.0
+        self.nameTextField.layer.cornerRadius = 5.0
+        self.nameTextField.layer.masksToBounds = true
+        let str = NSAttributedString(string: "Group Name", attributes: [NSForegroundColorAttributeName:Style.lightGreen])
+        self.nameTextField.attributedPlaceholder = str
+        
         self.descriptionTextField.delegate = self
         self.nameTextField.delegate = self
         self.descriptionTextField.returnKeyType = UIReturnKeyType.Done
@@ -49,12 +66,22 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
         } else {
             let newGroup = Group()
             newGroup.name = nameTextField.text!
+            newGroup.balance = 0
             newGroup.detail = descriptionTextField.text
             newGroup.icon = self.iconName
             newGroup.author = CurrentUser.sharedInstance.currentUser!
-            // newGroup.author = get the current user
             newGroup.save().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                 self.performSegueWithIdentifier("showAddUsers", sender: newGroup)
+                return nil
+            })
+            
+            let info = UserGroupInfo()
+            info.group = newGroup
+            info.user = newGroup.author
+            info.username = newGroup.author.name
+            info.balance = 0
+            info.save().continueWithBlock({(task: BFTask!) -> BFTask! in
+                print("Successfully added author as group member")
                 return nil
             })
         }
