@@ -23,12 +23,27 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
         
         let newQuery: IBMQuery = IBMQuery(forClass: "Transaction")
         let user = CurrentUser.sharedInstance.currentUser!
-        newQuery.whereKey("toEmail", equalTo: user.email)
-        newQuery.whereKey("fromEmail", equalTo: user.email)
+        newQuery.whereKey("toUserEmail", equalTo: user.email)
         newQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let result = task.result() as? [Transaction] {
                 self.transactions = result
             }
+            return nil
+        })
+        let fromQuery: IBMQuery = IBMQuery(forClass: "Transaction")
+        fromQuery.whereKey("fromUserEmail", equalTo: user.email)
+        fromQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if let result = task.result() as? [Transaction] {
+                self.transactions.appendContentsOf(result)
+            }
+            self.transactions.sortInPlace({(first: Transaction, second: Transaction) -> Bool in
+                if (first.createdAt.timeIntervalSince1970 > second.createdAt.timeIntervalSince1970) {
+                    return true
+                }
+                else {
+                    return false
+                }
+            })
             self.tableView.reloadData()
             return nil
         })

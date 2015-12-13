@@ -54,7 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 let idToken = user.authentication.idToken // Safe to send to the server
                 let name = user.profile.name
                 let email = user.profile.email
-                // ...
                 
                 let query: IBMQuery = IBMQuery(forClass: "User")
                 query.whereKey("email", equalTo: email)
@@ -62,24 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     let result = task.result() as? [User]
                     if (result?.count > 0) {
                         CurrentUser.sharedInstance.currentUser = result![0];
+                        Transaction.SaveFakeData()
                     }
                     else {
                         let user = User()
                         user.name = name
                         user.email = email
                         user.id = userId
+                        user.score = 0.0
                         user.save()
                         CurrentUser.sharedInstance.currentUser = user;
                     }
+                    // Segue to Home
+                    self.segueToHomeScreen()
                     return nil
                 })
-                
-                // Redirect to somewhere??
-                let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainNavigation") as UIViewController
-                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                self.window?.rootViewController = initialViewController
-                self.window?.makeKeyAndVisible()
                 
             } else {
                 print("\(error.localizedDescription)")
@@ -87,6 +83,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
 
+    func segueToHomeScreen() {
+        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainNavigation") as UIViewController
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+    }
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
         withError error: NSError!) {

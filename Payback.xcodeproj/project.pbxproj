@@ -16,6 +16,9 @@
 		5A4DF33E1C1CD24B00FD7845 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF33D1C1CD24B00FD7845 /* Transaction.swift */; };
 		5A4DF3411C1CEFE200FD7845 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF3401C1CEFE200FD7845 /* TransactionsViewController.swift */; };
 		5A4DF3431C1CF11A00FD7845 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF3421C1CF11A00FD7845 /* TransactionCell.swift */; };
+		5A4DF3461C1D4D2B00FD7845 /* Pay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4DF3451C1D4D2A00FD7845 /* Pay.storyboard */; };
+		5A4DF34B1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF34A1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift */; };
+		5A4DF34D1C1D514300FD7845 /* PayUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DF34C1C1D514300FD7845 /* PayUserViewController.swift */; };
 		5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */; };
 		C139F8281C1BF61000D4E015 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8271C1BF61000D4E015 /* Style.swift */; };
 		C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C139F8291C1C9E6300D4E015 /* AddGroupViewController.swift */; };
@@ -70,6 +73,9 @@
 		5A4DF33D1C1CD24B00FD7845 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		5A4DF3401C1CEFE200FD7845 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		5A4DF3421C1CF11A00FD7845 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		5A4DF3451C1D4D2A00FD7845 /* Pay.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pay.storyboard; sourceTree = "<group>"; };
+		5A4DF34A1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayChoiceScreenViewController.swift; sourceTree = "<group>"; };
+		5A4DF34C1C1D514300FD7845 /* PayUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayUserViewController.swift; sourceTree = "<group>"; };
 		5AD58E821C1CC91A00AFBED2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		72D0F9BA4D3DE977C7E6D511 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD31ED1BA2B7E212776ABE4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +165,23 @@
 			name = Users;
 			sourceTree = "<group>";
 		};
+		5A4DF3441C1D4D1500FD7845 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				5A4DF3451C1D4D2A00FD7845 /* Pay.storyboard */,
+			);
+			name = Pay;
+			sourceTree = "<group>";
+		};
+		5A4DF3471C1D4F7C00FD7845 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				5A4DF34A1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift */,
+				5A4DF34C1C1D514300FD7845 /* PayUserViewController.swift */,
+			);
+			name = Pay;
+			sourceTree = "<group>";
+		};
 		C139F8261C1BF5F500D4E015 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +220,7 @@
 		C15A20EA1C0A630F00E818DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A4DF3471C1D4F7C00FD7845 /* Pay */,
 				5A4DF33F1C1CEF5800FD7845 /* Users */,
 				C139F82B1C1C9E6B00D4E015 /* Groups */,
 			);
@@ -276,6 +300,7 @@
 		C1F4702B1BF4301E006797CC /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				5A4DF3441C1D4D1500FD7845 /* Pay */,
 				5A1F4E1A1C0A5379004BCC08 /* Users */,
 				C1F4702C1BF444CD006797CC /* Groups */,
 				C1F46FFE1BF3D860006797CC /* Main.storyboard */,
@@ -415,6 +440,7 @@
 				C1F470081BF3D860006797CC /* LaunchScreen.storyboard in Resources */,
 				C1F470051BF3D860006797CC /* Assets.xcassets in Resources */,
 				C1F470001BF3D860006797CC /* Main.storyboard in Resources */,
+				5A4DF3461C1D4D2B00FD7845 /* Pay.storyboard in Resources */,
 				5A3AB6AE1C1627A50030BCF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +518,7 @@
 			files = (
 				C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */,
 				5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */,
+				5A4DF34B1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift in Sources */,
 				5A4DF3431C1CF11A00FD7845 /* TransactionCell.swift in Sources */,
 				C15A20F11C0A635200E818DA /* GroupCell.swift in Sources */,
 				C1F470031BF3D860006797CC /* Payback.xcdatamodeld in Sources */,
@@ -503,6 +530,7 @@
 				C1F46FFD1BF3D860006797CC /* ViewController.swift in Sources */,
 				5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */,
 				C19485381C1CE80000556943 /* UserTableViewCell.swift in Sources */,
+				5A4DF34D1C1D514300FD7845 /* PayUserViewController.swift in Sources */,
 				C16A13741C1CC6BA0059F78B /* AddGroupUsersViewController.swift in Sources */,
 				C16A13721C1CC3E40059F78B /* GroupDetailViewController.swift in Sources */,
 				5A3AB6AC1C1622B50030BCF1 /* SignInViewController.swift in Sources */,

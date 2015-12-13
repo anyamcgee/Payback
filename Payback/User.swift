@@ -18,11 +18,11 @@ class User: IBMUser {
     // Username chosen by user
     @NSManaged var name: String
     
-    // image chosen by user
-    @NSManaged var photo: UIImage?
-    
     // email set by Google Sign In
     @NSManaged var email: String
+    
+    // Overall user score of money owed versus owing
+    @NSManaged var score: Float
     
     // MARK:- Setup
     required override init() {
@@ -38,13 +38,6 @@ class User: IBMUser {
         return "User"
     }
 
-    
-    // TODO: Figure out where we store recent/all transactions. Endless scroll on transactions page?
-    
-    // TODO: Compute score based on owed and owing
-    var score: Float {
-        return 0.0
-    }
     
     // TODO: Get all owed money and combine
     private var owed: Float {
