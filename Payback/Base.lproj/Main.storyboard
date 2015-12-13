@@ -182,6 +182,9 @@
                                 <state key="normal" title="Payback">
                                     <color key="titleColor" red="0.2274509804" green="0.2156862745" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Sc2-bH-Klf" kind="show" id="pOK-dJ-4rj"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icon_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="VaY-My-ft7">
                                 <rect key="frame" x="60" y="144" width="88" height="88"/>
@@ -239,6 +242,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTx-Bn-fMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="674" y="455"/>
+        </scene>
+        <!--Pay-->
+        <scene sceneID="eGu-EP-AwE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Pay" id="Sc2-bH-Klf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ucT-4g-Hv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="764"/>
         </scene>
     </scenes>
     <resources>

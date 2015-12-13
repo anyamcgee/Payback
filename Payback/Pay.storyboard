@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TOZ-T0-AtS">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pay Choice Screen View Controller-->
+        <scene sceneID="TuB-TO-OvT">
+            <objects>
+                <viewController id="TOZ-T0-AtS" customClass="PayChoiceScreenViewController" customModule="Payback" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="waq-72-sDI"/>
+                        <viewControllerLayoutGuide type="bottom" id="K9m-4m-XH7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ld9-xg-vu9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="mountains" translatesAutoresizingMaskIntoConstraints="NO" id="04P-1U-igU">
+                                <rect key="frame" x="32" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mup-9w-PV4">
+                                <rect key="frame" x="117" y="28" width="343" height="198"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.83529411760000005" blue="0.56862745100000001" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="YXA-gD-bVg"/>
+                                    <constraint firstAttribute="width" constant="343" id="kjs-FD-ggm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Pay a User">
+                                    <color key="titleColor" red="0.33725490200000002" green="0.32549019610000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LOU-h0-RYC" kind="show" id="zac-SF-Ioa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUv-ye-WzG">
+                                <rect key="frame" x="117" y="250" width="319" height="141"/>
+                                <color key="backgroundColor" red="0.67843137249999996" green="0.2274509804" blue="0.086274509799999996" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="4TD-ul-o0b"/>
+                                    <constraint firstAttribute="height" constant="198" id="H8E-Dh-Qsm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Pay a Group">
+                                    <color key="titleColor" red="0.16777395780000001" green="0.20091656660000001" blue="0.24333175509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="04P-1U-igU" firstAttribute="leading" secondItem="Ld9-xg-vu9" secondAttribute="leadingMargin" constant="-20" id="BMi-pJ-CeX"/>
+                            <constraint firstItem="K9m-4m-XH7" firstAttribute="top" secondItem="04P-1U-igU" secondAttribute="bottom" id="Bye-o7-x5B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="04P-1U-igU" secondAttribute="trailing" constant="-20" id="QMl-kv-axc"/>
+                            <constraint firstItem="RUv-ye-WzG" firstAttribute="centerY" secondItem="Ld9-xg-vu9" secondAttribute="centerY" constant="140" id="QPS-kW-1jZ"/>
+                            <constraint firstItem="mup-9w-PV4" firstAttribute="centerX" secondItem="Ld9-xg-vu9" secondAttribute="centerX" id="Sgz-y8-UVN"/>
+                            <constraint firstItem="RUv-ye-WzG" firstAttribute="centerX" secondItem="Ld9-xg-vu9" secondAttribute="centerX" id="eq6-IF-BWE"/>
+                            <constraint firstItem="mup-9w-PV4" firstAttribute="centerY" secondItem="Ld9-xg-vu9" secondAttribute="centerY" constant="-140" id="gqG-z3-prd"/>
+                            <constraint firstItem="04P-1U-igU" firstAttribute="top" secondItem="Ld9-xg-vu9" secondAttribute="topMargin" id="o4V-Ey-Mgr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="payGroupButton" destination="RUv-ye-WzG" id="aqa-Nh-SRn"/>
+                        <outlet property="payUserButton" destination="mup-9w-PV4" id="16T-PF-Zq1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zxE-oW-YCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221" y="39"/>
+        </scene>
+        <!--Pay User View Controller-->
+        <scene sceneID="2ih-4D-pmd">
+            <objects>
+                <viewController id="LOU-h0-RYC" customClass="PayUserViewController" customModule="Payback" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZQU-E5-wTP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uvl-RV-fwD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Icm-Oi-sdF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="xaB-xy-Cnj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OvS-9S-cUZ"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.56470588239999997" green="0.61568627450000002" blue="0.5450980392" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aRZ-Pw-D0F">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aqC-8X-Oxx">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aqC-8X-Oxx" id="w8C-N3-g3r">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1C-Y8-b2z">
+                                                    <rect key="frame" x="8" y="11" width="80" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0I-bG-K3V">
+                                                    <rect key="frame" x="546" y="5" width="46" height="30"/>
+                                                    <state key="normal" title="Pay">
+                                                        <color key="titleColor" red="0.67843137249999996" green="0.2274509804" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="aeG-gM-ucO" kind="show" id="CAM-uo-9if"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="P1C-Y8-b2z" firstAttribute="leading" secondItem="w8C-N3-g3r" secondAttribute="leadingMargin" id="MHV-tZ-e88"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aRZ-Pw-D0F" firstAttribute="top" secondItem="xaB-xy-Cnj" secondAttribute="bottom" id="3qs-Zs-ssu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aRZ-Pw-D0F" secondAttribute="trailing" constant="-20" id="4ex-cx-he8"/>
+                            <constraint firstItem="xaB-xy-Cnj" firstAttribute="leading" secondItem="Icm-Oi-sdF" secondAttribute="leadingMargin" constant="-20" id="Gir-Wf-zWF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xaB-xy-Cnj" secondAttribute="trailing" constant="-20" id="Oc7-c1-Xg9"/>
+                            <constraint firstItem="aRZ-Pw-D0F" firstAttribute="leading" secondItem="Icm-Oi-sdF" secondAttribute="leadingMargin" constant="-20" id="Qag-4E-NsT"/>
+                            <constraint firstItem="xaB-xy-Cnj" firstAttribute="top" secondItem="Icm-Oi-sdF" secondAttribute="topMargin" id="RXl-2n-BE7"/>
+                            <constraint firstItem="Uvl-RV-fwD" firstAttribute="top" secondItem="aRZ-Pw-D0F" secondAttribute="bottom" id="qzM-MW-EGV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3i-m5-yie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1037" y="39"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ceq-7q-uew">
+            <objects>
+                <viewController id="aeG-gM-ucO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PGx-CZ-1cN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ypp-cL-D52"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kDr-LZ-mXj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-Xy-1xb">
+                                <rect key="frame" x="158" y="164" width="279" height="30"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.33725490200000002" green="0.32549019610000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mup-aj-6GR">
+                                <rect key="frame" x="274" y="306" width="46" height="30"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmH-Cz-sbI">
+                                <rect key="frame" x="178" y="402" width="241" height="30"/>
+                                <state key="normal" title="Pay with Apple Pay"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOE-yb-Rmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781" y="48"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mountains" width="1080" height="1920"/>
+    </resources>
+</document>
