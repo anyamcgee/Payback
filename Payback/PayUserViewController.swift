@@ -28,11 +28,11 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
-                /*for result in results {
+                for result in results {
                     if (result.firstUserScore >= 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
-                }*/
+                }
                 self.friendData = results
             }
             dispatch_group_leave(queryUserGroup)
@@ -44,11 +44,51 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
                 for result in results {
-                    /*if (result.firstUserScore >= 0) {
+                    if (result.firstUserScore >= 0) {
                         results.removeAtIndex(results.indexOf(result)!)
-                    }*/
+                    }
                 }
-
+                self.friendData?.appendContentsOf(results)
+            }
+            dispatch_group_leave(queryUserGroup)
+            return nil;
+        })
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(queryUserGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+        })
+    }
+    
+    func refreshTableData() {
+        let queryUserGroup = dispatch_group_create()
+        
+        dispatch_group_enter(queryUserGroup)
+        let query: IBMQuery = IBMQuery(forClass: "Friendship")
+        query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
+        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if var results = task.result() as? [Friendship] {
+                for result in results {
+                    if (result.firstUserScore >= 0) {
+                        results.removeAtIndex(results.indexOf(result)!)
+                    }
+                }
+                self.friendData = results
+            }
+            dispatch_group_leave(queryUserGroup)
+            return nil;
+        })
+        dispatch_group_enter(queryUserGroup)
+        let secondQuery: IBMQuery = IBMQuery(forClass: "Friendship")
+        secondQuery.whereKey("secondUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
+        secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if var results = task.result() as? [Friendship] {
+                for result in results {
+                    if (result.firstUserScore >= 0) {
+                        results.removeAtIndex(results.indexOf(result)!)
+                    }
+                }
                 self.friendData?.appendContentsOf(results)
             }
             dispatch_group_leave(queryUserGroup)
@@ -61,7 +101,6 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
             })
         })
 
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -117,6 +156,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         var okAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.Default) {
             UIAlertAction in
                         Transaction.CreateTransaction(user, from: CurrentUser.sharedInstance.currentUser!, amount: (amountTextEnter.text! as NSString).floatValue, description: descriptionTextEnter.text)
+            self.refreshTableData()
             NSLog("OK Pressed")
         }
         
