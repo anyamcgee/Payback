@@ -26,15 +26,35 @@ class FriendCell : UITableViewCell {
     
     func updateLabels() {
         if let user = self.friend {
+            let userGroup = dispatch_group_create()
+            dispatch_group_enter(userGroup)
+            user.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                dispatch_group_leave(userGroup)
+                return nil;
+                })
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+                dispatch_group_wait(userGroup, DISPATCH_TIME_FOREVER)
+                dispatch_async(dispatch_get_main_queue(), {
             self.nameLabel.text = user.name
             if let friendship = self.friendship {
+                var s: Float = 0.0
                 if (friendship.firstUserEmail == user.email) {
-                    self.scoreLabel.text = "\(friendship.firstUserScore)"
+                    s = friendship.firstUserScore
+                    self.scoreLabel.text = "\(s)"
                 }
                 else {
-                    self.scoreLabel.text = "\(friendship.secondUserScore)"
+                    s = friendship.secondUserScore
+                    self.scoreLabel.text = "\(s)"
                 }
-            }
+                if (s >= 0) {
+                    self.scoreLabel.textColor = Style.mediumGreen
+                }
+                else {
+                    self.scoreLabel.textColor = Style.red
+                    }
+                    }
+                })
+            })
         }
     }
 

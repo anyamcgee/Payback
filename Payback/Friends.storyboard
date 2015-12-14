@@ -57,7 +57,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDh-wS-1rO">
                                                     <rect key="frame" x="8" y="11" width="53" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9X-0p-CIp">
@@ -72,6 +72,10 @@
                                                 <constraint firstItem="q9X-0p-CIp" firstAttribute="trailing" secondItem="exw-Qo-KRD" secondAttribute="trailingMargin" id="bDl-1j-ffY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="FDh-wS-1rO" id="kfg-nS-zfs"/>
+                                            <outlet property="scoreLabel" destination="q9X-0p-CIp" id="pkd-AC-Qi5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -99,7 +103,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="TWS-j1-em9" id="i7q-ID-PLp"/>
-                        <outlet property="tableView" destination="EjJ-GG-PD3" id="PUT-op-JcD"/>
+                        <outlet property="tableView" destination="EjJ-GG-PD3" id="QYw-4N-rkF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nol-uq-x4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +190,7 @@
             </objects>
             <point key="canvasLocation" x="545" y="1024"/>
         </scene>
-        <!--Friend Requests View Controller-->
+        <!--Friend Request View Controller-->
         <scene sceneID="coW-Rg-BCP">
             <objects>
                 <viewController id="5Xw-ZA-yHD" customClass="FriendRequestsViewController" customModule="Payback" customModuleProvider="target" sceneMemberID="viewController">
@@ -245,6 +249,7 @@
                                         <connections>
                                             <outlet property="accept" destination="LpA-dQ-SWZ" id="ams-va-CDp"/>
                                             <outlet property="decline" destination="035-0Q-CX1" id="swr-dw-qKI"/>
+                                            <outlet property="friendRequestViewController" destination="5Xw-ZA-yHD" id="Msd-k4-5oR"/>
                                             <outlet property="name" destination="4LO-Z6-kbo" id="tYM-Z8-YT4"/>
                                         </connections>
                                     </tableViewCell>

@@ -19,18 +19,24 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.r
+        tableView.delegate = self
+        tableView.dataSource = self
         
+        let queryUserGroup = dispatch_group_create()
+        
+        dispatch_group_enter(queryUserGroup)
         let query: IBMQuery = IBMQuery(forClass: "Friendship")
         query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
-                self.friendData?.appendContentsOf(results)
-                self.displayData?.appendContentsOf(results)
-
+                self.friendData = results
+                self.displayData = results
             }
+            print("fetched first user data")
+            dispatch_group_leave(queryUserGroup)
             return nil;
         })
-        
+        dispatch_group_enter(queryUserGroup)
         let secondQuery: IBMQuery = IBMQuery(forClass: "Friendship")
         secondQuery.whereKey("secondUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
@@ -38,8 +44,16 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
                 self.friendData?.appendContentsOf(results)
                 self.displayData?.appendContentsOf(results)
             }
-            self.tableView.reloadData()
+            print("fetched user data")
+            dispatch_group_leave(queryUserGroup)
             return nil;
+        })
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(queryUserGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                print("reloading table view")
+                            self.tableView.reloadData()
+            })
         })
     }
     

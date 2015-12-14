@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0CD0C91C1E480D002BC9DF /* PayUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0CD0C81C1E480D002BC9DF /* PayUserCell.swift */; };
 		5A1F4E1C1C0A53A7004BCC08 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1F4E1B1C0A53A7004BCC08 /* User.storyboard */; };
 		5A3AB6AA1C0A70A50030BCF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3AB6A91C0A70A50030BCF1 /* User.swift */; };
 		5A3AB6AC1C1622B50030BCF1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3AB6AB1C1622B50030BCF1 /* SignInViewController.swift */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		3A34B2414741E20087511AEA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5A0CD0C81C1E480D002BC9DF /* PayUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayUserCell.swift; sourceTree = "<group>"; };
 		5A1F4E1B1C0A53A7004BCC08 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		5A3AB6A91C0A70A50030BCF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5A3AB6AB1C1622B50030BCF1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				5A4DF35C1C1DFF1200FD7845 /* FriendCell.swift */,
 				5A4DF35E1C1DFF1E00FD7845 /* AddFriendCell.swift */,
 				5A4DF3601C1DFF2A00FD7845 /* FriendRequestCell.swift */,
+				5A0CD0C81C1E480D002BC9DF /* PayUserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				C12C644E1C1E2F45008A93EE /* SelectGroupViewController.swift in Sources */,
 				C139F82A1C1C9E6300D4E015 /* AddGroupViewController.swift in Sources */,
 				5AD58E831C1CC91A00AFBED2 /* CurrentUser.swift in Sources */,
+				5A0CD0C91C1E480D002BC9DF /* PayUserCell.swift in Sources */,
 				C12C64581C1E2F9C008A93EE /* GroupTransactionTableViewCell.swift in Sources */,
 				5A4DF34B1C1D4FA600FD7845 /* PayChoiceScreenViewController.swift in Sources */,
 				C12C644F1C1E2F45008A93EE /* SneakyTableView2Delegate.swift in Sources */,
