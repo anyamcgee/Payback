@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FriendsListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -16,22 +16,27 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var friendData: [Friendship]?
+    var displayData: [Friendship]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.r
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
+
             
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = self.view.center
         self.view.bringSubviewToFront(self.activityIndicator)
         self.activityIndicator.color = UIColor.grayColor()
+
         
         self.activityIndicator.startAnimating()
         CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
                 self.activityIndicator.stopAnimating()
                 self.friendData = result
+                self.displayData = result
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()
             })
@@ -45,6 +50,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 self.friendData = results
+                self.displayData = results
             }
             print("fetched first user data")
             dispatch_group_leave(queryUserGroup)
@@ -56,6 +62,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 self.friendData?.appendContentsOf(results)
+                self.displayData?.appendContentsOf(results)
             }
             print("fetched user data")
             dispatch_group_leave(queryUserGroup)
@@ -81,14 +88,14 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if self.friendData != nil && indexPath.row < self.friendData!.count {
+        if self.displayData != nil && indexPath.row < self.displayData!.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("friendCell") as? FriendCell {
-                let friendship: Friendship = (self.friendData?[indexPath.row])!
+                let friendship: Friendship = (self.displayData?[indexPath.row])!
                 if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
-                    cell.friend = self.friendData?[indexPath.row].firstUser
+                    cell.friend = self.displayData?[indexPath.row].firstUser
                 }
                 else {
-                    cell.friend = self.friendData?[indexPath.row].secondUser
+                    cell.friend = self.displayData?[indexPath.row].secondUser
                 }
                 cell.friendship = friendship
                 return cell
@@ -96,5 +103,32 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         }
         return UITableViewCell()
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filterFriends(searchText)
+        } else {
+            displayData = friendData
+        }
+        print("reloading table view")
+        self.tableView.reloadData()
+    }
+    
+    
+    func filterFriends(searchText: String) {
+        displayData = friendData?.filter{
+            let friendship = ($0 as Friendship)
+            if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
+                return
+                    (//friendship.firstUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     friendship.firstUserEmail.lowercaseString.containsString(searchText.lowercaseString))
+            } else {
+                return
+                    (//friendship.secondUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     friendship.secondUserEmail.lowercaseString.containsString(searchText.lowercaseString))
+            }
+        }
+    }
+    
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFriendsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AddFriendsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -19,7 +19,13 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     
     var requestedUsers: [User]? = [User]()
     
+    var displayData: [User]?
+    var searchData: [User]?
+    
+    var searchActive : Bool = false
+
     var activityIndicator: UIActivityIndicatorView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +39,7 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         
         tableView.delegate = self   
         tableView.dataSource = self
+        searchBar.delegate = self
         
         let queryGroup = dispatch_group_create()
         self.activityIndicator.startAnimating()
@@ -41,6 +48,7 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             let result = task.result() as? [User]
             self.userData = result
+            self.displayData = result
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
             dispatch_group_leave(queryGroup)
@@ -129,13 +137,13 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.userData?.count ?? 0
+        return self.displayData?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if self.userData != nil && indexPath.row < self.userData!.count {
+        if self.displayData != nil && indexPath.row < self.displayData!.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("addFriendCell") as? AddFriendCell {
-                cell.user = self.userData?[indexPath.row]
+                cell.user = self.displayData?[indexPath.row]
                 if ((requestedUsers?.contains(cell.user!)) != false) {
                     cell.backgroundColor = Style.brown
                     cell.sendRequestButton.enabled = false
@@ -143,11 +151,29 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
                 return cell
             } else {
                 let cell = AddFriendCell()
-                cell.user = self.userData?[indexPath.row]
+                cell.user = self.displayData?[indexPath.row]
                 return cell
             }
         }
         return UITableViewCell()
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filterUsers(searchText)
+        } else {
+            displayData = userData
+        }
+        self.tableView.reloadData()
+    }
+    
+    
+    func filterUsers(searchText: String) {
+        displayData = userData?.filter{
+            user in (user.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     user.email.lowercaseString.containsString(searchText.lowercaseString))
+        }
+    }
+
 
 }

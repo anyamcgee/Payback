@@ -9,12 +9,14 @@
 import Foundation
 import UIKit
 
-class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var groups: [Group] = [Group]()
-    @IBOutlet weak var tableView: UITableView!
-    
+    var displayGroup: [Group] = [Group]()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     func setUpActivityIndicator() {
         self.view.addSubview(self.activityIndicator)
@@ -27,6 +29,7 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.searchBar.delegate = self
         
         setUpActivityIndicator()
         
@@ -35,21 +38,23 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
             self.activityIndicator.stopAnimating()
             if result != nil {
                 self.groups = result!
+                self.displayGroup = result!
+
             }
             self.tableView.reloadData()
         })
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row >= 0 && indexPath.row < self.groups.count {
+        if indexPath.row >= 0 && indexPath.row < self.displayGroup.count {
             
             if let cell = tableView.dequeueReusableCellWithIdentifier("groupCell") as? GroupCell {
-                cell.group = self.groups[indexPath.row]
+                cell.group = self.displayGroup[indexPath.row]
                 return cell
                 
             } else {
                 let cell = GroupCell()
-                cell.group = self.groups[indexPath.row]
+                cell.group = self.displayGroup[indexPath.row]
                 
                 return cell
             }
@@ -59,7 +64,7 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.groups.count
+        return self.displayGroup.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -70,10 +75,27 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         if segue.identifier == "showGroupDetail" {
             if let destVC = segue.destinationViewController as? GroupDetailViewController {
                 if let indexPath  = sender as? NSIndexPath {
-                    destVC.group = self.groups[indexPath.row]
+                    destVC.group = self.displayGroup[indexPath.row]
                 }
             }
         }
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filterGroups(searchText)
+        } else {
+            displayGroup = groups
+        }
+        self.tableView.reloadData()
+    }
+    
+    
+    func filterGroups(searchText: String) {
+        displayGroup = groups.filter{
+            group in (group.name.lowercaseString.containsString(searchText.lowercaseString))
+        }
+    }
+    
     
 }

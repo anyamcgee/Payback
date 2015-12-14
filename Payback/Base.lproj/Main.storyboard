@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1E5-Cp-opc">
+
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1E5-Cp-opc">
+
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -126,8 +128,8 @@
                                 <color key="textColor" red="0.33725490200000002" green="0.32549019610000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eo-a4-thh">
-                                <rect key="frame" x="187" y="152" width="2" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eo-a4-thh">
+                                <rect key="frame" x="189" y="152" width="101" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BTa-J8-YCu"/>
@@ -223,7 +225,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="LYv-L8-MGy" secondAttribute="trailing" constant="-19" id="KIN-3W-Ys0"/>
                             <constraint firstItem="OP8-Pk-99M" firstAttribute="height" secondItem="LYv-L8-MGy" secondAttribute="height" id="NIL-OU-DV7"/>
                             <constraint firstItem="LYv-L8-MGy" firstAttribute="top" secondItem="OP8-Pk-99M" secondAttribute="bottom" constant="-15" id="Q0v-z8-oHU"/>
-                            <constraint firstItem="0eo-a4-thh" firstAttribute="centerX" secondItem="kJ5-YV-dBu" secondAttribute="centerX" id="RIB-NN-3l0"/>
                             <constraint firstItem="XVP-qU-tKh" firstAttribute="top" secondItem="0eo-a4-thh" secondAttribute="bottom" constant="5" id="U9b-Pt-esc"/>
                             <constraint firstItem="OPO-6G-PwJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-18" id="UrB-uy-tU5"/>
                             <constraint firstItem="h35-oy-Lgh" firstAttribute="top" secondItem="OPO-6G-PwJ" secondAttribute="bottom" constant="-15" id="Yc4-0X-aow"/>
