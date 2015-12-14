@@ -12,6 +12,7 @@ class FriendCell : UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
+    
     var friend: User? {
         didSet {
             updateLabels()
@@ -25,6 +26,7 @@ class FriendCell : UITableViewCell {
     }
     
     func updateLabels() {
+        
         if let user = self.friend {
             let userGroup = dispatch_group_create()
             dispatch_group_enter(userGroup)

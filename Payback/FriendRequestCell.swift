@@ -14,6 +14,8 @@ class FriendRequestCell : UITableViewCell {
     @IBOutlet weak var decline: UIButton!
     @IBOutlet weak var friendRequestViewController: FriendRequestsViewController!
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var request: FriendRequest? {
         didSet {
             updateLabels()
@@ -21,10 +23,16 @@ class FriendRequestCell : UITableViewCell {
     }
     
     @IBAction func declineRequest(sender: AnyObject) {
+        activityIndicator.center = self.window!.rootViewController!.view.center
+        self.window!.rootViewController!.view.addSubview(activityIndicator)
+        self.window!.rootViewController!.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+        self.activityIndicator.startAnimating()
         self.request?.delete().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if (task.error() == nil) {
                 print("Deleted request")
                 self.friendRequestViewController.checkForRequests()
+                self.activityIndicator.stopAnimating()
             }
             return nil;
         })
@@ -35,7 +43,14 @@ class FriendRequestCell : UITableViewCell {
         let queryUserGroup = dispatch_group_create()
         let addFriendGroup = dispatch_group_create()
         
+        activityIndicator.center = self.window!.rootViewController!.view.center
+        self.window!.rootViewController!.view.addSubview(activityIndicator)
+        self.window!.rootViewController!.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+
+        
         let friendship: Friendship = Friendship()
+        self.activityIndicator.startAnimating()
         dispatch_group_enter(queryUserGroup)
         let query: IBMQuery = IBMQuery(forClass: "User")
         query.whereKey("email", equalTo: self.request?.fromEmail)
@@ -79,6 +94,7 @@ class FriendRequestCell : UITableViewCell {
                                 print("Deleted request")
                                 self.friendRequestViewController.checkForRequests()
                             }
+                            self.activityIndicator.stopAnimating()
                             return nil;
                         })
                         

@@ -11,17 +11,24 @@ import UIKit
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+        
+        self.activityIndicator.startAnimating()
         GIDSignIn.sharedInstance().uiDelegate = self
         
         // Uncomment to automatically sign in the user.
         GIDSignIn.sharedInstance().signInSilently()
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
+        self.activityIndicator.stopAnimating()
+
     }
    
     

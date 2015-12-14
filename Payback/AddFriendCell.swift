@@ -14,6 +14,8 @@ class AddFriendCell : UITableViewCell {
     @IBOutlet weak var sendRequestButton: UIButton!
     @IBOutlet weak var addFriendViewController: AddFriendsViewController!
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var user: User? {
         didSet {
             updateLabels()
@@ -26,6 +28,11 @@ class AddFriendCell : UITableViewCell {
         
         let request: FriendRequest = FriendRequest()
         
+        activityIndicator.center = self.window!.rootViewController!.view.center
+        self.window!.rootViewController!.view.addSubview(activityIndicator)
+        self.window!.rootViewController!.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+        self.activityIndicator.startAnimating()
         dispatch_group_enter(queryUserGroup)
         let query: IBMQuery = IBMQuery(forClass: "User")
         query.whereKey("email", equalTo: user?.email)
@@ -48,14 +55,13 @@ class AddFriendCell : UITableViewCell {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
             dispatch_group_wait(queryUserGroup, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {
-                print("Got user info")
                 
                 dispatch_group_enter(addFriendGroup)
                 request.save().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                     if task.error() == nil {
-                        print("saved successfully")
+                        print("all good")
                     } else {
-                        print(task.error())
+                        print("problem saving")
                     }
                     dispatch_group_leave(addFriendGroup)
                     return nil;
@@ -64,8 +70,8 @@ class AddFriendCell : UITableViewCell {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
                     dispatch_group_wait(addFriendGroup, DISPATCH_TIME_FOREVER)
                     dispatch_async(dispatch_get_main_queue(), {
-                        print("Saved new request")
                         self.addFriendViewController.checkForPendingRequests()
+                        self.activityIndicator.stopAnimating()
                     })
                 })
             })
