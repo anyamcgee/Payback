@@ -21,6 +21,12 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         tableView.delegate = self
         tableView.dataSource = self
         
+        CurrentUser.sharedInstance.getUserFriendships({(result: [Friendship]?) in
+                self.friendData = result
+                self.tableView.reloadData()
+            })
+        
+        /**
         let queryUserGroup = dispatch_group_create()
         
         dispatch_group_enter(queryUserGroup)
@@ -52,6 +58,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
                             self.tableView.reloadData()
             })
         })
+        **/
     }
     
     override func didReceiveMemoryWarning() {

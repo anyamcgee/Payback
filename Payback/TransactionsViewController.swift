@@ -21,6 +21,14 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        CurrentUser.sharedInstance.getTransactions({(result: [Transaction]?) in
+            if result != nil {
+                self.transactions = result!
+            }
+            self.tableView.reloadData()
+        })
+        
+        /**
         let newQuery: IBMQuery = IBMQuery(forClass: "Transaction")
         let user = CurrentUser.sharedInstance.currentUser!
         newQuery.whereKey("toUserEmail", equalTo: user.email)
@@ -46,7 +54,7 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
             })
             self.tableView.reloadData()
             return nil
-        })
+        })**/
     }
     
     override func didReceiveMemoryWarning() {

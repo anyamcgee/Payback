@@ -19,6 +19,8 @@ class CurrentUser {
     private var userFriendships: [Friendship]?
     private var userFriends: [User]?
     private var transactions: [Transaction]?
+    
+    private var allUserInfoLoaded: [String : Bool]
     private var groupTransactions: [String : [GroupTransaction]]
     private var userGroupInfo: [String : [UserGroupInfo]]
     
@@ -39,6 +41,7 @@ class CurrentUser {
         self.foundAllTransactions = dispatch_group_create()
         self.groupTransactions = [String : [GroupTransaction]]()
         self.userGroupInfo = [String : [UserGroupInfo]]()
+        self.allUserInfoLoaded = [String : Bool]()
     }
     
     // MARK- Get groups
@@ -54,10 +57,18 @@ class CurrentUser {
             query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                 if let results = task.result() as? [UserGroupInfo] {
                     for result in results {
+                        
+                        // store user info
+                        if self.userGroupInfo[result.objectId] != nil {
+                            self.userGroupInfo[result.objectId]?.append(result)
+                        } else {
+                            self.userGroupInfo[result.objectId] = [result]
+                        }
+                        
                         dispatch_group_enter(fetchedAll)
                         result.group.fetchIfNecessary().continueWithBlock({(task: BFTask!) -> BFTask! in
                             if let result = task.result() as? Group {
-                               self.userGroups!.append(result)
+                                self.userGroups!.append(result)
                             }
                             dispatch_group_leave(fetchedAll)
                             return nil
@@ -248,19 +259,30 @@ class CurrentUser {
     }
     
     func getUserInfo(forGroup group: Group, callback: ((result: [UserGroupInfo]) -> Void)) {
-        if let userInfo = self.userGroupInfo[group.objectId] {
-            callback(result: userInfo)
+        if self.allUserInfoLoaded[group.objectId] == true {
+            callback(result: self.userGroupInfo[group.objectId]!)
         } else {
             let query: IBMQuery = IBMQuery(forClass: "UserGroupInfo")
             query.whereKey("group", equalTo: group)
             query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                 if let result = task.result() as? [UserGroupInfo] {
                     self.userGroupInfo[group.objectId] = result
+                    self.allUserInfoLoaded[group.objectId] = true
                     callback(result: result)
                 }
                 return nil
             })
         }
+    }
+    
+    func getCurrentUserGroupInfo(forGroup group: Group, callback: ((result: UserGroupInfo) -> Void)) {
+        let groupInfo = getUserInfo(forGroup: group, callback: {(results: [UserGroupInfo]) in
+            for result in results {
+                if result.user == self.currentUser! {
+                    callback(result: result)
+                }
+            }
+        })
     }
     
 }

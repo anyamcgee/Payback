@@ -30,7 +30,10 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.leftBarButtonItem?.title = ""
 
-        handleFetch()
+        //handleFetch()
+        CurrentUser.sharedInstance.getUserFriends({(result: [User]?) in
+            self.userData = result
+        })
 
     }
     
