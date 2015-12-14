@@ -19,6 +19,15 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var sneakyTableView: UITableView!
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func setUpActivityIndicator() {
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+    }
+    
     var sneakyDelegate: SneakyTableView2Delegate?
     
     var group: Group?
@@ -32,6 +41,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.setUpActivityIndicator()
         
         if let group = self.group {
             let otherDelegate = SneakyTableView2Delegate(tableView: sneakyTableView, group: group)
@@ -50,7 +61,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             }
             self.authorLabel.text = group.author.name
             
+            self.activityIndicator.startAnimating()
             CurrentUser.sharedInstance.getUserInfo(forGroup: self.group!, callback: {(result: [UserGroupInfo]) in
+                self.activityIndicator.stopAnimating()
                 self.userInfo = result
                 self.tableView.reloadData()
             })

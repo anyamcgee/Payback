@@ -73,7 +73,8 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
         newTransaction.amount = self.amount * multiplier
         newTransaction.group = self.group!
         newTransaction.user = CurrentUser.sharedInstance.currentUser!
-        print(newTransaction.amount)
+        CurrentUser.sharedInstance.addGroupTransaction(newTransaction)
+        
         newTransaction.save().continueWithBlock({(task: BFTask!) -> BFTask! in
             print("saved")
             self.newTransaction = newTransaction
