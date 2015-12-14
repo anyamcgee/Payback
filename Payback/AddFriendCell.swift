@@ -22,6 +22,11 @@ class AddFriendCell : UITableViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        self.sendRequestButton.layer.cornerRadius = self.sendRequestButton.bounds.size.width / 2
+        self.sendRequestButton.layer.masksToBounds = true
+    }
+    
     @IBAction func sendRequest(sender: AnyObject) {
         let queryUserGroup = dispatch_group_create()
         let addFriendGroup = dispatch_group_create()

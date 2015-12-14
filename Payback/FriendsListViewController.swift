@@ -110,7 +110,6 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         } else {
             displayData = friendData
         }
-        print("reloading table view")
         self.tableView.reloadData()
     }
     
@@ -120,11 +119,11 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
             let friendship = ($0 as Friendship)
             if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
                 return
-                    (//friendship.firstUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                    (//friendship.firstUserName.lowercaseString.containsString(searchText.lowercaseString) ||
                      friendship.firstUserEmail.lowercaseString.containsString(searchText.lowercaseString))
             } else {
                 return
-                    (//friendship.secondUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                    (//friendship.secondUserName.lowercaseString.containsString(searchText.lowercaseString) ||
                      friendship.secondUserEmail.lowercaseString.containsString(searchText.lowercaseString))
             }
         }

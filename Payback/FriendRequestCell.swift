@@ -16,6 +16,13 @@ class FriendRequestCell : UITableViewCell {
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
+    override func awakeFromNib() {
+        self.accept.layer.cornerRadius = self.accept.bounds.width / 2
+        self.accept.layer.masksToBounds = true
+        self.decline.layer.cornerRadius = self.decline.bounds.width / 2
+        self.decline.layer.masksToBounds = true
+    }
+    
     var request: FriendRequest? {
         didSet {
             updateLabels()
