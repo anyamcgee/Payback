@@ -21,7 +21,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         tableView.delegate = self
         tableView.dataSource = self
         
-        CurrentUser.sharedInstance.getUserFriendships({(result: [Friendship]?) in
+        CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
                 self.friendData = result
                 self.tableView.reloadData()
             })
