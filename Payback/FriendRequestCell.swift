@@ -37,7 +37,6 @@ class FriendRequestCell : UITableViewCell {
         self.activityIndicator.startAnimating()
         self.request?.delete().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if (task.error() == nil) {
-                print("Deleted request")
                 self.friendRequestViewController.checkForRequests()
                 self.activityIndicator.stopAnimating()
             }
@@ -79,14 +78,13 @@ class FriendRequestCell : UITableViewCell {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
             dispatch_group_wait(queryUserGroup, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {
-                print("Got user info")
                 
                 dispatch_group_enter(addFriendGroup)
                 CurrentUser.sharedInstance.addNewFriend(friendship.secondUser, friendship: friendship)
                 
                 friendship.save().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                     if task.error() == nil {
-                        print("saved successfully")
+                        
                     } else {
                         print(task.error())
                     }
@@ -97,10 +95,8 @@ class FriendRequestCell : UITableViewCell {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
                     dispatch_group_wait(addFriendGroup, DISPATCH_TIME_FOREVER)
                     dispatch_async(dispatch_get_main_queue(), {
-                        print("Saved new request")
                         self.request?.delete().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                             if (task.error() == nil) {
-                                print("Deleted request")
                                 self.friendRequestViewController.checkForRequests()
                             }
                             self.activityIndicator.stopAnimating()

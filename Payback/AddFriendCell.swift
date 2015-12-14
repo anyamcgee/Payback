@@ -64,9 +64,9 @@ class AddFriendCell : UITableViewCell {
                 dispatch_group_enter(addFriendGroup)
                 request.save().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                     if task.error() == nil {
-                        print("all good")
+                    
                     } else {
-                        print("problem saving")
+                    
                     }
                     dispatch_group_leave(addFriendGroup)
                     return nil;
