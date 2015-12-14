@@ -45,7 +45,6 @@ class AddFriendCell : UITableViewCell {
         request.fromEmail = CurrentUser.sharedInstance.currentUser!.email
         request.accepted = false
         
-        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
             dispatch_group_wait(queryUserGroup, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {

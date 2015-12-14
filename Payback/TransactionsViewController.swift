@@ -78,7 +78,6 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
             } else {
                 let cell = TransactionCell()
                 cell.transaction = self.transactions[indexPath.row]
-                
                 return cell
             }
         } else {
