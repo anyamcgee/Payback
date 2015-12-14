@@ -25,12 +25,18 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
         self.tableView.dataSource = self
         self.searchBar.delegate = self
         
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+        
         CurrentUser.sharedInstance.getTransactions({(result: [Transaction]?) in
             if result != nil {
                 self.transactions = result!
                 self.displayData = result!
             }
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         })
         
         /**

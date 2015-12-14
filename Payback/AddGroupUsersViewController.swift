@@ -21,18 +21,32 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
     
     let foundAllUsers = dispatch_group_create()
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func setUpActivityIndicator() {
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.setUpActivityIndicator()
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "done:")
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.leftBarButtonItem?.title = ""
 
         //handleFetch()
+        self.activityIndicator.startAnimating()
         CurrentUser.sharedInstance.getUserFriends({(result: [User]?) in
+            self.activityIndicator.stopAnimating()
             self.userData = result
+            self.tableView.reloadData()
         })
 
     }
@@ -95,6 +109,7 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationItem.rightBarButtonItem?.enabled = false
         if let addedUsers = self.addedUsers {
             let addUsersGroup = dispatch_group_create()
+            self.activityIndicator.startAnimating()
             
             var infos = [UserGroupInfo]()
             for user in addedUsers {
@@ -104,6 +119,7 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
                 info.group = group!
                 info.balance = 0
                 infos.append(info)
+                CurrentUser.sharedInstance.addUserInfo(info)
                 
                 dispatch_group_enter(addUsersGroup)
                 info.save().continueWithBlock({(task: BFTask!) -> BFTask! in
@@ -123,6 +139,7 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
                         if self.navigationController?.viewControllers != nil {
                             for controller in (self.navigationController?.viewControllers)! {
                                 if let vc = controller as? MyGroupsViewController {
+                                    self.activityIndicator.stopAnimating()
                                     self.navigationController?.popToViewController(vc, animated: true)
                                 }
                             }

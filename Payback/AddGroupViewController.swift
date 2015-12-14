@@ -14,10 +14,20 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
     var iconName: String?
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextView!
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func setUpActivityIndicator() {
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Create a New Group"
+        
+        self.setUpActivityIndicator()
         
         self.iconImageView.layer.borderColor = Style.mossGreen.CGColor
         self.iconImageView.layer.borderWidth = 1.0
@@ -35,6 +45,8 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
         self.descriptionTextField.returnKeyType = UIReturnKeyType.Done
         self.nameTextField.returnKeyType = UIReturnKeyType.Done
     }
+    
+    
     
     func textViewDidBeginEditing(textView: UITextView) {
         if textView.text == "Description" {
@@ -58,6 +70,8 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
         if nameTextField.text == nil || nameTextField.text?.characters.count == 0 {
             self.displayAlert("Error", message: "Your group must have a name")
         } else {
+            self.activityIndicator.startAnimating()
+            
             let newGroup = Group()
             newGroup.name = nameTextField.text!
             newGroup.balance = 0
@@ -65,6 +79,7 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
             newGroup.icon = self.iconName
             newGroup.author = CurrentUser.sharedInstance.currentUser!
             newGroup.save().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                self.activityIndicator.stopAnimating()
                 self.performSegueWithIdentifier("showAddUsers", sender: newGroup)
                 return nil
             })
@@ -74,6 +89,7 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
             info.user = newGroup.author
             info.username = newGroup.author.name
             info.balance = 0
+            CurrentUser.sharedInstance.addUserInfo(info)
             info.save().continueWithBlock({(task: BFTask!) -> BFTask! in
                 return nil
             })

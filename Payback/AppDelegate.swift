@@ -14,17 +14,26 @@ import Dispatch
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         registerBluemixData()
+        
         // Initialize sign-in
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        activityIndicator.center = self.window!.rootViewController!.view.center
+        self.window!.rootViewController!.view.addSubview(activityIndicator)
+        self.window!.rootViewController!.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
 
         GIDSignIn.sharedInstance().clientID = GOOGLE_CLIENT_ID
         GIDSignIn.sharedInstance().delegate = self
+        
+        
         
         setApplicationStyles()
         
@@ -49,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
         withError error: NSError!) {
             if (error == nil) {
+                self.activityIndicator.startAnimating()
                 // Perform any operations on signed in user here.
                 let userId = user.userID                  // For client-side use only!
                 let idToken = user.authentication.idToken // Safe to send to the server
@@ -74,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         CurrentUser.sharedInstance.currentUser = user;
                     }
                     // Segue to Home
+                    self.activityIndicator.stopAnimating()
                     self.segueToHomeScreen()
                     return nil
                 })

@@ -11,10 +11,16 @@ import UIKit
 class SelectGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var groups: [Group] = [Group]()
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var tableView: UITableView!
     
-
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func setUpActivityIndicator() {
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +31,14 @@ class SelectGroupViewController: UIViewController, UITableViewDelegate, UITableV
         
         setUpActivityIndicator()
         
+        self.activityIndicator.startAnimating()
         CurrentUser.sharedInstance.getUserGroups({(result: [Group]?) in
+            self.activityIndicator.stopAnimating()
             if result != nil {
                 self.groups = result!
             }
             self.tableView.reloadData()
         })
-    }
-    
-    func setUpActivityIndicator() {
-        self.activityIndicator.center = self.view.center
-        self.view.addSubview(self.activityIndicator)
-        self.view.bringSubviewToFront(self.activityIndicator)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

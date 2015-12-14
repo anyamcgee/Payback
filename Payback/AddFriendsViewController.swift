@@ -23,56 +23,95 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     var searchData: [User]?
     
     var searchActive : Bool = false
+
+    var activityIndicator: UIActivityIndicatorView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.r
         
+        self.activityIndicator = UIActivityIndicatorView()
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+        
         tableView.delegate = self   
         tableView.dataSource = self
         searchBar.delegate = self
         
+        let queryGroup = dispatch_group_create()
+        self.activityIndicator.startAnimating()
+        dispatch_group_enter(queryGroup)
         let query: IBMQuery = IBMQuery(forClass: "User")
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             let result = task.result() as? [User]
             self.userData = result
             self.displayData = result
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            dispatch_group_leave(queryGroup)
             return nil
         })
         
-        self.checkForAlreadyFriends()
-        self.checkForPendingRequests()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(queryGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.checkForAlreadyFriends()
+                self.checkForPendingRequests()
+            })
+        })
         
     }
     
     func checkForAlreadyFriends() {
+        let queryGroup = dispatch_group_create()
+        dispatch_group_enter(queryGroup)
         let query: IBMQuery = IBMQuery(forClass: "Friendship")
         query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser?.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 for result in results {
-                    self.addedUsers?.append(result.secondUser)
+                    if ((self.addedUsers?.contains(result.secondUser)) != false) {
+                        self.addedUsers?.append(result.secondUser)
+                    }
                 }
             }
+            dispatch_group_leave(queryGroup)
             return nil;
         })
         
+        dispatch_group_enter(queryGroup)
         let secondQuery: IBMQuery = IBMQuery(forClass: "Friendship")
         secondQuery.whereKey("secondUserEmail", equalTo: CurrentUser.sharedInstance.currentUser?.email)
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 for result in results {
-                    self.addedUsers?.append(result.firstUser)
-                    }
-                for user in (self.addedUsers)! {
-                    if ((self.userData?.contains(user)) != false) {
-                        self.userData?.removeAtIndex((self.addedUsers?.indexOf(user))!)
+                    if ((self.addedUsers?.contains(result.firstUser)) != false) {
+                        self.addedUsers?.append(result.firstUser)
                     }
                 }
             }
-            self.tableView.reloadData()
+            dispatch_group_leave(queryGroup)
             return nil;
+        })
+        
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(queryGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                for user in (self.addedUsers)! {
+                    print(user)
+                    if ((self.userData?.contains(user)) != false) {
+                        print(self.userData?.contains(user))
+                        print(self.userData?.indexOf(user))
+                        self.userData?.removeAtIndex((self.addedUsers?.indexOf(user))!)
+                    }
+                }
+                self.tableView.reloadData()
+                
+            })
         })
     }
     

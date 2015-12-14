@@ -16,6 +16,8 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
     var friendData: [Friendship]?
     var displayData: [Friendship]?
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,8 +25,13 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         searchBar.delegate = self
         
-        let queryUserGroup = dispatch_group_create()
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
         
+        let queryUserGroup = dispatch_group_create()
+        self.activityIndicator.startAnimating()
         dispatch_group_enter(queryUserGroup)
         let query: IBMQuery = IBMQuery(forClass: "Friendship")
         query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
@@ -61,6 +68,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
             dispatch_group_wait(queryUserGroup, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             })
         })
     }

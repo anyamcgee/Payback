@@ -254,8 +254,12 @@ class CurrentUser {
             query.whereKey("group", equalTo: group)
             query.find().continueWithBlock({(task: BFTask!) -> BFTask! in
                 if let results = task.result() as? [Payback.GroupTransaction] {
-                    self.groupTransactions[group.objectId] = results
-                    callback(result: results)
+                    let sortedResults = results.sort({(t1: GroupTransaction, t2: GroupTransaction) in
+                        return t1.createdAt.timeIntervalSince1970 > t2.createdAt.timeIntervalSince1970
+                    })
+                    self.groupTransactions[group.objectId] = sortedResults
+                    
+                    callback(result: sortedResults)
                 }
                 return nil
             })
@@ -295,5 +299,30 @@ class CurrentUser {
         self.userGroups?.append(group)
     }
     
+    func addTransaction(transaction: Transaction) {
+        self.transactions?.append(transaction)
+    }
+    
+    func addGroupTransaction(gt: GroupTransaction) {
+        self.groupTransactions[gt.group.objectId]?.append(gt)
+    }
+    
+    func addUserInfo(info: UserGroupInfo) {
+        self.userGroupInfo[info.group.objectId]?.append(info)
+    }
+    
+    func updateUserInfo(newInfo: UserGroupInfo) {
+        if var infos = self.userGroupInfo[newInfo.group.objectId] {
+            print(infos)
+            for info in infos {
+                if info.objectId == newInfo.objectId {
+                    infos.removeAtIndex(infos.indexOf(info)!)
+                    infos.append(newInfo)
+                }
+            }
+            print(infos)
+            self.userGroupInfo[newInfo.group.objectId] = infos
+        }
+    }
     
 }
