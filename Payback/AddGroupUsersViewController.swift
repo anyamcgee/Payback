@@ -46,6 +46,7 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
         CurrentUser.sharedInstance.getUserFriends({(result: [User]?) in
             self.activityIndicator.stopAnimating()
             self.userData = result
+            self.tableView.reloadData()
         })
 
     }

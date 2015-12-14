@@ -311,5 +311,18 @@ class CurrentUser {
         self.userGroupInfo[info.group.objectId]?.append(info)
     }
     
+    func updateUserInfo(newInfo: UserGroupInfo) {
+        if var infos = self.userGroupInfo[newInfo.group.objectId] {
+            print(infos)
+            for info in infos {
+                if info.objectId == newInfo.objectId {
+                    infos.removeAtIndex(infos.indexOf(info)!)
+                    infos.append(newInfo)
+                }
+            }
+            print(infos)
+            self.userGroupInfo[newInfo.group.objectId] = infos
+        }
+    }
     
 }

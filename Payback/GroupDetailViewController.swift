@@ -63,6 +63,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             
             self.activityIndicator.startAnimating()
             CurrentUser.sharedInstance.getUserInfo(forGroup: self.group!, callback: {(result: [UserGroupInfo]) in
+                if self.didAddTransaction != nil {
+                    Group.recalculateBalances(result, transaction: self.didAddTransaction!)
+                }
+                
                 self.activityIndicator.stopAnimating()
                 self.userInfo = result
                 self.tableView.reloadData()

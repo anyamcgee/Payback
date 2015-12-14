@@ -22,14 +22,15 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         // Do any additional setup after loading the view, typically from a nib.r
         tableView.delegate = self
         tableView.dataSource = self
-        
+            
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = self.view.center
         self.view.bringSubviewToFront(self.activityIndicator)
         self.activityIndicator.color = UIColor.grayColor()
         
         self.activityIndicator.startAnimating()
-        CurrentUser.sharedInstance.getUserFriendships({(result: [Friendship]?) in
+        CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
+                self.activityIndicator.stopAnimating()
                 self.friendData = result
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()

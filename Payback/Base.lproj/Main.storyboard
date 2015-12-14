@@ -59,12 +59,12 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="wfc-83-ps5">
-                                <rect key="frame" x="260" y="106" width="81" height="120"/>
+                                <rect key="frame" x="260" y="126" width="81" height="100"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="81" id="URT-V4-Ahm"/>
                                     <constraint firstAttribute="height" constant="200" id="W6D-hL-VxX"/>
-                                    <constraint firstAttribute="height" constant="120" id="e4A-3b-shN"/>
+                                    <constraint firstAttribute="height" constant="100" id="e4A-3b-shN"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
