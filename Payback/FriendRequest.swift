@@ -49,6 +49,7 @@ class FriendRequest : IBMDataObject, IBMDataObjectSpecialization {
         request.fromName = from.name
         request.fromEmail = from.email
         request.accepted = false
+        request.save()
     }
 
     

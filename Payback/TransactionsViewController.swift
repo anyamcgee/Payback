@@ -25,6 +25,15 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
         self.tableView.dataSource = self
         self.searchBar.delegate = self
         
+        CurrentUser.sharedInstance.getTransactions({(result: [Transaction]?) in
+            if result != nil {
+                self.transactions = result!
+                self.displayData = result!
+            }
+            self.tableView.reloadData()
+        })
+        
+        /**
         let newQuery: IBMQuery = IBMQuery(forClass: "Transaction")
         let user = CurrentUser.sharedInstance.currentUser!
         newQuery.whereKey("toUserEmail", equalTo: user.email)
@@ -51,7 +60,7 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
             self.displayData = self.transactions
             self.tableView.reloadData()
             return nil
-        })
+        })**/
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,6 +83,7 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
                 
             } else {
                 let cell = TransactionCell()
+                
                 cell.transaction = self.displayData[indexPath.row]
                 
                 return cell
@@ -100,14 +110,14 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
         displayData = transactions.filter{
             let transaction = ($0 as Transaction)
             if (transaction.to.email == CurrentUser.sharedInstance.currentUser!.email) {
-            print("payment from: ", transaction.from.name)
+            //print("payment from: ", transaction.from.name)
                 return
-                    (transaction.from.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                    (transaction.fromUserName.lowercaseString.containsString(searchText.lowercaseString) ||
                     (transaction.reason != nil &&
                         transaction.reason!.lowercaseString.containsString(searchText.lowercaseString)))
             } else {
                 return
-                    (transaction.to.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                    (transaction.toUserName.lowercaseString.containsString(searchText.lowercaseString) ||
                     (transaction.reason != nil &&
                         transaction.reason!.lowercaseString.containsString(searchText.lowercaseString)))
             }

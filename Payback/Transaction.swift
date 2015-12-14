@@ -24,7 +24,7 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
     
     // Email of User Paying Money
     @NSManaged var fromUserEmail: String
-
+    
     // Name of User Paying Money
     @NSManaged var fromUserName: String
     
@@ -33,7 +33,7 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
     
     // description of transaction
     @NSManaged var reason: String?
-
+    
     
     // MARK:- Setup
     required override init() {
@@ -49,7 +49,7 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
         return "Transaction"
     }
     
-    class func CreateTransaction(to: User, from: User, amount: Float, description: String?){
+    class func CreateTransaction(to: User, from: User, amount: Float, description: String?, callback: (() -> Void)){
         let transaction = Transaction();
         transaction.to = to
         transaction.toUserEmail = to.email
@@ -60,69 +60,67 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
         transaction.amount = amount
         transaction.reason = description
         transaction.save()
-        to.score += amount
-        from.score -= amount
+        to.score -= amount
+        from.score += amount
+        to.save()
+        from.save()
         var friendship: Friendship = Friendship()
-        var doQuery: Bool = true
         var toFirst: Bool = false
-        var query = IBMQuery(forClass: "Friendship")
+        let friendGroup = dispatch_group_create()
+        let query = IBMQuery(forClass: "Friendship")
+        dispatch_group_enter(friendGroup)
         query.whereKey("firstUserEmail", equalTo: to.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-            let result = task.result() as? [Friendship]
-            if (result!.count > 0) {
-                friendship = result![0]
-                doQuery = false;
-                toFirst = true;
+            if let result = task.result() as? [Friendship] {
+                if (result.count > 0) {
+                    for res in result {
+                        if (res.secondUserEmail == from.email) {
+                            friendship = res
+                            toFirst = true;
+                        }
+                    }
+                }
             }
+            dispatch_group_leave(friendGroup)
             return nil;
         })
         
-        if doQuery {
-            query = IBMQuery()
-            query.whereKey("secondUserEmail", equalTo: to.email)
-            query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-                let result = task.result() as? [Friendship]
-                if (result!.count > 0) {
-                    friendship = result![0]
-                    doQuery = false;
+            dispatch_group_enter(friendGroup)
+        let newQuery = IBMQuery(forClass: "Friendship")
+            newQuery.whereKey("secondUserEmail", equalTo: to.email)
+        print(to.email)
+            newQuery.find().continueWithBlock({(task: BFTask!) -> BFTask! in
+                if let result = task.result() as? [Friendship] {
+                    if (result.count > 0) {
+                        for res in result {
+                            if (res.firstUserEmail == from.email) {
+                                friendship = res
+                                toFirst = false;
+                            }
+                        }
+                    }
                 }
+                dispatch_group_leave(friendGroup)
                 return nil;
             })
-        }
-        
-        friendship.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-            if (toFirst) {
-                friendship.firstUserScore += amount
-                friendship.secondUserScore -= amount
-            }
-            else {
-                friendship.secondUserScore += amount
-                friendship.firstUserScore -= amount
-            }
-            return nil;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(friendGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                friendship.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                    if (toFirst) {
+                        friendship.firstUserScore -= amount
+                        friendship.secondUserScore += amount
+                    }
+                    else {
+                        friendship.secondUserScore -= amount
+                        friendship.firstUserScore += amount
+                    }
+                    friendship.save()
+                    callback()
+                    return nil;
+                })
+            })
         })
     }
-    
-    class func SaveFakeData()
-    {
-        let fromUser: User = CurrentUser.sharedInstance.currentUser!
-        let toUser = User()
-        toUser.email = "a.fake.email@email.com"
-        toUser.name = "A Fake Name"
-        toUser.id = "12345"
-        self.CreateTransaction(toUser, from: fromUser, amount: 10.46, description: "Sushi")
-        self.CreateTransaction(toUser, from: fromUser, amount: 40.00, description: "AirBnb")
-        self.CreateTransaction(toUser, from: fromUser, amount: 52.50, description: "Christmas Present")
-        self.CreateTransaction(toUser, from: fromUser, amount: 8.00, description: "Registration Fee")
-        self.CreateTransaction(toUser, from: fromUser, amount: 10.00, description: nil)
-        self.CreateTransaction(toUser, from: fromUser, amount: 5.00, description: "Coffee")
-        self.CreateTransaction(fromUser, from: toUser, amount: 10.46, description: "Sushi")
-        self.CreateTransaction(fromUser, from: toUser, amount: 40.00, description: "AirBnb")
-        self.CreateTransaction(fromUser, from: toUser, amount: 52.50, description: "Christmas Present")
-        self.CreateTransaction(fromUser, from: toUser, amount: 8.00, description: "Registration Fee")
-        self.CreateTransaction(fromUser, from: toUser, amount: 10.00, description: nil)
-        self.CreateTransaction(fromUser, from: toUser, amount: 2.00, description: "Coffee")
-        
-        
-    }
+
 }

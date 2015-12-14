@@ -30,11 +30,11 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
-                /*for result in results {
+                for result in results {
                     if (result.firstUserScore >= 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
-                }*/
+                }
                 self.friendData = results
                 self.displayData = results
             }
@@ -47,11 +47,10 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
                 for result in results {
-                    /*if (result.firstUserScore >= 0) {
+                    if (result.secondUserScore >= 0) {
                         results.removeAtIndex(results.indexOf(result)!)
-                    }*/
+                    }
                 }
-
                 self.friendData?.appendContentsOf(results)
                 self.displayData?.appendContentsOf(results)
             }
@@ -64,8 +63,48 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
                 self.tableView.reloadData()
             })
         })
-
+    }
+    
+    func refreshTableData() {
+        let queryUserGroup = dispatch_group_create()
         
+        dispatch_group_enter(queryUserGroup)
+        let query: IBMQuery = IBMQuery(forClass: "Friendship")
+        query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
+        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if var results = task.result() as? [Friendship] {
+                for result in results {
+                    if (result.firstUserScore >= 0) {
+                        results.removeAtIndex(results.indexOf(result)!)
+                    }
+                }
+                self.friendData = results
+            }
+            dispatch_group_leave(queryUserGroup)
+            return nil;
+        })
+        dispatch_group_enter(queryUserGroup)
+        let secondQuery: IBMQuery = IBMQuery(forClass: "Friendship")
+        secondQuery.whereKey("secondUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
+        secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if var results = task.result() as? [Friendship] {
+                for result in results {
+                    if (result.secondUserScore >= 0) {
+                        results.removeAtIndex(results.indexOf(result)!)
+                    }
+                }
+                self.friendData?.appendContentsOf(results)
+            }
+            dispatch_group_leave(queryUserGroup)
+            return nil;
+        })
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(queryUserGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+        })
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,36 +149,44 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         displayPayUserPopup(user, score: score)
     }
 
+    var amountTextEnter: UITextField!
+    var descriptionTextEnter: UITextField!
+    
+    func configurationAmountTextField(textField: UITextField!)
+    {
+        print("generating the TextField")
+        textField.placeholder = "Amount"
+        textField.backgroundColor = Style.lightGreen
+        amountTextEnter = textField
+    }
+    
+    func configurationDescTextField(textField: UITextField!)
+    {
+        print("generating desc text field")
+        textField.placeholder = "Description"
+        textField.backgroundColor = Style.lightGreen
+        descriptionTextEnter = textField
+    }
+    
     func displayPayUserPopup(user: User, score: Float) {
         var alertController = UIAlertController(title: "Pay " + user.name, message: "", preferredStyle: .Alert)
-        
-        
-        var amountTextEnter = UITextField()
-        var descriptionTextEnter = UITextField()
         
         // Create the actions
         var okAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.Default) {
             UIAlertAction in
-                        Transaction.CreateTransaction(user, from: CurrentUser.sharedInstance.currentUser!, amount: (amountTextEnter.text! as NSString).floatValue, description: descriptionTextEnter.text)
-            NSLog("OK Pressed")
+            Transaction.CreateTransaction(user, from: CurrentUser.sharedInstance.currentUser!, amount: (self.amountTextEnter.text! as NSString).floatValue, description: (self.descriptionTextEnter.text! as String), callback: { () -> Void in
+                    self.tableView.reloadData()})
         }
         
         var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
-            NSLog("Cancel Pressed")
         }
         
         // Add the actions
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
-        alertController.addTextFieldWithConfigurationHandler({(amountTextEnter) -> Void in
-            amountTextEnter.placeholder = "Amount"
-            amountTextEnter.backgroundColor = Style.lightGreen
-        })
-        alertController.addTextFieldWithConfigurationHandler({(descriptionTextEnter) -> Void in
-            descriptionTextEnter.placeholder = "Description"
-            descriptionTextEnter.backgroundColor = Style.lightGreen
-        })
+        alertController.addTextFieldWithConfigurationHandler(configurationAmountTextField)
+        alertController.addTextFieldWithConfigurationHandler(configurationDescTextField)
         
         // Present the controller
         self.presentViewController(alertController, animated: true, completion: nil)

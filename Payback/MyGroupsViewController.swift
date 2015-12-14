@@ -25,34 +25,13 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         
         setUpActivityIndicator()
         
-        let query: IBMQuery = IBMQuery(forClass: "UserGroupInfo")
-        print(CurrentUser.sharedInstance.currentUser!.name)
-        query.whereKey("user", equalTo: CurrentUser.sharedInstance.currentUser)
-        let fetchedAll = dispatch_group_create()
-        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-            if let results = task.result() as? [UserGroupInfo] {
-                for result in results {
-                    dispatch_group_enter(fetchedAll)
-                    result.group.fetchIfNecessary().continueWithBlock({(task: BFTask!) -> BFTask! in
-                        if let result = task.result() as? Group {
-                            self.groups.append(result)
-                            self.displayGroup.append(result)
-                        }
-                        dispatch_group_leave(fetchedAll)
-                        return nil
-                    })
-                }
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
-                    dispatch_group_wait(fetchedAll, DISPATCH_TIME_FOREVER)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.tableView.reloadData()
-                    })
-                })
-                return nil
-            } else {
-                print("Could not fetch UserGroupInfo")
-                return nil
+        CurrentUser.sharedInstance.getUserGroups({(result: [Group]?) in
+            if result != nil {
+                self.groups = result!
+                self.displayGroup = result!
+
             }
+            self.tableView.reloadData()
         })
     }
     
@@ -92,7 +71,7 @@ class MyGroupsViewController: UIViewController, UITableViewDelegate, UITableView
         if segue.identifier == "showGroupDetail" {
             if let destVC = segue.destinationViewController as? GroupDetailViewController {
                 if let indexPath  = sender as? NSIndexPath {
-                    destVC.group = self.groups[indexPath.row]
+                    destVC.group = self.displayGroup[indexPath.row]
                 }
             }
         }

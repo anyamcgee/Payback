@@ -50,17 +50,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             }
             self.authorLabel.text = group.author.name
             
-            let query: IBMQuery = IBMQuery(forClass: "UserGroupInfo")
-            query.whereKey("group", equalTo: group)
-            query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-                if let result = task.result() as? [UserGroupInfo] {
-                    self.userInfo = result
-                    if self.didAddTransaction != nil {
-                        Group.recalculateBalances(result, transaction: self.didAddTransaction!)
-                    }
-                }
+            CurrentUser.sharedInstance.getUserInfo(forGroup: self.group!, callback: {(result: [UserGroupInfo]) in
+                self.userInfo = result
                 self.tableView.reloadData()
-                return nil
             })
         
             

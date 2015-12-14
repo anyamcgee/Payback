@@ -23,6 +23,13 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         tableView.dataSource = self
         searchBar.delegate = self
         
+        CurrentUser.sharedInstance.getUserFriendships({(result: [Friendship]?) in
+                self.friendData = result
+                self.displayData = result
+                self.tableView.reloadData()
+            })
+        
+        /**
         let queryUserGroup = dispatch_group_create()
         
         dispatch_group_enter(queryUserGroup)
@@ -56,6 +63,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
                             self.tableView.reloadData()
             })
         })
+        **/
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,7 +72,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.displayData?.count ?? 0
+        return self.friendData?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -100,12 +108,12 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
             let friendship = ($0 as Friendship)
             if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
                 return
-                    (friendship.firstUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
-                     friendship.firstUser.email.lowercaseString.containsString(searchText.lowercaseString))
+                    (//friendship.firstUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     friendship.firstUserEmail.lowercaseString.containsString(searchText.lowercaseString))
             } else {
                 return
-                    (friendship.secondUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
-                     friendship.secondUser.email.lowercaseString.containsString(searchText.lowercaseString))
+                    (//friendship.secondUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     friendship.secondUserEmail.lowercaseString.containsString(searchText.lowercaseString))
             }
         }
     }

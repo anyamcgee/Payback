@@ -28,14 +28,10 @@ class SneakyTableView2Delegate: NSObject, UITableViewDataSource, UITableViewDele
     }
     
     func getData() {
-        let query = IBMQuery(forClass: "GroupTransaction")
-        query.whereKey("group", equalTo: self.group)
-        query.find().continueWithBlock({(task: BFTask!) -> BFTask! in
-            if let results = task.result() as? [Payback.GroupTransaction] {
-                self.data = results
-                self.tableView.reloadData()
-            }
-            return nil
+        
+        CurrentUser.sharedInstance.getTransactions(forGroup: self.group, callback: {(result: [GroupTransaction]) -> Void in
+                self.data = result
+            self.tableView.reloadData()
         })
     }
     

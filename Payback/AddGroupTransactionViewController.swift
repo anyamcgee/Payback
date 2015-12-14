@@ -27,6 +27,14 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        CurrentUser.sharedInstance.getUserInfo(forGroup: self.group!, callback: {(results: [UserGroupInfo]) in
+            for result in results {
+                if result.user.objectId == CurrentUser.sharedInstance.currentUser!.objectId {
+                    self.userInfo = result
+                }
+            }
+        })
+        
         totalGroupBalance = group?.balance ?? 0
         totalMyBalance = userInfo?.balance ?? 0
         
