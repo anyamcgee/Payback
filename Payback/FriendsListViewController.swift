@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FriendsListViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +21,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         // Do any additional setup after loading the view, typically from a nib.r
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
         let queryUserGroup = dispatch_group_create()
         
@@ -89,6 +90,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         } else {
             displayData = friendData
         }
+        print("reloading table view")
         self.tableView.reloadData()
     }
     

@@ -8,18 +8,20 @@
 
 import UIKit
 
-class PayUserViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PayUserViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var friendData: [Friendship]?
+    var displayData: [Friendship]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         
         let queryUserGroup = dispatch_group_create()
         
@@ -34,6 +36,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
                     }
                 }*/
                 self.friendData = results
+                self.displayData = results
             }
             dispatch_group_leave(queryUserGroup)
             return nil;
@@ -50,6 +53,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
                 }
 
                 self.friendData?.appendContentsOf(results)
+                self.displayData?.appendContentsOf(results)
             }
             dispatch_group_leave(queryUserGroup)
             return nil;
@@ -69,20 +73,20 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friendData?.count ?? 0
+        return self.displayData?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if self.friendData != nil && indexPath.row < self.friendData!.count {
+        if self.displayData != nil && indexPath.row < self.displayData!.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("payUserCell") as? PayUserCell {
-                let friendship: Friendship = (self.friendData?[indexPath.row])!
+                let friendship: Friendship = (self.displayData?[indexPath.row])!
                 if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
-                    cell.user = self.friendData?[indexPath.row].firstUser
-                    cell.score = self.friendData?[indexPath.row].secondUserScore
+                    cell.user = self.displayData?[indexPath.row].firstUser
+                    cell.score = self.displayData?[indexPath.row].secondUserScore
                 }
                 else {
-                    cell.user = self.friendData?[indexPath.row].secondUser
-                    cell.score = self.friendData?[indexPath.row].firstUserScore
+                    cell.user = self.displayData?[indexPath.row].secondUser
+                    cell.score = self.displayData?[indexPath.row].firstUserScore
                 }
                 return cell
             }
@@ -91,7 +95,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let friendship: Friendship = (self.friendData?[indexPath.row])!
+        let friendship: Friendship = (self.displayData?[indexPath.row])!
         var score: Float = 0.0
         var user: User = User()
         if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
@@ -140,5 +144,32 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         // Present the controller
         self.presentViewController(alertController, animated: true, completion: nil)
 
+    }
+    
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filterFriends(searchText)
+        } else {
+            displayData = friendData
+        }
+        print("reloading table view")
+        self.tableView.reloadData()
+    }
+    
+    
+    func filterFriends(searchText: String) {
+        displayData = friendData?.filter{
+            let friendship = ($0 as Friendship)
+            if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
+                return
+                    (friendship.firstUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                        friendship.firstUser.email.lowercaseString.containsString(searchText.lowercaseString))
+            } else {
+                return
+                    (friendship.secondUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                        friendship.secondUser.email.lowercaseString.containsString(searchText.lowercaseString))
+            }
+        }
     }
 }

@@ -8,11 +8,14 @@
 
 import UIKit
 
-class TransactionsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TransactionsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var transactions: [Transaction] = [Transaction]()
+    var displayData: [Transaction] = [Transaction]()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,7 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.searchBar.delegate = self
         
         let newQuery: IBMQuery = IBMQuery(forClass: "Transaction")
         let user = CurrentUser.sharedInstance.currentUser!
@@ -44,6 +48,7 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
                     return false
                 }
             })
+            self.displayData = self.transactions
             self.tableView.reloadData()
             return nil
         })
@@ -61,15 +66,15 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row >= 0 && indexPath.row < self.transactions.count {
+        if indexPath.row >= 0 && indexPath.row < self.displayData.count {
             
             if let cell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as? TransactionCell {
-                cell.transaction = self.transactions[indexPath.row]
+                cell.transaction = self.displayData[indexPath.row]
                 return cell
                 
             } else {
                 let cell = TransactionCell()
-                cell.transaction = self.transactions[indexPath.row]
+                cell.transaction = self.displayData[indexPath.row]
                 
                 return cell
             }
@@ -79,10 +84,35 @@ class TransactionsViewController : UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.transactions.count
+        return self.displayData.count
     }
 
-
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filterFriends(searchText)
+        } else {
+            displayData = transactions
+        }
+        self.tableView.reloadData()
+    }
+    
+    func filterFriends(searchText: String) {
+        displayData = transactions.filter{
+            let transaction = ($0 as Transaction)
+            if (transaction.to.email == CurrentUser.sharedInstance.currentUser!.email) {
+            print("payment from: ", transaction.from.name)
+                return
+                    (transaction.from.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                    (transaction.reason != nil &&
+                        transaction.reason!.lowercaseString.containsString(searchText.lowercaseString)))
+            } else {
+                return
+                    (transaction.to.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                    (transaction.reason != nil &&
+                        transaction.reason!.lowercaseString.containsString(searchText.lowercaseString)))
+            }
+        }
+    }
     
 }
 
