@@ -37,11 +37,11 @@ class FriendCell : UITableViewCell {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
                 dispatch_group_wait(userGroup, DISPATCH_TIME_FOREVER)
                 dispatch_async(dispatch_get_main_queue(), {
-            self.nameLabel.text = user.name
+                    self.nameLabel.text = user.name
                     if let friendship = self.friendship {
                         var s: Float = 0.0
                         if (friendship.firstUserEmail == user.email) {
-                            s = friendship.firstUserScore
+                            s = friendship.secondUserScore
                             if (s >= 0) {
                                 self.scoreLabel.textColor = Style.mediumGreen
                                 self.scoreLabel.text = "Owes you: \(s)"
@@ -52,7 +52,7 @@ class FriendCell : UITableViewCell {
                             }
                         }
                         else {
-                            s = friendship.secondUserScore
+                            s = friendship.firstUserScore
                             if (s >= 0) {
                                 self.scoreLabel.textColor = Style.mediumGreen
                                 self.scoreLabel.text = "Owes you: \(s)"

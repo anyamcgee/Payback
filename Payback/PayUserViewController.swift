@@ -38,7 +38,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
                 for result in results {
-                    if (result.firstUserScore >= 0) {
+                    if (result.firstUserScore > 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
                 }
@@ -54,7 +54,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
                 for result in results {
-                    if (result.secondUserScore >= 0) {
+                    if (result.secondUserScore > 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
                 }
@@ -82,7 +82,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
                 for result in results {
-                    if (result.firstUserScore >= 0) {
+                    if (result.firstUserScore > 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
                 }
@@ -97,7 +97,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
                 for result in results {
-                    if (result.secondUserScore >= 0) {
+                    if (result.secondUserScore > 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
                 }
