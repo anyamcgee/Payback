@@ -63,7 +63,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 return nil
             })
         
+            
+            let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addUsers:")
+            self.navigationItem.rightBarButtonItem = addButton
         }
+    }
+    
+    func addUsers(sender: AnyObject?) {
+        self.performSegueWithIdentifier("addUsers", sender: self)
     }
     
     @IBAction func segmentedControlDidChange(sender: AnyObject) {
@@ -74,6 +81,15 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             self.sneakyTableView.hidden = false
             self.tableView.hidden = true
             self.sneakyTableView.reloadData()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addUsers" {
+            if let vc = segue.destinationViewController as? AddGroupUsersViewController {
+                vc.group = self.group
+                vc.alreadyExisting = self.userInfo?.map({ return $0.user })
+            }
         }
     }
     

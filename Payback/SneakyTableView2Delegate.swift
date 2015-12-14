@@ -44,8 +44,16 @@ class SneakyTableView2Delegate: NSObject, UITableViewDataSource, UITableViewDele
         if indexPath.row >= 0 && indexPath.row < self.data.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("transactionCell") as? GroupTransactionTableViewCell {
                 cell.amountLabel.text = "\(self.data[indexPath.row].amount)"
+                if self.data[indexPath.row].amount >= 0 {
+                    cell.amountLabel.textColor = Style.lightGreen
+                } else {
+                    cell.amountLabel.textColor = Style.red
+                }
                 cell.userLabel.text = self.data[indexPath.row].user.name
-                cell.dateLabel.text = self.data[indexPath.row].createdAt.description
+                let formatter = NSDateFormatter()
+                formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                formatter.timeStyle = NSDateFormatterStyle.NoStyle
+                cell.dateLabel.text = formatter.stringFromDate(self.data[indexPath.row].createdAt)
                 cell.reasonLabel.text = self.data[indexPath.row].reason
                 return cell
             }

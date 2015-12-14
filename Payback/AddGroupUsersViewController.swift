@@ -17,6 +17,7 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
     var group: Group?
     
     var addedUsers: [User]? = [User]()
+    var alreadyExisting: [User]? = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,13 +66,13 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
                     dispatch_group_wait(addUsersGroup, DISPATCH_TIME_FOREVER)
                     dispatch_async(dispatch_get_main_queue(), {
-                        print("saved all users successfully")
+                        self.navigationItem.rightBarButtonItem?.enabled = true
                         if self.navigationController?.viewControllers != nil {
-                        for controller in (self.navigationController?.viewControllers)! {
-                            if let vc = controller as? MyGroupsViewController {
-                                self.navigationController?.popToViewController(vc, animated: true)
+                            for controller in (self.navigationController?.viewControllers)! {
+                                if let vc = controller as? MyGroupsViewController {
+                                    self.navigationController?.popToViewController(vc, animated: true)
+                                }
                             }
-                        }
                         }
                     })
                 })
@@ -109,6 +110,8 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
                 self.addedUsers?.removeAtIndex((self.addedUsers?.indexOf(user))!)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath)
                 cell?.accessoryType = UITableViewCellAccessoryType.None
+            } else if self.alreadyExisting?.contains(user) == true {
+                // do nothing
             } else {
                 self.addedUsers?.append(user)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath)
@@ -117,9 +120,16 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    func displayAlert(title: String, message: String, callback: (() -> ())) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction) in self.dismissViewControllerAnimated(true, completion: callback)})
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if let cell = cell as? UserTableViewCell {
-            if self.addedUsers?.contains(cell.user!) == true {
+            if self.addedUsers?.contains(cell.user!) == true || self.alreadyExisting?.contains(cell.user!) == true {
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
             } else {
                 cell.accessoryType = UITableViewCellAccessoryType.None

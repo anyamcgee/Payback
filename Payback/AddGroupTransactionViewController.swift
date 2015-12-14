@@ -50,6 +50,12 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func done(sender: AnyObject) {
+        if self.userInfo!.balance >= 0 && self.plusMinusSegControl.selectedSegmentIndex == 0 {
+            self.displayAlert("Error", message: "You don't owe this group any money. Did you want to add a group expense?")
+            self.plusMinusSegControl.selectedSegmentIndex = 1
+            return
+        }
+        
         let newTransaction = GroupTransaction()
         newTransaction.reason = self.reasonTextField.text
         var multiplier: Float = 1.0
@@ -66,14 +72,25 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
             if self.plusMinusSegControl.selectedSegmentIndex == 1 {
                 self.group?.balance += self.amount
                 self.group?.save().continueWithBlock({(tasl: BFTask!) -> BFTask! in
-                    self.performSegueWithIdentifier("showGroupDetail", sender: self)
+                    self.navigateAway()
                     return nil
                 })
             } else {
-                self.performSegueWithIdentifier("showGroupDetail", sender: self)
+                self.navigateAway()
             }
             return nil
         })
+    }
+    
+    func navigateAway() {
+        self.performSegueWithIdentifier("showGroupDetail", sender: self)
+    }
+    
+    func displayAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction) in self.dismissViewControllerAnimated(true, completion: nil)})
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
