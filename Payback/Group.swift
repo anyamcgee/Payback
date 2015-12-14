@@ -45,7 +45,7 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
         return "Group"
     }
     
-    class func recalculateBalances(users: [UserGroupInfo], transaction: GroupTransaction) {
+    class func recalculateBalances(users: [UserGroupInfo], transaction: GroupTransaction) -> String {
         let newAmount = transaction.amount
         if newAmount < 0 {
             for userInfo in users {
@@ -55,9 +55,18 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
                 }
             }
         } else if newAmount > 0 {
+            
+            var paidUsers = [(String, Float)]()
+            var remainingBalance = newAmount
+            
             for userInfo in users {
                 if userInfo.user.email.isEqual(transaction.user.email) {
                     userInfo.balance += newAmount
+                } else if userInfo.balance > 0 {
+                    let payAmount = min(remainingBalance, userInfo.balance)
+                    userInfo.balance -= payAmount
+                    remainingBalance -= payAmount
+                    paidUsers.append((userInfo.username ?? "", payAmount))
                 }
             }
         }
@@ -67,6 +76,7 @@ class Group: IBMDataObject, IBMDataObjectSpecialization {
                 return nil
             })
         }
+        return ""
     }
     
     class func saveATestObject() {

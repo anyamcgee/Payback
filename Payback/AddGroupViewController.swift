@@ -56,7 +56,7 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
 
     @IBAction func next(sender: AnyObject) {
         if nameTextField.text == nil || nameTextField.text?.characters.count == 0 {
-            self.showAlert("Error", message: "Your group must have a title")
+            self.displayAlert("Error", message: "Your group must have a name")
         } else {
             let newGroup = Group()
             newGroup.name = nameTextField.text!
@@ -75,7 +75,6 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
             info.username = newGroup.author.name
             info.balance = 0
             info.save().continueWithBlock({(task: BFTask!) -> BFTask! in
-                print("Successfully added author as group member")
                 return nil
             })
         }
@@ -95,7 +94,10 @@ class AddGroupViewController: UIViewController, UITextViewDelegate, UITextFieldD
         }
     }
     
-    func showAlert(title: String, message: String) {
-        
+    func displayAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction) in self.dismissViewControllerAnimated(true, completion: nil)})
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
