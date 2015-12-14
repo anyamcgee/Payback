@@ -111,37 +111,49 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aqC-8X-Oxx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="payUserCell" id="aqC-8X-Oxx" customClass="PayUserCell" customModule="Payback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aqC-8X-Oxx" id="w8C-N3-g3r">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1C-Y8-b2z">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1C-Y8-b2z">
                                                     <rect key="frame" x="8" y="11" width="80" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0I-bG-K3V">
-                                                    <rect key="frame" x="546" y="5" width="46" height="30"/>
-                                                    <animations/>
-                                                    <state key="normal" title="Pay">
-                                                        <color key="titleColor" red="0.67843137249999996" green="0.2274509804" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="aeG-gM-ucO" kind="show" id="CAM-uo-9if"/>
-                                                    </connections>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAP-b9-bO7">
+                                                    <rect key="frame" x="290" y="9" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.80784313725490198" green="0.83529411764705885" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doN-re-1N0">
+                                                    <rect key="frame" x="550" y="9" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.67843137249999996" green="0.2274509804" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstItem="mAP-b9-bO7" firstAttribute="centerX" secondItem="w8C-N3-g3r" secondAttribute="centerX" id="0C6-g6-YdU"/>
+                                                <constraint firstItem="mAP-b9-bO7" firstAttribute="centerY" secondItem="w8C-N3-g3r" secondAttribute="centerY" id="2cb-dY-OeD"/>
                                                 <constraint firstItem="P1C-Y8-b2z" firstAttribute="leading" secondItem="w8C-N3-g3r" secondAttribute="leadingMargin" id="MHV-tZ-e88"/>
+                                                <constraint firstItem="doN-re-1N0" firstAttribute="centerY" secondItem="w8C-N3-g3r" secondAttribute="centerY" id="RpO-RZ-wzg"/>
+                                                <constraint firstItem="P1C-Y8-b2z" firstAttribute="centerY" secondItem="w8C-N3-g3r" secondAttribute="centerY" id="SKG-if-DjR"/>
+                                                <constraint firstItem="doN-re-1N0" firstAttribute="trailing" secondItem="w8C-N3-g3r" secondAttribute="trailingMargin" id="n4j-JO-MvF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="payButton" destination="doN-re-1N0" id="JiR-7j-Zq9"/>
+                                            <outlet property="userName" destination="P1C-Y8-b2z" id="aaM-ya-6Co"/>
+                                            <outlet property="userScore" destination="mAP-b9-bO7" id="OaJ-Gp-7zK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -158,49 +170,14 @@
                             <constraint firstItem="Uvl-RV-fwD" firstAttribute="top" secondItem="aRZ-Pw-D0F" secondAttribute="bottom" id="qzM-MW-EGV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="xaB-xy-Cnj" id="deW-do-7Rz"/>
+                        <outlet property="tableView" destination="aRZ-Pw-D0F" id="SO4-ds-xFj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3i-m5-yie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1037" y="39"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Ceq-7q-uew">
-            <objects>
-                <viewController id="aeG-gM-ucO" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PGx-CZ-1cN"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ypp-cL-D52"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kDr-LZ-mXj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-Xy-1xb">
-                                <rect key="frame" x="158" y="164" width="279" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.33725490200000002" green="0.32549019610000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mup-aj-6GR">
-                                <rect key="frame" x="274" y="306" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Save"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmH-Cz-sbI">
-                                <rect key="frame" x="178" y="402" width="241" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Pay with Apple Pay"/>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YOE-yb-Rmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1781" y="48"/>
         </scene>
     </scenes>
     <resources>

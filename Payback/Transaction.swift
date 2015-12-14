@@ -24,7 +24,7 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
     
     // Email of User Paying Money
     @NSManaged var fromUserEmail: String
-
+    
     // Name of User Paying Money
     @NSManaged var fromUserName: String
     
@@ -33,7 +33,7 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
     
     // description of transaction
     @NSManaged var reason: String?
-
+    
     
     // MARK:- Setup
     required override init() {
@@ -62,6 +62,54 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
         transaction.save()
         to.score += amount
         from.score -= amount
+        var friendship: Friendship = Friendship()
+        var doQuery: Bool = true
+        var toFirst: Bool = false
+        let friendGroup = dispatch_group_create()
+        var query = IBMQuery(forClass: "Friendship")
+        dispatch_group_enter(friendGroup)
+        query.whereKey("firstUserEmail", equalTo: to.email)
+        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            let result = task.result() as? [Friendship]
+            if (result!.count > 0) {
+                friendship = result![0]
+                doQuery = false;
+                toFirst = true;
+            }
+            dispatch_group_leave(friendGroup)
+            return nil;
+        })
+        
+        dispatch_group_enter(friendGroup)
+        if doQuery {
+            query = IBMQuery()
+            query.whereKey("secondUserEmail", equalTo: to.email)
+            query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                let result = task.result() as? [Friendship]
+                if (result!.count > 0) {
+                    friendship = result![0]
+                    doQuery = false;
+                }
+                dispatch_group_leave(friendGroup)
+                return nil;
+            })
+        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(friendGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                friendship.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                    if (toFirst) {
+                        friendship.firstUserScore += amount
+                        friendship.secondUserScore -= amount
+                    }
+                    else {
+                        friendship.secondUserScore += amount
+                        friendship.firstUserScore -= amount
+                    }
+                    return nil;
+                })
+            })
+        })
     }
     
     class func SaveFakeData()
