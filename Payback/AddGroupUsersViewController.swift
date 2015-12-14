@@ -19,6 +19,8 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
     var addedUsers: [User]? = [User]()
     var alreadyExisting: [User]? = [User]()
     
+    let foundAllUsers = dispatch_group_create()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -28,14 +30,62 @@ class AddGroupUsersViewController: UIViewController, UITableViewDataSource, UITa
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationItem.leftBarButtonItem?.title = ""
 
-        let query: IBMQuery = IBMQuery(forClass: "User")
-        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-            let result = task.result() as? [User]
-            self.userData = result
-            self.tableView.reloadData()
+        handleFetch()
+
+    }
+    
+    func handleFetch() {
+        findFirstUsers()
+        findSecondUsers()
+        self.userData = [User]()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+            dispatch_group_wait(self.foundAllUsers, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableView.reloadData()
+            })
+        })
+    }
+    
+    func findFirstUsers() {
+        dispatch_group_enter(foundAllUsers)
+        let query: IBMQuery = IBMQuery(forClass: "Friendship")
+        query.whereKey("firstUser", equalTo: CurrentUser.sharedInstance.currentUser)
+        query.find().continueWithBlock({(task: BFTask!) -> BFTask! in
+            if let results = task.result() as? [Friendship] {
+                for result in results {
+                    print(result)
+                    self.userData?.append(result.secondUser)
+                    dispatch_group_enter(self.foundAllUsers)
+                    result.secondUser.fetchIfNecessary().continueWithBlock({(task: BFTask!) -> BFTask! in
+                        dispatch_group_leave(self.foundAllUsers)
+                        return nil
+                    })
+                }
+            }
+            dispatch_group_leave(self.foundAllUsers)
             return nil
         })
-
+    }
+    
+    func findSecondUsers() {
+        dispatch_group_enter(foundAllUsers)
+        let query: IBMQuery = IBMQuery(forClass: "Friendship")
+        query.whereKey("secondUser", equalTo: CurrentUser.sharedInstance.currentUser)
+        query.find().continueWithBlock({(task: BFTask!) -> BFTask! in
+            if let results = task.result() as? [Friendship] {
+                for result in results {
+                    print(result)
+                    self.userData?.append(result.firstUser)
+                    dispatch_group_enter(self.foundAllUsers)
+                    result.firstUser.fetchIfNecessary().continueWithBlock({(task: BFTask!) -> BFTask! in
+                        dispatch_group_leave(self.foundAllUsers)
+                        return nil
+                    })
+                }
+            }
+            dispatch_group_leave(self.foundAllUsers)
+            return nil
+        })
     }
     
     func done(sender: AnyObject?) {
