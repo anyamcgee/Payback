@@ -13,6 +13,8 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var friendData: [Friendship]?
     
     override func viewDidLoad() {
@@ -21,9 +23,16 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+        
+        self.activityIndicator.startAnimating()
         CurrentUser.sharedInstance.getUserFriendships({(result: [Friendship]?) in
                 self.friendData = result
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             })
         
         /**

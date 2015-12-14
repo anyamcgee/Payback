@@ -14,9 +14,16 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
     
     var requestData: [FriendRequest]?
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.r
+        
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -27,6 +34,7 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
     
     func checkForRequests() {
         
+        self.activityIndicator.startAnimating()
         let query: IBMQuery = IBMQuery(forClass: "FriendRequest")
         query.whereKey("toEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
@@ -34,6 +42,7 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
                 self.requestData = result
             }
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
             return nil;
         })
     }
