@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFriendsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AddFriendsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -19,17 +19,24 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     
     var requestedUsers: [User]? = [User]()
     
+    var displayData: [User]?
+    var searchData: [User]?
+    
+    var searchActive : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.r
         
         tableView.delegate = self   
         tableView.dataSource = self
+        searchBar.delegate = self
         
         let query: IBMQuery = IBMQuery(forClass: "User")
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             let result = task.result() as? [User]
             self.userData = result
+            self.displayData = result
             self.tableView.reloadData()
             return nil
         })
@@ -75,21 +82,38 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.userData?.count ?? 0
+        return self.displayData?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if self.userData != nil && indexPath.row < self.userData!.count {
+        if self.displayData != nil && indexPath.row < self.displayData!.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("addFriendCell") as? AddFriendCell {
-                cell.user = self.userData?[indexPath.row]
+                cell.user = self.displayData?[indexPath.row]
                 return cell
             } else {
                 let cell = AddFriendCell()
-                cell.user = self.userData?[indexPath.row]
+                cell.user = self.displayData?[indexPath.row]
                 return cell
             }
         }
         return UITableViewCell()
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filterUsers(searchText)
+        } else {
+            displayData = userData
+        }
+        self.tableView.reloadData()
+    }
+    
+    
+    func filterUsers(searchText: String) {
+        displayData = userData?.filter{
+            user in user.name.lowercaseString.containsString(searchText.lowercaseString)
+        }
+    }
+
 
 }
