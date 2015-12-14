@@ -61,7 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                     let result = task.result() as? [User]
                     if (result?.count > 0) {
                         CurrentUser.sharedInstance.currentUser = result![0];
-                        Transaction.SaveFakeData()
                     }
                     else {
                         let user = User()

@@ -66,7 +66,7 @@ class AddFriendCell : UITableViewCell {
                     dispatch_group_wait(addFriendGroup, DISPATCH_TIME_FOREVER)
                     dispatch_async(dispatch_get_main_queue(), {
                         print("Saved new request")
-                        self.addFriendViewController.checkForAlreadyFriends()
+                        self.addFriendViewController.checkForPendingRequests()
                     })
                 })
             })
@@ -76,7 +76,10 @@ class AddFriendCell : UITableViewCell {
     func updateLabels() {
         
         if let user = self.user {
-            self.nameLabel.text = user.name
+            user.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                self.nameLabel.text = user.name
+                return nil;
+            })
         }
     }
 

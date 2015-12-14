@@ -62,6 +62,45 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
         transaction.save()
         to.score += amount
         from.score -= amount
+        var friendship: Friendship = Friendship()
+        var doQuery: Bool = true
+        var toFirst: Bool = false
+        var query = IBMQuery(forClass: "Friendship")
+        query.whereKey("firstUserEmail", equalTo: to.email)
+        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            let result = task.result() as? [Friendship]
+            if (result!.count > 0) {
+                friendship = result![0]
+                doQuery = false;
+                toFirst = true;
+            }
+            return nil;
+        })
+        
+        if doQuery {
+            query = IBMQuery()
+            query.whereKey("secondUserEmail", equalTo: to.email)
+            query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                let result = task.result() as? [Friendship]
+                if (result!.count > 0) {
+                    friendship = result![0]
+                    doQuery = false;
+                }
+                return nil;
+            })
+        }
+        
+        friendship.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if (toFirst) {
+                friendship.firstUserScore += amount
+                friendship.secondUserScore -= amount
+            }
+            else {
+                friendship.secondUserScore += amount
+                friendship.firstUserScore -= amount
+            }
+            return nil;
+        })
     }
     
     class func SaveFakeData()

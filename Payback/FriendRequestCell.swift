@@ -12,6 +12,7 @@ class FriendRequestCell : UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var accept: UIButton!
     @IBOutlet weak var decline: UIButton!
+    @IBOutlet weak var friendRequestViewController: FriendRequestsViewController!
     
     var request: FriendRequest? {
         didSet {
@@ -23,6 +24,7 @@ class FriendRequestCell : UITableViewCell {
         self.request?.delete().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if (task.error() == nil) {
                 print("Deleted request")
+                self.friendRequestViewController.checkForRequests()
             }
             return nil;
         })
@@ -75,6 +77,7 @@ class FriendRequestCell : UITableViewCell {
                         self.request?.delete().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                             if (task.error() == nil) {
                                 print("Deleted request")
+                                self.friendRequestViewController.checkForRequests()
                             }
                             return nil;
                         })
@@ -89,7 +92,11 @@ class FriendRequestCell : UITableViewCell {
     
     func updateLabels() {
         if let request = self.request {
-            self.name.text = request.fromName
+            request.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+                self.name.text = request.fromName
+                return nil;
+            })
+            
         }
     }
     

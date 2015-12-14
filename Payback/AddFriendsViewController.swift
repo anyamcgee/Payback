@@ -35,6 +35,7 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         })
         
         self.checkForAlreadyFriends()
+        self.checkForPendingRequests()
         
     }
     
@@ -66,6 +67,21 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
             self.tableView.reloadData()
             return nil;
         })
+    }
+    
+    func checkForPendingRequests() {
+        let query: IBMQuery = IBMQuery(forClass: "FriendRequest")
+        requestedUsers = [User]()
+        query.whereKey("fromEmail", equalTo: CurrentUser.sharedInstance.currentUser?.email)
+        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if let results = task.result() as? [FriendRequest] {
+                for result in results {
+                    self.requestedUsers?.append(result.toUser)
+                }
+            }
+            self.tableView.reloadData()
+            return nil;
+        })
 
     }
     
@@ -82,6 +98,10 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         if self.userData != nil && indexPath.row < self.userData!.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("addFriendCell") as? AddFriendCell {
                 cell.user = self.userData?[indexPath.row]
+                if ((requestedUsers?.contains(cell.user!)) != false) {
+                    cell.backgroundColor = Style.brown
+                    cell.sendRequestButton.enabled = false
+                }
                 return cell
             } else {
                 let cell = AddFriendCell()

@@ -21,6 +21,12 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.checkForRequests()
+        
+    }
+    
+    func checkForRequests() {
+        
         let query: IBMQuery = IBMQuery(forClass: "FriendRequest")
         query.whereKey("toEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
