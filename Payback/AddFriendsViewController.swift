@@ -57,10 +57,10 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
             if let results = task.result() as? [Friendship] {
                 for result in results {
                     self.addedUsers?.append(result.firstUser)
-                    for user in (self.addedUsers)! {
-                        if ((self.userData?.contains(user)) != false) {
-                            self.userData?.removeAtIndex((self.addedUsers?.indexOf(user))!)
-                        }
+                    }
+                for user in (self.addedUsers)! {
+                    if ((self.userData?.contains(user)) != false) {
+                        self.userData?.removeAtIndex((self.addedUsers?.indexOf(user))!)
                     }
                 }
             }
