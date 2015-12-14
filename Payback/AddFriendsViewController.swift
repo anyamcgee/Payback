@@ -73,7 +73,7 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 for result in results {
-                    if ((self.addedUsers?.contains(result.secondUser)) != false) {
+                    if ((self.addedUsers?.contains(result.secondUser)) == false) {
                         self.addedUsers?.append(result.secondUser)
                     }
                 }
@@ -88,7 +88,7 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 for result in results {
-                    if ((self.addedUsers?.contains(result.firstUser)) != false) {
+                    if ((self.addedUsers?.contains(result.firstUser)) == false) {
                         self.addedUsers?.append(result.firstUser)
                     }
                 }
@@ -102,15 +102,14 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
             dispatch_group_wait(queryGroup, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {
                 for user in (self.addedUsers)! {
-                    print(user)
                     if ((self.userData?.contains(user)) != false) {
-                        print(self.userData?.contains(user))
-                        print(self.userData?.indexOf(user))
-                        self.userData?.removeAtIndex((self.addedUsers?.indexOf(user))!)
+                        self.userData?.removeAtIndex((self.userData?.indexOf(user))!)
                     }
                 }
+                if ((self.userData?.contains(CurrentUser.sharedInstance.currentUser!)) != false) {
+                    self.userData?.removeAtIndex((self.userData?.indexOf((CurrentUser.sharedInstance.currentUser!)))!)
+                }
                 self.tableView.reloadData()
-                
             })
         })
     }
