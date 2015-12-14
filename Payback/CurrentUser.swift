@@ -301,14 +301,35 @@ class CurrentUser {
     
     func addTransaction(transaction: Transaction) {
         self.transactions?.append(transaction)
+        self.transactions?.sortInPlace({(t1: Transaction, t2: Transaction) in
+            return t1.createdAt.timeIntervalSince1970 > t2.createdAt.timeIntervalSince1970
+        })
     }
     
     func addGroupTransaction(gt: GroupTransaction) {
         self.groupTransactions[gt.group.objectId]?.append(gt)
+        self.groupTransactions[gt.group.objectId]?.sortInPlace({(t1: GroupTransaction, t2: GroupTransaction) in
+            return t1.createdAt.timeIntervalSince1970 > t2.createdAt.timeIntervalSince1970
+        })
     }
     
     func addUserInfo(info: UserGroupInfo) {
         self.userGroupInfo[info.group.objectId]?.append(info)
+    }
+    
+    func addNewFriend(user: User, friendship: Friendship) {
+        self.userFriendships?.append(friendship)
+        self.userFriends?.append(user)
+    }
+    
+    func updateGroup(newGroup: Group) {
+        if self.userGroups == nil { return }
+        for group in self.userGroups! {
+            if group.objectId == newGroup.objectId {
+                self.userGroups?.removeAtIndex((self.userGroups?.indexOf(group))!)
+                self.userGroups?.append(newGroup)
+            }
+        }
     }
     
     func updateUserInfo(newInfo: UserGroupInfo) {

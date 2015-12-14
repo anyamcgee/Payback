@@ -75,6 +75,8 @@ class FriendRequestCell : UITableViewCell {
                 print("Got user info")
                 
                 dispatch_group_enter(addFriendGroup)
+                CurrentUser.sharedInstance.addNewFriend(friendship.secondUser, friendship: friendship)
+                
                 friendship.save().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                     if task.error() == nil {
                         print("saved successfully")

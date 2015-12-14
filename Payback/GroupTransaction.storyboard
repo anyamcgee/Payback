@@ -230,6 +230,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="amountTextField" destination="MS7-Ye-xbe" id="8KV-XE-fEp"/>
+                        <outlet property="doneButton" destination="eCN-Ih-i0R" id="1ut-rG-ylm"/>
                         <outlet property="groupBalanceLabel" destination="SYH-3t-FCg" id="qKY-FJ-gRP"/>
                         <outlet property="plusMinusSegControl" destination="lxz-4p-eHq" id="Ws8-8Y-XOc"/>
                         <outlet property="reasonTextField" destination="OcO-9B-iap" id="2Sr-5f-Jp1"/>

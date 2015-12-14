@@ -15,6 +15,7 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var plusMinusSegControl: UISegmentedControl!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var reasonTextField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
     
     var totalGroupBalance: Float = 0.0
     var totalMyBalance: Float = 0.0
@@ -23,9 +24,19 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
     var group: Group?
     var userInfo: UserGroupInfo?
     var newTransaction: GroupTransaction?
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func setUpActivityIndicator() {
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.grayColor()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpActivityIndicator()
         
         CurrentUser.sharedInstance.getUserInfo(forGroup: self.group!, callback: {(results: [UserGroupInfo]) in
             for result in results {
@@ -64,6 +75,8 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        self.doneButton.enabled = false
+        
         let newTransaction = GroupTransaction()
         newTransaction.reason = self.reasonTextField.text
         var multiplier: Float = 1.0
@@ -74,17 +87,21 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
         newTransaction.group = self.group!
         newTransaction.user = CurrentUser.sharedInstance.currentUser!
         CurrentUser.sharedInstance.addGroupTransaction(newTransaction)
-        
+        self.activityIndicator.startAnimating()
         newTransaction.save().continueWithBlock({(task: BFTask!) -> BFTask! in
             print("saved")
+            self.doneButton.enabled = true
             self.newTransaction = newTransaction
             if self.plusMinusSegControl.selectedSegmentIndex == 1 {
                 self.group?.balance += self.amount
-                self.group?.save().continueWithBlock({(tasl: BFTask!) -> BFTask! in
+                CurrentUser.sharedInstance.updateGroup(self.group!)
+                self.group?.save().continueWithBlock({(task: BFTask!) -> BFTask! in
+                    self.activityIndicator.stopAnimating()
                     self.navigateAway()
                     return nil
                 })
             } else {
+                self.activityIndicator.stopAnimating()
                 self.navigateAway()
             }
             return nil
