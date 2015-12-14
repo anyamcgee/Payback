@@ -14,6 +14,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     
     var friendData: [Friendship]?
+    var displayData: [Friendship]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 self.friendData?.appendContentsOf(results)
+                self.displayData?.appendContentsOf(results)
+
             }
             return nil;
         })
@@ -33,6 +36,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let results = task.result() as? [Friendship] {
                 self.friendData?.appendContentsOf(results)
+                self.displayData?.appendContentsOf(results)
             }
             self.tableView.reloadData()
             return nil;
@@ -45,18 +49,18 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friendData?.count ?? 0
+        return self.displayData?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if self.friendData != nil && indexPath.row < self.friendData!.count {
+        if self.displayData != nil && indexPath.row < self.displayData!.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("friendCell") as? FriendCell {
-                let friendship: Friendship = (self.friendData?[indexPath.row])!
+                let friendship: Friendship = (self.displayData?[indexPath.row])!
                 if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
-                    cell.friend = self.friendData?[indexPath.row].firstUser
+                    cell.friend = self.displayData?[indexPath.row].firstUser
                 }
                 else {
-                    cell.friend = self.friendData?[indexPath.row].secondUser
+                    cell.friend = self.displayData?[indexPath.row].secondUser
                 }
                 cell.friendship = friendship
                 return cell
@@ -64,5 +68,31 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         }
         return UITableViewCell()
     }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            filterFriends(searchText)
+        } else {
+            displayData = friendData
+        }
+        self.tableView.reloadData()
+    }
+    
+    
+    func filterFriends(searchText: String) {
+        displayData = friendData?.filter{
+            let friendship = ($0 as Friendship)
+            if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
+                return
+                    (friendship.firstUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     friendship.firstUser.email.lowercaseString.containsString(searchText.lowercaseString))
+            } else {
+                return
+                    (friendship.secondUser.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     friendship.secondUser.email.lowercaseString.containsString(searchText.lowercaseString))
+            }
+        }
+    }
+    
 
 }

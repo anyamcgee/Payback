@@ -111,7 +111,8 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     
     func filterUsers(searchText: String) {
         displayData = userData?.filter{
-            user in user.name.lowercaseString.containsString(searchText.lowercaseString)
+            user in (user.name.lowercaseString.containsString(searchText.lowercaseString) ||
+                     user.email.lowercaseString.containsString(searchText.lowercaseString))
         }
     }
 
