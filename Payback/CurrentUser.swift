@@ -44,7 +44,7 @@ class CurrentUser {
         self.allUserInfoLoaded = [String : Bool]()
     }
     
-    // MARK- Get groups
+    // MARK:- Get groups
     
     func getUserGroups(callback: ((result: [Group]?) -> Void)) {
         if self.userGroups != nil {
@@ -89,7 +89,7 @@ class CurrentUser {
         }
     }
     
-    // MARK- Find friends/friendships
+    // MARK:- Find friends/friendships
     
     func getUserFriends(callback: ((result: [User]?) -> Void)) {
         if self.userFriends != nil {
@@ -142,7 +142,7 @@ class CurrentUser {
         }
     }
     
-    // MARK- Helper functions for find friends
+    // MARK:- Helper functions for find friends
     
     func findFirstUsers() {
         dispatch_group_enter(foundAllUsers)
@@ -195,6 +195,10 @@ class CurrentUser {
             callback(result: self.transactions)
         } else {
             self.transactions = [Transaction]()
+            
+            getTo()
+            getFrom()
+            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 dispatch_group_wait(self.foundAllTransactions, DISPATCH_TIME_FOREVER)
                 dispatch_async(dispatch_get_main_queue(), {
@@ -284,5 +288,12 @@ class CurrentUser {
             }
         })
     }
+    
+    // MARK:- Modify Cache
+    
+    func addGroup(group: Group) {
+        self.userGroups?.append(group)
+    }
+    
     
 }
