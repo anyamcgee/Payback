@@ -31,6 +31,12 @@ class PayUserCell : UITableViewCell {
                 self.userName.text = user.name
                 let s = self.score!
                 self.userScore.text = "\(s)"
+                if (s < 0) {
+                    self.userScore.textColor = Style.red
+                }
+                else {
+                    self.userScore.textColor = Style.mediumGreen
+                }
                 return nil;
             })
         }

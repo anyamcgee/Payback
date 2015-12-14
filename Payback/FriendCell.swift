@@ -36,22 +36,30 @@ class FriendCell : UITableViewCell {
                 dispatch_group_wait(userGroup, DISPATCH_TIME_FOREVER)
                 dispatch_async(dispatch_get_main_queue(), {
             self.nameLabel.text = user.name
-            if let friendship = self.friendship {
-                var s: Float = 0.0
-                if (friendship.firstUserEmail == user.email) {
-                    s = friendship.firstUserScore
-                    self.scoreLabel.text = "\(s)"
-                }
-                else {
-                    s = friendship.secondUserScore
-                    self.scoreLabel.text = "\(s)"
-                }
-                if (s >= 0) {
-                    self.scoreLabel.textColor = Style.mediumGreen
-                }
-                else {
-                    self.scoreLabel.textColor = Style.red
-                    }
+                    if let friendship = self.friendship {
+                        var s: Float = 0.0
+                        if (friendship.firstUserEmail == user.email) {
+                            s = friendship.firstUserScore
+                            if (s >= 0) {
+                                self.scoreLabel.textColor = Style.mediumGreen
+                                self.scoreLabel.text = "Owes you: \(s)"
+                            }
+                            else {
+                                self.scoreLabel.textColor = Style.red
+                                self.scoreLabel.text = "You owe: \(s)"
+                            }
+                        }
+                        else {
+                            s = friendship.secondUserScore
+                            if (s >= 0) {
+                                self.scoreLabel.textColor = Style.mediumGreen
+                                self.scoreLabel.text = "Owes you: \(s)"
+                            }
+                            else {
+                                self.scoreLabel.textColor = Style.red
+                                self.scoreLabel.text = "You owe: \(s)"
+                            }
+                        }
                     }
                 })
             })
