@@ -25,6 +25,8 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     var searchActive : Bool = false
 
     var activityIndicator: UIActivityIndicatorView!
+    
+    var refreshControl: UIRefreshControl!
 
     
     override func viewDidLoad() {
@@ -41,7 +43,10 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         searchBar.delegate = self
         
-        //TODO: CACHING!
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
         
         let queryGroup = dispatch_group_create()
         self.activityIndicator.startAnimating()
@@ -69,36 +74,14 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     
     func checkForAlreadyFriends() {
         let queryGroup = dispatch_group_create()
-        dispatch_group_enter(queryGroup)
-        let query: IBMQuery = IBMQuery(forClass: "Friendship")
-        query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser?.email)
-        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-            if let results = task.result() as? [Friendship] {
-                for result in results {
-                    if ((self.addedUsers?.contains(result.secondUser)) == false) {
-                        self.addedUsers?.append(result.secondUser)
-                    }
-                }
-            }
-            dispatch_group_leave(queryGroup)
-            return nil;
-        })
         
         dispatch_group_enter(queryGroup)
-        let secondQuery: IBMQuery = IBMQuery(forClass: "Friendship")
-        secondQuery.whereKey("secondUserEmail", equalTo: CurrentUser.sharedInstance.currentUser?.email)
-        secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
-            if let results = task.result() as? [Friendship] {
-                for result in results {
-                    if ((self.addedUsers?.contains(result.firstUser)) == false) {
-                        self.addedUsers?.append(result.firstUser)
-                    }
-                }
+        CurrentUser.sharedInstance.getUserFriends({(result: [User]?) -> Void in
+            for friend in result! {
+                self.addedUsers?.append(friend)
             }
             dispatch_group_leave(queryGroup)
-            return nil;
         })
-        
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
             dispatch_group_wait(queryGroup, DISPATCH_TIME_FOREVER)
@@ -106,10 +89,12 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
                 for user in (self.addedUsers)! {
                     if ((self.userData?.contains(user)) != false) {
                         self.userData?.removeAtIndex((self.userData?.indexOf(user))!)
+                        self.displayData?.removeAtIndex((self.displayData?.indexOf(user))!)
                     }
                 }
                 if ((self.userData?.contains(CurrentUser.sharedInstance.currentUser!)) != false) {
                     self.userData?.removeAtIndex((self.userData?.indexOf((CurrentUser.sharedInstance.currentUser!)))!)
+                    self.displayData?.removeAtIndex((self.userData?.indexOf((CurrentUser.sharedInstance.currentUser!)))!)
                 }
                 self.tableView.reloadData()
             })
@@ -173,6 +158,26 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         displayData = userData?.filter{
             user in (user.name.lowercaseString.containsString(searchText.lowercaseString) ||
                      user.email.lowercaseString.containsString(searchText.lowercaseString))
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if (self.displayData?.count == 0) {
+            
+            let msgLabel: UILabel = UILabel(frame: CGRect.init(x: CGFloat(0), y: CGFloat(0.0), width: self.tableView.bounds.size.height, height: self.tableView.bounds.size.width))
+            
+            msgLabel.text = "Sorry, there are no new friends to add right now!"
+            
+            msgLabel.sizeToFit()
+            
+            msgLabel.textAlignment = NSTextAlignment.Center
+            
+            self.tableView.backgroundView = msgLabel
+            
+            return 0
+        }
+        else {
+            return 1
         }
     }
 

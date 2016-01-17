@@ -16,6 +16,8 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
+    var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.r
@@ -24,6 +26,11 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
         self.activityIndicator.center = self.view.center
         self.view.bringSubviewToFront(self.activityIndicator)
         self.activityIndicator.color = UIColor.grayColor()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -70,6 +77,26 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
             }
         }
         return UITableViewCell()
+    }
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if (self.requestData?.count == 0) {
+            
+            let msgLabel: UILabel = UILabel(frame: CGRect.init(x: CGFloat(0), y: CGFloat(0.0), width: self.tableView.bounds.size.height, height: self.tableView.bounds.size.width))
+            
+            msgLabel.text = "No new requests right now. Check back later!"
+            
+            msgLabel.sizeToFit()
+            
+            msgLabel.textAlignment = NSTextAlignment.Center
+            
+            self.tableView.backgroundView = msgLabel
+            
+            return 0
+        }
+        else {
+            return 1
+        }
     }
 
     
