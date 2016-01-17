@@ -33,6 +33,8 @@ class AddFriendCell : UITableViewCell {
         
         let request: FriendRequest = FriendRequest()
         
+        // TODO: Add callback for when it is sent!
+        
         activityIndicator.center = self.window!.rootViewController!.view.center
         self.window!.rootViewController!.view.addSubview(activityIndicator)
         self.window!.rootViewController!.view.bringSubviewToFront(self.activityIndicator)

@@ -35,7 +35,7 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
     func checkForRequests() {
         
         self.activityIndicator.startAnimating()
-        let query: IBMQuery = IBMQuery(forClass: "FriendRequest")
+        /*let query: IBMQuery = IBMQuery(forClass: "FriendRequest")
         query.whereKey("toEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if let result = task.result() as? [FriendRequest] {
@@ -44,6 +44,12 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
             return nil;
+        })*/
+        // TODO: VERIFY THAT THIS WORKS ONCE YOU HAVE NETWORK
+        FriendRequest.checkFriendRequests(CurrentUser.sharedInstance.currentUser!, callback: {(results: [FriendRequest]?) -> Void in
+            self.requestData = results
+            self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         })
     }
     

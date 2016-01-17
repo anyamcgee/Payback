@@ -182,6 +182,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         // Create the actions
         var okAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.Default) {
             UIAlertAction in
+            // TODO: Add Caching here, see if this is where the score is breaking?
             Transaction.CreateTransaction(user, from: CurrentUser.sharedInstance.currentUser!, amount: (self.amountTextEnter.text! as NSString).floatValue, description: (self.descriptionTextEnter.text! as String), callback: { () -> Void in
                     self.tableView.reloadData()})
         }

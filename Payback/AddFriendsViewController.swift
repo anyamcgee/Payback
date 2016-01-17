@@ -41,6 +41,8 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         searchBar.delegate = self
         
+        //TODO: CACHING!
+        
         let queryGroup = dispatch_group_create()
         self.activityIndicator.startAnimating()
         dispatch_group_enter(queryGroup)

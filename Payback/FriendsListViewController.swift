@@ -12,6 +12,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var requestsButton: UIBarButtonItem!
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
@@ -32,14 +33,44 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
         self.activityIndicator.color = UIColor.grayColor()
 
         
-        self.activityIndicator.startAnimating()
-        CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
-                self.activityIndicator.stopAnimating()
+        /*self.activityIndicator.startAnimating()
+        var hasFriends: Bool = false
+        let friendGroup = dispatch_group_create()
+        dispatch_group_enter(friendGroup)
+        FriendRequest.checkFriendRequests(CurrentUser.sharedInstance.currentUser!, callback: {(results: [FriendRequest]?) -> Void in
+            if (results?.count > 0) {
+                hasFriends = true;
+            }
+            dispatch_group_leave(friendGroup)
+        })
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            dispatch_group_wait(friendGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                if (hasFriends) { // User has friend requests
+                    // Show button if there are pending friend requests
+                    self.requestsButton.enabled = true
+                } else {
+                    // hide button otherwise
+                    self.requestsButton.enabled = false
+                    self.requestsButton.tintColor = UIColor.clearColor()
+                }
+                CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
+                    // self.activityIndicator.stopAnimating()
+                    self.friendData = result
+                    self.displayData = result
+                    self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                })
+
+            })
+        })*/
+        /*CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
+                // self.activityIndicator.stopAnimating()
                 self.friendData = result
                 self.displayData = result
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()
-            })
+            })*/
         
         /**
         let queryUserGroup = dispatch_group_create()
@@ -76,6 +107,40 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
             })
         })
         **/
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.activityIndicator.startAnimating()
+        var hasFriends: Bool = false
+        let friendGroup = dispatch_group_create()
+        dispatch_group_enter(friendGroup)
+        FriendRequest.checkFriendRequests(CurrentUser.sharedInstance.currentUser!, callback: {(results: [FriendRequest]?) -> Void in
+            if (results?.count > 0) {
+                hasFriends = true;
+            }
+            dispatch_group_leave(friendGroup)
+        })
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            dispatch_group_wait(friendGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                if (hasFriends) { // User has friend requests
+                    // Show button if there are pending friend requests
+                    self.requestsButton.enabled = true
+                } else {
+                    // hide button otherwise
+                    self.requestsButton.enabled = false
+                    self.requestsButton.tintColor = UIColor.clearColor()
+                }
+                CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
+                    // self.activityIndicator.stopAnimating()
+                    self.friendData = result
+                    self.displayData = result
+                    self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                })
+                
+            })
+        })
     }
     
     override func didReceiveMemoryWarning() {

@@ -16,5 +16,6 @@ struct Style {
     static let brown = UIColor(red: 0x56 / 255.0, green: 0x53 / 255.0, blue: 0x4c / 255.0, alpha: 1.0)
     static let dark = UIColor(red: 0x3A / 255.0, green: 0x37 / 255.0, blue: 0x30 / 255.0, alpha: 1.0)
     static let red = UIColor(red: 0xAD / 255.0, green: 0x3A / 255.0, blue: 0x16 / 255.0, alpha: 1.0)
+    static let clearColor = UIColor(red: 0xFF / 255.0, green: 0xFF / 255.0, blue: 0xFF / 255.0, alpha: 0.0)
     
 }

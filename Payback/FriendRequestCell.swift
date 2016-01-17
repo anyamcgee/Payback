@@ -46,6 +46,8 @@ class FriendRequestCell : UITableViewCell {
     
     
     @IBAction func acceptRequest(sender: AnyObject) {
+        
+        // TODO: CACHING - update friends list
         let queryUserGroup = dispatch_group_create()
         let addFriendGroup = dispatch_group_create()
         

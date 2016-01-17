@@ -51,6 +51,36 @@ class FriendRequest : IBMDataObject, IBMDataObjectSpecialization {
         request.accepted = false
         request.save()
     }
+    
+    class func checkFriendRequests(user: User, callback: (results: [FriendRequest]?) -> Void) {
+        let query: IBMQuery = IBMQuery(forClass: "FriendRequest")
+        query.whereKey("toEmail", equalTo: user.email)
+        query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
+            if let result = task.result() as? [FriendRequest] {
+                callback(results: result)
+            }
+            return nil;
+        })
+
+    }
+    
+    class func checkUserHasFriendRequests(user: User) {
+        var hasFriends: Bool = false;
+        let friendGroup = dispatch_group_create()
+        dispatch_group_enter(friendGroup)
+        checkFriendRequests(user, callback: {(results: [FriendRequest]?) -> Void in
+            if (results?.count > 0) {
+                hasFriends = true;
+            }
+            dispatch_group_leave(friendGroup)
+        })
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            dispatch_group_wait(friendGroup, DISPATCH_TIME_FOREVER)
+            dispatch_async(dispatch_get_main_queue(), {
+                return hasFriends
+            })
+        })
+    }
 
     
 }
