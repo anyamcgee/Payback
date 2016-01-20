@@ -37,11 +37,13 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         query.whereKey("firstUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         query.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
+                /**
                 for result in results {
                     if (result.firstUserScore > 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
                 }
+                **/
                 self.friendData = results
                 self.displayData = results
             }
@@ -53,11 +55,13 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         secondQuery.whereKey("secondUserEmail", equalTo: CurrentUser.sharedInstance.currentUser!.email)
         secondQuery.find().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
             if var results = task.result() as? [Friendship] {
+                /**
                 for result in results {
                     if (result.secondUserScore > 0) {
                         results.removeAtIndex(results.indexOf(result)!)
                     }
                 }
+                **/
                 self.friendData?.appendContentsOf(results)
                 self.displayData?.appendContentsOf(results)
             }

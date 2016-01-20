@@ -84,6 +84,9 @@ class AddGroupTransactionViewController: UIViewController, UITextFieldDelegate {
             multiplier = -1.0
         }
         newTransaction.amount = self.amount * multiplier
+        
+        // hacky but this may be crashing sometimes
+        if (self.group == nil) { return }
         newTransaction.group = self.group!
         newTransaction.user = CurrentUser.sharedInstance.currentUser!
         CurrentUser.sharedInstance.addGroupTransaction(newTransaction)

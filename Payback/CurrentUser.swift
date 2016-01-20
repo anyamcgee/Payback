@@ -327,7 +327,13 @@ class CurrentUser {
     func addGroupTransaction(gt: GroupTransaction) {
         self.groupTransactions[gt.group.objectId]?.append(gt)
         self.groupTransactions[gt.group.objectId]?.sortInPlace({(t1: GroupTransaction, t2: GroupTransaction) in
-            return t1.createdAt.timeIntervalSince1970 > t2.createdAt.timeIntervalSince1970
+            if t1.createdAt == nil {
+                return false
+            } else if t2.createdAt == nil {
+                return true
+            } else {
+                return t1.createdAt.timeIntervalSince1970 > t2.createdAt.timeIntervalSince1970
+            }
         })
     }
     
