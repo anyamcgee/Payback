@@ -131,6 +131,8 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         if self.displayData != nil && indexPath.row < self.displayData!.count {
             if let cell = self.tableView.dequeueReusableCellWithIdentifier("payUserCell") as? PayUserCell {
                 let friendship: Friendship = (self.displayData?[indexPath.row])!
+                cell.data = friendship
+                
                 if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
                     cell.user = self.displayData?[indexPath.row].firstUser
                     cell.score = self.displayData?[indexPath.row].secondUserScore
@@ -139,6 +141,15 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
                     cell.user = self.displayData?[indexPath.row].secondUser
                     cell.score = self.displayData?[indexPath.row].firstUserScore
                 }
+                
+                if cell.score > 0 {
+                    cell.payButton.hidden = true
+                } else {
+                    cell.payButton.addTarget(self, action: "payUser:", forControlEvents: UIControlEvents.TouchUpInside)
+                }
+                
+                cell.chargeButton.addTarget(self, action: "chargeUser:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 return cell
             }
         } else {
@@ -149,23 +160,63 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         return UITableViewCell()
     }
     
+    /**
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < 0 || indexPath.row >= displayData?.count { return }
         
-        let friendship: Friendship = (self.displayData?[indexPath.row])!
-        var score: Float = 0.0
-        var user: User = User()
-        if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
-            user = friendship.firstUser
-            score = friendship.secondUserScore
+     
+    } **/
+    
+    func payUser(sender: AnyObject) {
+        if let button = sender as? UIButton {
+            if let contentView = button.superview {
+                if let cell = contentView.superview as? PayUserCell {
+                    
+                    if let friendship: Friendship = cell.data {
+                        var score: Float = 0.0
+                        var user: User = User()
+                        if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
+                            user = friendship.firstUser
+                            score = friendship.secondUserScore
+                        }
+                        else {
+                            user = friendship.secondUser
+                            score = friendship.firstUserScore
+                        }
+                        
+                        displayPayUserPopup(user, score: score)
+                    }
+                    
+                }
+            }
         }
-        else {
-            user = friendship.secondUser
-            score = friendship.firstUserScore
-        }
-        
-        displayPayUserPopup(user, score: score)
     }
+    
+    func chargeUser(sender: AnyObject) {
+        if let button = sender as? UIButton {
+            if let contentView = button.superview {
+                if let cell = contentView.superview as? PayUserCell {
+                    
+                    if let friendship: Friendship = cell.data {
+                        var score: Float = 0.0
+                        var user: User = User()
+                        if (friendship.secondUserEmail == CurrentUser.sharedInstance.currentUser!.email) {
+                            user = friendship.firstUser
+                            score = friendship.secondUserScore
+                        }
+                        else {
+                            user = friendship.secondUser
+                            score = friendship.firstUserScore
+                        }
+                        
+                        displayChargeUserPopup(user, score: score)
+                    }
+                    
+                }
+            }
+        }
+    }
+    
 
     var amountTextEnter: UITextField!
     var descriptionTextEnter: UITextField!
@@ -187,17 +238,17 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
     }
     
     func displayPayUserPopup(user: User, score: Float) {
-        var alertController = UIAlertController(title: "Pay " + user.name, message: "", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Pay " + user.name, message: "", preferredStyle: .Alert)
         
         // Create the actions
-        var okAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.Default) {
+        let okAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             // TODO: Add Caching here, see if this is where the score is breaking?
             Transaction.CreateTransaction(user, from: CurrentUser.sharedInstance.currentUser!, amount: (self.amountTextEnter.text! as NSString).floatValue, description: (self.descriptionTextEnter.text! as String), callback: { () -> Void in
                     self.tableView.reloadData()})
         }
         
-        var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
         }
         
@@ -210,6 +261,32 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
         // Present the controller
         self.presentViewController(alertController, animated: true, completion: nil)
 
+    }
+    
+    func displayChargeUserPopup(user: User, score: Float) {
+        let alertController = UIAlertController(title: "Charge " + user.name, message: "", preferredStyle: .Alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "Charge", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            // TODO: Add Caching here, see if this is where the score is breaking?
+            Transaction.CreateTransaction(user, from: CurrentUser.sharedInstance.currentUser!, amount: (self.amountTextEnter.text! as NSString).floatValue * -1, description: (self.descriptionTextEnter.text! as String), callback: { () -> Void in
+                self.tableView.reloadData()})
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+        }
+        
+        // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        alertController.addTextFieldWithConfigurationHandler(configurationAmountTextField)
+        alertController.addTextFieldWithConfigurationHandler(configurationDescTextField)
+        
+        // Present the controller
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     

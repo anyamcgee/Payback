@@ -112,36 +112,46 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1C-Y8-b2z">
-                                                    <rect key="frame" x="8" y="11" width="80" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1C-Y8-b2z">
+                                                    <rect key="frame" x="8" y="11" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAP-b9-bO7">
-                                                    <rect key="frame" x="290" y="9" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAP-b9-bO7">
+                                                    <rect key="frame" x="279" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.80784313725490198" green="0.83529411764705885" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doN-re-1N0">
-                                                    <rect key="frame" x="550" y="9" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.67843137249999996" green="0.2274509804" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bD4-da-Z64">
+                                                    <rect key="frame" x="554" y="7" width="30" height="30"/>
+                                                    <state key="normal" title="Pay">
+                                                        <color key="titleColor" red="0.33725490200000002" green="0.32549019610000002" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mb-ZD-x6v">
+                                                    <rect key="frame" x="496" y="7" width="50" height="30"/>
+                                                    <state key="normal" title="Charge">
+                                                        <color key="titleColor" red="0.67895754419999998" green="0.22860740160000001" blue="0.087757000409999994" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="mAP-b9-bO7" firstAttribute="centerX" secondItem="w8C-N3-g3r" secondAttribute="centerX" id="0C6-g6-YdU"/>
                                                 <constraint firstItem="mAP-b9-bO7" firstAttribute="centerY" secondItem="w8C-N3-g3r" secondAttribute="centerY" id="2cb-dY-OeD"/>
+                                                <constraint firstItem="bD4-da-Z64" firstAttribute="centerY" secondItem="w8C-N3-g3r" secondAttribute="centerY" id="8m0-gg-tea"/>
+                                                <constraint firstItem="bD4-da-Z64" firstAttribute="leading" secondItem="4Mb-ZD-x6v" secondAttribute="trailing" constant="8" id="95G-oT-FjJ"/>
                                                 <constraint firstItem="P1C-Y8-b2z" firstAttribute="leading" secondItem="w8C-N3-g3r" secondAttribute="leadingMargin" id="MHV-tZ-e88"/>
-                                                <constraint firstItem="doN-re-1N0" firstAttribute="centerY" secondItem="w8C-N3-g3r" secondAttribute="centerY" id="RpO-RZ-wzg"/>
                                                 <constraint firstItem="P1C-Y8-b2z" firstAttribute="centerY" secondItem="w8C-N3-g3r" secondAttribute="centerY" id="SKG-if-DjR"/>
-                                                <constraint firstItem="doN-re-1N0" firstAttribute="trailing" secondItem="w8C-N3-g3r" secondAttribute="trailingMargin" id="n4j-JO-MvF"/>
+                                                <constraint firstItem="4Mb-ZD-x6v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mAP-b9-bO7" secondAttribute="trailing" constant="16" id="ehY-Hc-Qd0"/>
+                                                <constraint firstItem="4Mb-ZD-x6v" firstAttribute="centerY" secondItem="bD4-da-Z64" secondAttribute="centerY" id="gaJ-2t-Vpu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bD4-da-Z64" secondAttribute="trailing" constant="8" id="it2-o1-BjT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="payButton" destination="doN-re-1N0" id="JiR-7j-Zq9"/>
+                                            <outlet property="chargeButton" destination="4Mb-ZD-x6v" id="a71-ei-ZdO"/>
+                                            <outlet property="payButton" destination="bD4-da-Z64" id="Zve-j2-QEN"/>
                                             <outlet property="userName" destination="P1C-Y8-b2z" id="aaM-ya-6Co"/>
                                             <outlet property="userScore" destination="mAP-b9-bO7" id="OaJ-Gp-7zK"/>
                                         </connections>
@@ -153,8 +163,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You don't owe anyone money!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQz-kv-9Ay">
-                                                    <rect key="frame" x="290" y="9" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't added any friends yet!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQz-kv-9Ay">
+                                                    <rect key="frame" x="168" y="11" width="264" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

@@ -60,8 +60,8 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
         transaction.amount = amount
         transaction.reason = description
         transaction.save()
-        to.score -= amount
-        from.score += amount
+        to.score -= abs(amount)
+        from.score += abs(amount)
         to.save()
         from.save()
         var friendship: Friendship = Friendship()
@@ -108,12 +108,12 @@ class Transaction : IBMDataObject, IBMDataObjectSpecialization {
             dispatch_async(dispatch_get_main_queue(), {
                 friendship.fetchIfNecessary().continueWithSuccessBlock({(task: BFTask!) -> BFTask! in
                     if (toFirst) {
-                        friendship.firstUserScore -= amount
-                        friendship.secondUserScore += amount
+                        friendship.firstUserScore -= abs(amount)
+                        friendship.secondUserScore += abs(amount)
                     }
                     else {
-                        friendship.secondUserScore -= amount
-                        friendship.firstUserScore += amount
+                        friendship.secondUserScore -= abs(amount)
+                        friendship.firstUserScore += abs(amount)
                     }
                     friendship.save()
                     callback()

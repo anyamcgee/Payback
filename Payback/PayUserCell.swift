@@ -11,7 +11,10 @@ import UIKit
 class PayUserCell : UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userScore: UILabel!
-    @IBOutlet weak var payButton: UILabel!
+    @IBOutlet weak var payButton: UIButton!
+    @IBOutlet weak var chargeButton: UIButton!
+    
+    var data: Friendship?
     
     var user: User? {
         didSet {
