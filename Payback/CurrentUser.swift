@@ -14,6 +14,14 @@ class CurrentUser {
     
     static var sharedInstance = CurrentUser();
     
+    // For future
+    enum CacheSettings {
+        case NetworkOnly
+        case NetworkThenCache
+        case CacheThenNetwork
+        case CacheOnly
+    }
+    
     private var user: User?;
     private var userGroups: [Group]?
     private var userFriendships: [Friendship]?
@@ -85,6 +93,21 @@ class CurrentUser {
                     print("Could not fetch UserGroupInfo")
                     return nil
                 }
+            })
+        }
+    }
+    
+    // MARK:- Refresh user score
+    
+    func fetchUserScore(callback: ((Float) -> ())) {
+        if let currentUser = self.user {
+            let query: IBMQuery = IBMQuery(forObjectId: currentUser.id)
+            query.find().continueWithBlock({(task: BFTask!) -> BFTask! in
+                if let result = task.result() as? User {
+                    self.currentUser?.score = result.score
+                }
+                callback(currentUser.score)
+                return task
             })
         }
     }
@@ -204,12 +227,7 @@ class CurrentUser {
                 dispatch_async(dispatch_get_main_queue(), {
                     
                     self.transactions?.sortInPlace({(first: Transaction, second: Transaction) -> Bool in
-                        if (first.createdAt.timeIntervalSince1970 > second.createdAt.timeIntervalSince1970) {
-                            return true
-                        }
-                        else {
-                            return false
-                        }
+                        return (first.createdAt.timeIntervalSince1970 > second.createdAt.timeIntervalSince1970)
                     })
                     callback(result: self.transactions)
                 })

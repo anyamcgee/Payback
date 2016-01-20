@@ -89,13 +89,23 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
                 for user in (self.addedUsers)! {
                     if ((self.userData?.contains(user)) != false) {
                         self.userData?.removeAtIndex((self.userData?.indexOf(user))!)
+                    }
+                    if self.displayData?.contains(user) == true {
                         self.displayData?.removeAtIndex((self.displayData?.indexOf(user))!)
                     }
                 }
+                
                 if ((self.userData?.contains(CurrentUser.sharedInstance.currentUser!)) != false) {
                     self.userData?.removeAtIndex((self.userData?.indexOf((CurrentUser.sharedInstance.currentUser!)))!)
-                    self.displayData?.removeAtIndex((self.userData?.indexOf((CurrentUser.sharedInstance.currentUser!)))!)
                 }
+                /**
+                if self.displayData?.contains(CurrentUser.sharedInstance.currentUser!) == true {
+                    print(self.displayData?.indexOf(CurrentUser.sharedInstance.currentUser!))
+                    self.displayData?.removeAtIndex((self.userData?.indexOf((CurrentUser.sharedInstance.currentUser!)))!)
+                } **/
+                
+                self.displayData = self.userData
+                
                 self.tableView.reloadData()
             })
         })
@@ -169,6 +179,8 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
             msgLabel.text = "Sorry, there are no new friends to add right now!"
             
             msgLabel.sizeToFit()
+            msgLabel.textColor = UIColor.whiteColor()
+            msgLabel.alpha = 0.9
             
             msgLabel.textAlignment = NSTextAlignment.Center
             

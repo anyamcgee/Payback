@@ -120,7 +120,7 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.displayData?.count ?? 0
+        return max(self.displayData?.count ?? 1, 1)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -137,11 +137,17 @@ class PayUserViewController : UIViewController, UITableViewDataSource, UITableVi
                 }
                 return cell
             }
+        } else {
+            if let cell = self.tableView.dequeueReusableCellWithIdentifier("emptyCell") {
+                return cell
+            }
         }
         return UITableViewCell()
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row < 0 || indexPath.row >= displayData?.count { return }
+        
         let friendship: Friendship = (self.displayData?[indexPath.row])!
         var score: Float = 0.0
         var user: User = User()

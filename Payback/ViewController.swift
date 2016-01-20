@@ -43,22 +43,15 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        username.text = CurrentUser.sharedInstance.currentUser?.name
-        let s: Float = (CurrentUser.sharedInstance.currentUser?.score)!
-        score.text = "\(s)"
-        if (s > 0.0) {
-            score.textColor = Style.mossGreen
-        }
-        if (s < 0.0) {
-            score.textColor = Style.red
-        }
-    }
-    
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        CurrentUser.sharedInstance.fetchUserScore({(score: Float) in
+            self.score.text = "\(score)"
+            if (score > 0.0) {
+                self.score.textColor = Style.mossGreen
+            }
+            if (score < 0.0) {
+                self.score.textColor = Style.red
+            }
+        })
     }
 
 
