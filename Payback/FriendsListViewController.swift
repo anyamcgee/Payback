@@ -131,6 +131,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
                     self.requestsButton.enabled = false
                     self.requestsButton.tintColor = UIColor.clearColor()
                 }
+                CurrentUser.sharedInstance.resetCachedFriends()
                 CurrentUser.sharedInstance.getFriendsData({(_: [User]?, result: [Friendship]?) in
                     // self.activityIndicator.stopAnimating()
                     self.friendData = result

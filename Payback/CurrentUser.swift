@@ -115,6 +115,10 @@ class CurrentUser {
     
     // MARK:- Find friends/friendships
     
+    func resetCachedFriends() {
+        self.userFriends = nil
+    }
+    
     func getUserFriends(callback: ((result: [User]?) -> Void)) {
         if self.userFriends != nil {
             callback(result: self.userFriends)
