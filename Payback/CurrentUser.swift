@@ -101,7 +101,8 @@ class CurrentUser {
     
     func fetchUserScore(callback: ((Float) -> ())) {
         if let currentUser = self.user {
-            let query: IBMQuery = IBMQuery(forObjectId: currentUser.id)
+            let query: IBMQuery = IBMQuery(forClass: "User")
+            query.whereKey("email", equalTo: CurrentUser.sharedInstance.currentUser!.email)
             query.find().continueWithBlock({(task: BFTask!) -> BFTask! in
                 if let result = task.result() as? User {
                     self.currentUser?.score = result.score

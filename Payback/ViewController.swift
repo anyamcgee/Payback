@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var score: UILabel!
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,6 +30,12 @@ class ViewController: UIViewController {
         friendsButton.layer.cornerRadius = 10
         payButton.layer.cornerRadius = 10
         glassyLabel.layer.cornerRadius = 10
+        
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = self.view.center
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.color = UIColor.blackColor()
+
         
         // Set user variables
         username.text = CurrentUser.sharedInstance.currentUser?.name
@@ -43,6 +51,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        self.activityIndicator.startAnimating()
         CurrentUser.sharedInstance.fetchUserScore({(score: Float) in
             self.score.text = "\(score)"
             if (score > 0.0) {
@@ -51,6 +60,7 @@ class ViewController: UIViewController {
             if (score < 0.0) {
                 self.score.textColor = Style.red
             }
+            self.activityIndicator.stopAnimating()
         })
     }
 
