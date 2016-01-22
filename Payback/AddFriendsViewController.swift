@@ -174,28 +174,7 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
                      user.email.lowercaseString.containsString(searchText.lowercaseString))
         }
     }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if (self.displayData?.count == 0) {
-            
-            let msgLabel: UILabel = UILabel(frame: CGRect.init(x: CGFloat(0), y: CGFloat(0.0), width: self.tableView.bounds.size.height, height: self.tableView.bounds.size.width))
-            
-            msgLabel.text = "Sorry, there are no new friends to add right now!"
-            
-            msgLabel.sizeToFit()
-            msgLabel.textColor = UIColor.whiteColor()
-            msgLabel.alpha = 0.9
-            
-            msgLabel.textAlignment = NSTextAlignment.Center
-            
-            self.tableView.backgroundView = msgLabel
-            
-            return 0
-        }
-        else {
-            return 1
-        }
-    }
+
 
 
 }
