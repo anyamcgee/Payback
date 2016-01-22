@@ -58,7 +58,7 @@
                   moduleName = "Payback"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anya/Projects/Personal/iOS/Payback/Payback/AddFriendsViewController.swift"
-                  timestampString = "474963939.305543"
+                  timestampString = "475124672.992753"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
@@ -73,7 +73,7 @@
                   moduleName = "Payback"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anya/Projects/Personal/iOS/Payback/Payback/AddFriendsViewController.swift"
-                  timestampString = "474963939.305716"
+                  timestampString = "475124672.992903"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "80"
@@ -218,7 +218,7 @@
                   moduleName = "Payback"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anya/Projects/Personal/iOS/Payback/Payback/PayUserViewController.swift"
-                  timestampString = "474963939.311074"
+                  timestampString = "475124673.003839"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "273"
@@ -233,7 +233,7 @@
                   moduleName = "Payback"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anya/Projects/Personal/iOS/Payback/Payback/PayUserViewController.swift"
-                  timestampString = "474963939.311209"
+                  timestampString = "475124673.003964"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "274"
@@ -256,6 +256,86 @@
             startingLineNumber = "110"
             endingLineNumber = "110"
             landmarkName = "CreateTransaction(_:from:amount:description:callback:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Payback/ViewController.swift"
+            timestampString = "475124510.808739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Payback.ViewController.viewDidAppear (Payback.ViewController)(Swift.Bool) -&gt; ()"
+                  moduleName = "Payback"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anya/Projects/Personal/iOS/Payback/Payback/ViewController.swift"
+                  timestampString = "475124673.005368"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Payback.ViewController.(viewDidAppear (Payback.ViewController) -&gt; (Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "Payback"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anya/Projects/Personal/iOS/Payback/Payback/ViewController.swift"
+                  timestampString = "475124673.005507"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Payback/ViewController.swift"
+            timestampString = "475124679.180478"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Payback/CurrentUser.swift"
+            timestampString = "475124696.049132"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "fetchUserScore(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

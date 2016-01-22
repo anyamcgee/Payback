@@ -149,7 +149,7 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friendData?.count ?? 0
+        return max(self.friendData?.count ?? 0, 1)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -163,6 +163,10 @@ class FriendsListViewController : UIViewController, UITableViewDataSource, UITab
                     cell.friend = self.displayData?[indexPath.row].secondUser
                 }
                 cell.friendship = friendship
+                return cell
+            }
+        } else if self.displayData?.count == 0 {
+            if let cell = self.tableView.dequeueReusableCellWithIdentifier("emptyCell") {
                 return cell
             }
         }

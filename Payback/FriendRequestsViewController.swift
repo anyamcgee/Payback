@@ -66,7 +66,7 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.requestData?.count ?? 0
+        return max(self.requestData?.count ?? 0, 1)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -75,28 +75,12 @@ class FriendRequestsViewController : UIViewController, UITableViewDataSource, UI
                 cell.request = self.requestData?[indexPath.row]
                 return cell
             }
+        } else if self.requestData?.count == 0 {
+            if let cell = tableView.dequeueReusableCellWithIdentifier("emptyCell") {
+                return cell
+            }
         }
         return UITableViewCell()
-    }
-
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if (self.requestData?.count == 0) {
-            
-            let msgLabel: UILabel = UILabel(frame: CGRect.init(x: CGFloat(0), y: CGFloat(0.0), width: self.tableView.bounds.size.height, height: self.tableView.bounds.size.width))
-            
-            msgLabel.text = "No new requests right now. Check back later!"
-            
-            msgLabel.sizeToFit()
-            
-            msgLabel.textAlignment = NSTextAlignment.Center
-            
-            self.tableView.backgroundView = msgLabel
-            
-            return 0
-        }
-        else {
-            return 1
-        }
     }
 
     

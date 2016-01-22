@@ -133,7 +133,7 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.displayData?.count ?? 0
+        return max(self.displayData?.count ?? 0, 1)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -148,6 +148,10 @@ class AddFriendsViewController : UIViewController, UITableViewDataSource, UITabl
             } else {
                 let cell = AddFriendCell()
                 cell.user = self.displayData?[indexPath.row]
+                return cell
+            }
+        } else if self.displayData?.count == 0 {
+            if let cell = tableView.dequeueReusableCellWithIdentifier("emptyCell") {
                 return cell
             }
         }
