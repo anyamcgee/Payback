@@ -104,7 +104,7 @@
                                             <outlet property="scoreLabel" destination="q9X-0p-CIp" id="pkd-AC-Qi5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="2jK-rH-A38" customClass="FriendCell" customModule="Payback" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="2jK-rH-A38">
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2jK-rH-A38" id="lRt-3G-l1Q">
@@ -138,9 +138,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="nameLabel" destination="lMs-Yp-zVc" id="a05-Tq-Dd3"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -227,12 +224,12 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2156862745" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="addFriendViewController" destination="Geh-ew-LLe" id="Rqz-6q-tbj"/>
+                                            <outlet property="addFriendViewController" destination="Geh-ew-LLe" id="xm1-pp-jBO"/>
                                             <outlet property="nameLabel" destination="9um-7g-WpO" id="kgZ-sL-Hnh"/>
-                                            <outlet property="sendRequestButton" destination="ljy-8b-UNy" id="Kdh-FQ-asC"/>
+                                            <outlet property="sendRequestButton" destination="ljy-8b-UNy" id="J9n-Ha-pmf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="b2K-t5-m5Q" customClass="AddFriendCell" customModule="Payback" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="b2K-t5-m5Q">
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2K-t5-m5Q" id="IOX-iU-HHd">
@@ -259,10 +256,6 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2156862745" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="addFriendViewController" destination="Geh-ew-LLe" id="bxw-JZ-hJT"/>
-                                            <outlet property="nameLabel" destination="uUO-zO-Owa" id="Szt-dt-PQF"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -354,7 +347,7 @@
                                             <outlet property="name" destination="4LO-Z6-kbo" id="tYM-Z8-YT4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="F34-ca-x03" customClass="FriendRequestCell" customModule="Payback" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="emptyCell" id="F34-ca-x03">
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F34-ca-x03" id="QeS-ul-DDR">
@@ -381,10 +374,6 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2274509804" green="0.2156862745" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="friendRequestViewController" destination="5Xw-ZA-yHD" id="kyP-vG-kxD"/>
-                                            <outlet property="name" destination="CfH-ls-Tcn" id="JNg-W4-E9j"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
